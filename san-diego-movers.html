@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Movers in San Diego | Sutton Movers</title>
+    <meta name="description" content="Trusted movers in San Diego, CA. Local, long distance, commercial, apartment, senior & military moves. Serving Downtown, Pacific Beach, La Jolla, North Park & more. Fully insured. Free quotes.">
+    <meta name="keywords" content="movers San Diego, San Diego moving company, local movers San Diego, La Jolla movers, Pacific Beach movers, North Park movers, military movers San Diego, Camp Pendleton moving">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suttonmovers.com/san-diego-movers.html">
+    <meta property="og:title" content="Professional Movers in San Diego | Sutton Movers">
+    <meta property="og:description" content="Trusted San Diego movers — local, long distance, commercial, military moves. Fully insured. Free quotes.">
+    <meta property="og:image" content="https://suttonmovers.com/images/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-deep: #0F1A30;
+            --navy-light: #2A3F6A;
+            --burgundy: #7A2D3B;
+            --burgundy-light: #9E3A4C;
+            --burgundy-dark: #5C1F2B;
+            --cream: #F4EDE4;
+            --cream-dark: #E8DDD0;
+            --white: #FFFFFF;
+            --off-white: #FAF8F5;
+            --text-dark: #1A1A1A;
+            --text-body: #4A4A4A;
+            --text-light: #8A8A8A;
+            --text-on-dark: #D0CFC8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--off-white);
+            color: var(--text-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--navy); }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 26, 48, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            transition: all 0.3s;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 76px;
+        }
+        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-links { display: flex; list-style: none; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--cream-dark); transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-phone { color: var(--cream) !important; font-weight: 700 !important; font-size: 0.95rem !important; letter-spacing: 0.04em !important; }
+        .nav-cta {
+            background: var(--burgundy) !important; color: var(--white) !important;
+            padding: 10px 24px !important; transition: background 0.3s, transform 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+
+        /* HERO */
+        .city-hero {
+            position: relative; padding: 140px 0 80px;
+            background: var(--navy-deep); overflow: hidden;
+        }
+        .city-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(15,26,48,0.95) 0%, rgba(42,63,106,0.85) 50%, rgba(15,26,48,0.92) 100%);
+            z-index: 1;
+        }
+        .city-hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .city-hero .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(122, 45, 59, 0.2); border: 1px solid rgba(122, 45, 59, 0.5);
+            padding: 6px 16px; margin-bottom: 16px;
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.14em; color: var(--cream);
+        }
+        .city-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800;
+            color: var(--white); line-height: 1.12; margin-bottom: 18px;
+        }
+        .city-hero-sub {
+            font-size: 1.1rem; line-height: 1.7; color: var(--text-on-dark);
+            max-width: 620px; margin-bottom: 28px;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Raleway', sans-serif; font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+        }
+        .btn-primary { background: var(--burgundy); color: var(--white); }
+        .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(122,45,59,0.35); }
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(244,237,228,0.3); }
+        .btn-outline:hover { border-color: var(--cream); color: var(--cream); }
+
+        /* SECTIONS */
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--cream); }
+        .section-dark { background: var(--navy-deep); }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-label {
+            display: inline-block; font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--burgundy); margin-bottom: 10px;
+        }
+        .section-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.15; margin-bottom: 14px; }
+        .section-header p { font-size: 1.05rem; color: var(--text-light); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* FEATURE CARDS */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;
+        }
+        .feature-card {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            padding: 36px 28px; text-align: center; transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .feature-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--burgundy); transform: scaleX(0); transition: transform 0.4s;
+        }
+        .feature-card:hover::after { transform: scaleX(1); }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.08); }
+        .feature-icon {
+            width: 56px; height: 56px; margin: 0 auto 18px;
+            background: var(--cream); display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+        }
+        .feature-icon svg { width: 26px; height: 26px; color: var(--burgundy); }
+        .feature-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; line-height: 1.6; color: var(--text-body); }
+
+        /* SERVICE CARDS */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;
+        }
+        .service-card {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            padding: 32px 24px; text-align: center; transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .service-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--burgundy); transform: scaleX(0); transition: transform 0.4s;
+        }
+        .service-card:hover::after { transform: scaleX(1); }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,0.08); }
+        .service-icon {
+            width: 52px; height: 52px; margin: 0 auto 16px;
+            background: var(--cream); display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+        }
+        .service-icon svg { width: 24px; height: 24px; color: var(--burgundy); }
+        .service-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+        .service-card p { font-size: 0.85rem; line-height: 1.6; color: var(--text-body); }
+
+        /* CITY PHOTO PLACEHOLDER */
+        .city-photo {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--burgundy-dark) 100%);
+            padding: 80px 40px; text-align: center; border-radius: 0;
+            margin: 0;
+        }
+        .city-photo p {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem;
+            color: var(--cream-dark); font-style: italic;
+        }
+        .city-photo span {
+            display: block; margin-top: 10px;
+            font-family: 'Raleway', sans-serif; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-on-dark);
+        }
+
+        /* TESTIMONIAL */
+        .testimonial-card {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            padding: 40px 36px; max-width: 680px; margin: 0 auto; position: relative;
+        }
+        .testimonial-card::before {
+            content: '\201C'; position: absolute; top: 16px; left: 24px;
+            font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--cream-dark); line-height: 1;
+        }
+        .testimonial-text { font-size: 1.05rem; line-height: 1.7; color: var(--text-body); font-style: italic; margin-bottom: 16px; padding-left: 40px; }
+        .testimonial-author { font-weight: 700; color: var(--navy); font-size: 0.95rem; padding-left: 40px; }
+        .testimonial-location { font-size: 0.85rem; color: var(--text-light); padding-left: 40px; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--navy-deep); padding: 72px 0; text-align: center;
+        }
+        .cta-section h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 12px; }
+        .cta-section p { color: var(--text-on-dark); font-size: 1.05rem; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-call-now { font-size: 1.05rem !important; padding: 16px 32px !important; animation: pulse-glow 2s infinite; }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(122, 45, 59, 0.5); }
+            50% { box-shadow: 0 0 20px 4px rgba(122, 45, 59, 0.4); }
+        }
+
+        /* ALSO SERVE */
+        .also-serve { padding: 60px 0; background: var(--cream); }
+        .also-serve h2 { text-align: center; font-size: 1.6rem; margin-bottom: 32px; }
+        .city-links {
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+        }
+        .city-link {
+            background: var(--white); border: 1px solid var(--cream-dark);
+            padding: 16px 28px; font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: var(--navy);
+            transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .city-link:hover { background: var(--burgundy); color: var(--white); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27,42,74,0.1); }
+
+        /* NEIGHBORHOODS */
+        .neighborhoods { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
+        .neighborhood-tag {
+            background: var(--cream); border: 1px solid var(--cream-dark);
+            padding: 8px 18px; font-size: 0.82rem; font-weight: 600;
+            color: var(--navy); letter-spacing: 0.04em;
+        }
+
+        /* CONTENT BLOCK */
+        .content-block { max-width: 800px; margin: 0 auto; }
+        .content-block h3 { font-size: 1.3rem; margin-bottom: 12px; margin-top: 32px; }
+        .content-block p { font-size: 1rem; line-height: 1.75; margin-bottom: 16px; }
+
+        /* FOOTER */
+        .footer {
+            background: var(--navy-deep); border-top: 1px solid rgba(244,237,228,0.06); padding: 52px 0 28px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
+        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer h4 {
+            font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em; color: var(--burgundy-light); margin-bottom: 18px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(244,237,228,0.06); padding-top: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 76px; left: 0; right: 0;
+                background: rgba(15,26,48,0.98); flex-direction: column; padding: 24px; gap: 14px;
+                border-bottom: 1px solid rgba(122,45,59,0.3);
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .city-hero { padding: 110px 0 60px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+            .section { padding: 60px 0; }
+        }
+        @media (max-width: 480px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { text-align: center; justify-content: center; }
+            .city-links { flex-direction: column; align-items: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#areas">Areas</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:6197763563" class="nav-phone">(619) 776-3563</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Free Quote</a></li>
+        </ul>
+        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="city-hero">
+    <div class="container">
+        <div class="city-hero-content">
+            <div class="hero-badge">Serving San Diego Since 2020</div>
+            <h1>Trusted Movers in San Diego &ndash; Fast, Affordable &amp; Fully Insured</h1>
+            <p class="city-hero-sub">From beachside apartments in Pacific Beach to family homes in North Park, Sutton Movers handles every San Diego move with care, speed, and full insurance coverage. We know these neighborhoods because we live here.</p>
+            <div class="hero-buttons">
+                <a href="tel:6197763563" class="btn btn-primary btn-call-now">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call (619) 776-3563
+                </a>
+                <a href="index.html#contact" class="btn btn-outline">Get a Free Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Why San Diego Trusts Us</span>
+            <h2>Why Choose Sutton Movers in San Diego</h2>
+            <p>We are not a franchise or a broker. Sutton Movers is a locally owned team that understands the pace, traffic patterns, and parking challenges unique to San Diego.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <h3>Local Neighborhood Knowledge</h3>
+                <p>We navigate Downtown one-ways, La Jolla hillsides, and Pacific Beach parking restrictions daily. No wasted time, no surprises on moving day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                <h3>Fully Insured &amp; Licensed</h3>
+                <p>Every move is backed by comprehensive insurance and COI is available upon request. Your belongings are protected from pickup to delivery.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3>Military Move Specialists</h3>
+                <p>With Camp Pendleton and multiple military installations nearby, we handle PCS moves, barracks relocations, and base housing transitions with efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <h3>On-Time, Every Time</h3>
+                <p>We show up when we say we will. San Diego traffic is unpredictable, but our scheduling accounts for I-5, I-8, and I-15 congestion so your move stays on track.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+                <h3>Transparent Pricing</h3>
+                <p>No hidden fees, no bait-and-switch estimates. We give you an honest quote before your move begins, and that is the price you pay.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <h3>5-Star Customer Care</h3>
+                <p>We treat your home and belongings as if they were our own. Protective wrapping, floor coverings, and careful handling come standard on every job.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Our Services</span>
+            <h2>Moving Services Available in San Diego</h2>
+            <p>Whether you are moving across the street in Hillcrest or across the country, we have the crew and the equipment to get it done right.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <h3>Local Residential Moving</h3>
+                <p>Full-service moves for houses, condos, and townhomes anywhere in San Diego County. We handle loading, transport, and unloading.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                <h3>Long Distance Moving</h3>
+                <p>Relocating out of San Diego? We coordinate interstate and long-distance moves with careful planning, packing, and delivery timelines.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+                <h3>Commercial &amp; Office Moves</h3>
+                <p>Minimize downtime for your San Diego business. We move offices, retail locations, and warehouses on your schedule, including evenings and weekends.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                <h3>Apartment Moving</h3>
+                <p>San Diego apartments come with narrow hallways, elevators, and tight stairwells. We have the tools and experience to navigate every layout efficiently.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+                <h3>Senior Moving Services</h3>
+                <p>Patient, compassionate assistance for seniors downsizing or transitioning. We take the extra time to handle fragile heirlooms and organize belongings with care.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <h3>Military &amp; Base Moves</h3>
+                <p>Experienced with Camp Pendleton, MCAS Miramar, and Naval Base San Diego relocations. We understand the timelines, paperwork, and base access requirements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEIGHBORHOODS -->
+<section class="section fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Neighborhoods We Serve</span>
+            <h2>San Diego Areas We Cover</h2>
+            <p>From the coast to the inland valleys, Sutton Movers provides moving services throughout all of San Diego County.</p>
+        </div>
+        <div class="neighborhoods">
+            <span class="neighborhood-tag">Downtown San Diego</span>
+            <span class="neighborhood-tag">Pacific Beach</span>
+            <span class="neighborhood-tag">La Jolla</span>
+            <span class="neighborhood-tag">North Park</span>
+            <span class="neighborhood-tag">Hillcrest</span>
+            <span class="neighborhood-tag">Mission Valley</span>
+            <span class="neighborhood-tag">Gaslamp Quarter</span>
+            <span class="neighborhood-tag">Ocean Beach</span>
+            <span class="neighborhood-tag">Point Loma</span>
+            <span class="neighborhood-tag">Clairemont</span>
+            <span class="neighborhood-tag">Kensington</span>
+            <span class="neighborhood-tag">University Heights</span>
+            <span class="neighborhood-tag">Bankers Hill</span>
+            <span class="neighborhood-tag">Mission Hills</span>
+        </div>
+        <div class="content-block" style="margin-top: 40px;">
+            <h3>Moving in Downtown San Diego &amp; the Gaslamp Quarter</h3>
+            <p>Downtown San Diego presents its own moving challenges: high-rise condos with freight elevator reservations, metered loading zones, and narrow streets in the Gaslamp Quarter. Our crews come prepared with dollies, moving pads, and the right vehicle size to work within building management rules and city regulations.</p>
+            <h3>Pacific Beach, La Jolla &amp; Coastal Moves</h3>
+            <p>Coastal neighborhoods often mean steep driveways, limited street parking, and salt-air considerations for furniture protection. Whether you are moving into a beachfront condo in PB or a hillside estate in La Jolla, we plan the logistics so your move is smooth and stress-free.</p>
+            <h3>Camp Pendleton &amp; Military Relocations</h3>
+            <p>San Diego is home to one of the largest military communities in the country. Sutton Movers regularly assists service members with PCS moves, temporary housing transitions, and moves on and off base. We offer military discounts and understand the tight timelines that come with orders.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CITY PHOTO PLACEHOLDER -->
+<div class="city-photo fade-up">
+    <p>Photo from a San Diego move coming soon</p>
+    <span>Our team in action across America's Finest City</span>
+</div>
+
+<!-- TESTIMONIAL -->
+<section class="section section-alt fade-up">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">What Our Clients Say</span>
+            <h2>San Diego Customer Review</h2>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-text">Testimonial from a San Diego customer coming soon. We have helped hundreds of families and businesses move across San Diego County and look forward to sharing their stories here.</p>
+            <p class="testimonial-author">-- San Diego Customer</p>
+            <p class="testimonial-location">San Diego, CA</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section fade-up">
+    <div class="container">
+        <h2>Get a Free Quote for Your San Diego Move</h2>
+        <p>Ready to move? Call us today or fill out our quick quote form. We respond fast and always provide honest pricing with no hidden fees.</p>
+        <div class="cta-buttons">
+            <a href="tel:6197763563" class="btn btn-primary btn-call-now">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Call (619) 776-3563
+            </a>
+            <a href="index.html#contact" class="btn btn-outline" style="border-color: rgba(244,237,228,0.3); color: var(--white);">Request a Quote Online</a>
+        </div>
+    </div>
+</section>
+
+<!-- ALSO SERVE -->
+<section class="also-serve fade-up">
+    <div class="container">
+        <h2>We Also Serve These Cities</h2>
+        <div class="city-links">
+            <a href="coronado-movers.html" class="city-link">Coronado</a>
+            <a href="temecula-movers.html" class="city-link">Temecula</a>
+            <a href="oceanside-movers.html" class="city-link">Oceanside</a>
+            <a href="la-movers.html" class="city-link">Los Angeles</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Sutton Movers">
+                <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
+            </div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
+            <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6197763563">(619) 776-3563</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon&ndash;Sun: 6AM&ndash;6PM</li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sutton Movers. All Rights Reserved.</p>
+            <p>Serving San Diego, Riverside, Inland Empire, Orange County &amp; LA</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Nav on scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.background = window.scrollY > 50 ? 'rgba(11,18,32,0.99)' : 'rgba(15,26,48,0.97)';
+});
+</script>
+</body>
+</html>

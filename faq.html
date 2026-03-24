@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Sutton Movers | Southern California Moving Company</title>
+    <meta name="description" content="Frequently asked questions about Sutton Movers — pricing, services, insurance, COI requirements, payment methods, and more. Fully insured San Diego movers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-deep: #0F1A30;
+            --navy-light: #2A3F6A;
+            --burgundy: #7A2D3B;
+            --burgundy-light: #9E3A4C;
+            --burgundy-dark: #5C1F2B;
+            --cream: #F4EDE4;
+            --cream-dark: #E8DDD0;
+            --white: #FFFFFF;
+            --off-white: #FAF8F5;
+            --text-dark: #1A1A1A;
+            --text-body: #4A4A4A;
+            --text-light: #8A8A8A;
+            --text-on-dark: #D0CFC8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--off-white);
+            color: var(--text-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 26, 48, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            transition: all 0.3s;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 76px;
+        }
+        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-links {
+            display: flex; list-style: none; gap: 28px; align-items: center;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--cream-dark); transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a.active { color: var(--white); }
+        .nav-phone {
+            color: var(--cream) !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.04em !important;
+        }
+        .nav-cta {
+            background: var(--burgundy) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            transition: background 0.3s, transform 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+
+        /* HERO */
+        .faq-hero {
+            padding: 140px 0 70px;
+            background: var(--navy-deep);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .faq-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(15,26,48,0.95) 0%, rgba(27,42,74,0.85) 50%, rgba(15,26,48,0.92) 100%);
+            z-index: 1;
+        }
+        .faq-hero .container { position: relative; z-index: 2; }
+        .faq-hero .section-label {
+            display: inline-block; font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--burgundy-light); margin-bottom: 10px;
+        }
+        .faq-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 800; color: var(--white);
+            line-height: 1.1; margin-bottom: 16px;
+        }
+        .faq-hero p {
+            font-size: 1.1rem; line-height: 1.7;
+            color: var(--text-on-dark); max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* FAQ SECTION */
+        .faq-section { padding: 80px 0; }
+        .faq-section:nth-child(odd) { background: var(--off-white); }
+        .faq-section:nth-child(even) { background: var(--white); }
+
+        .faq-category-header {
+            text-align: center; margin-bottom: 48px;
+        }
+        .faq-category-header .section-label {
+            display: inline-block; font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--burgundy); margin-bottom: 10px;
+        }
+        .faq-category-header h2 {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            line-height: 1.15; margin-bottom: 10px;
+        }
+        .faq-category-header p {
+            font-size: 1rem; color: var(--text-light);
+            max-width: 520px; margin: 0 auto; line-height: 1.6;
+        }
+
+        /* ACCORDION */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            margin-bottom: 12px;
+            transition: all 0.3s;
+        }
+        .faq-section:nth-child(even) .faq-item {
+            background: var(--off-white);
+        }
+        .faq-item:hover {
+            border-color: rgba(122,45,59,0.3);
+            box-shadow: 0 4px 16px rgba(27,42,74,0.06);
+        }
+
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 22px 28px;
+            cursor: pointer;
+            gap: 16px;
+            user-select: none;
+        }
+        .faq-question h3 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            color: var(--navy); line-height: 1.4;
+            margin: 0;
+        }
+        .faq-toggle {
+            width: 32px; height: 32px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(27,42,74,0.06);
+            border-radius: 50%;
+            font-size: 1.2rem; font-weight: 300;
+            color: var(--navy);
+            transition: all 0.3s;
+        }
+        .faq-item.active .faq-toggle {
+            background: var(--burgundy);
+            color: var(--white);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .faq-answer-inner {
+            padding: 0 28px 24px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-body);
+        }
+        .faq-answer-inner p { margin-bottom: 12px; }
+        .faq-answer-inner p:last-child { margin-bottom: 0; }
+        .faq-answer-inner ul {
+            margin: 8px 0 12px 20px;
+            line-height: 1.8;
+        }
+        .faq-answer-inner ul li { margin-bottom: 4px; }
+        .faq-answer-inner strong { color: var(--navy); }
+
+        .faq-badge {
+            display: inline-block;
+            background: rgba(122, 45, 59, 0.1);
+            border: 1px solid rgba(122, 45, 59, 0.25);
+            color: var(--burgundy);
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 4px 12px;
+            margin-bottom: 8px;
+        }
+
+        /* CTA SECTION */
+        .cta-banner {
+            padding: 72px 0; text-align: center;
+            background: var(--burgundy);
+            position: relative; overflow: hidden;
+        }
+        .cta-banner::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, var(--burgundy-dark), var(--burgundy), var(--burgundy-light));
+        }
+        .cta-banner h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: var(--white); margin-bottom: 10px; position: relative;
+        }
+        .cta-banner p {
+            font-size: 1.05rem; color: rgba(255,255,255,0.7);
+            margin-bottom: 12px; position: relative;
+        }
+        .cta-banner .cta-phone {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800; color: var(--white);
+            margin-bottom: 28px; position: relative;
+        }
+        .cta-banner .cta-phone a {
+            color: var(--white);
+            transition: opacity 0.3s;
+        }
+        .cta-banner .cta-phone a:hover { opacity: 0.85; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+        }
+        .cta-banner .btn {
+            background: var(--white); color: var(--burgundy); position: relative;
+        }
+        .cta-banner .btn:hover {
+            background: var(--cream); transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--navy-deep);
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding: 52px 0 28px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
+        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--burgundy-light); margin-bottom: 18px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding-top: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 76px; left: 0; right: 0;
+                background: rgba(15,26,48,0.98);
+                flex-direction: column; padding: 24px; gap: 14px;
+                border-bottom: 1px solid rgba(122,45,59,0.3);
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .faq-hero { padding: 110px 0 50px; }
+            .faq-section { padding: 60px 0; }
+            .faq-question { padding: 18px 20px; }
+            .faq-question h3 { font-size: 0.92rem; }
+            .faq-answer-inner { padding: 0 20px 20px; font-size: 0.9rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .faq-question { padding: 16px; }
+            .faq-answer-inner { padding: 0 16px 18px; }
+            .faq-toggle { width: 28px; height: 28px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#areas">Areas</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:6197763563" class="nav-phone">(619) 776-3563</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Free Quote</a></li>
+        </ul>
+        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="faq-hero">
+    <div class="container">
+        <span class="section-label">Got Questions?</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything you need to know about our moving services, pricing, insurance, and more. Can't find your answer? Give us a call.</p>
+    </div>
+</section>
+
+<!-- GENERAL -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-category-header fade-up">
+            <span class="section-label">General</span>
+            <h2>General Questions</h2>
+            <p>The basics about Sutton Movers and how we operate.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What areas do you serve?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>We serve all of Southern California, with a primary focus on San Diego County, Riverside County, the Inland Empire, Orange County, and Los Angeles County. Our home base is in San Marcos, CA, and we regularly serve communities including Escondido, Oceanside, Carlsbad, Encinitas, Vista, Del Mar, La Jolla, Chula Vista, El Cajon, La Mesa, Coronado, Temecula, Murrieta, Irvine, Dana Point, Poway, Rancho Bernardo, National City, and Camp Pendleton.</p>
+                        <p>For long-distance moves, we handle relocations throughout California and beyond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What are your hours of operation?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>We operate <strong>7 days a week, Monday through Sunday, from 6:00 AM to 6:00 PM</strong>. We understand that moving doesn't always fit a 9-to-5 schedule, so we do our best to accommodate your preferred timing. For early morning or special scheduling needs, give us a call and we'll work something out.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How do I get a quote?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Getting a quote is easy and completely free. You have a few options:</p>
+                        <ul>
+                            <li><strong>Call us directly</strong> at <a href="tel:6197763563" style="color: var(--burgundy); font-weight: 600;">(619) 776-3563</a> for a quote in about 2 minutes.</li>
+                            <li><strong>Fill out the quote form</strong> on our <a href="index.html#contact" style="color: var(--burgundy); font-weight: 600;">homepage</a> or <a href="contact.html" style="color: var(--burgundy); font-weight: 600;">contact page</a>.</li>
+                            <li><strong>Email us</strong> at <a href="mailto:contactsuttonmovers@gmail.com" style="color: var(--burgundy); font-weight: 600;">contactsuttonmovers@gmail.com</a> with details about your move.</li>
+                        </ul>
+                        <p>We typically respond within a few hours and provide transparent, competitive pricing with no hidden fees.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you offer military discounts?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p class="faq-badge">Yes — Military Discount Available</p>
+                        <p><strong>Absolutely! We proudly offer a military discount to all active-duty service members, veterans, and military families.</strong> We're honored to serve those who serve our country, and we regularly handle PCS moves and relocations on and around military bases including Camp Pendleton.</p>
+                        <p>Just let us know your military status when requesting a quote and we'll apply the discount automatically. Thank you for your service!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-category-header fade-up">
+            <span class="section-label">Services</span>
+            <h2>Services &amp; What We Offer</h2>
+            <p>Details about our moving services and how they work.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What's the difference between full-service and labor-only?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p><strong>Full-Service Move (Labor + Truck):</strong> We provide the crew and the truck. Our team handles loading, transporting, and unloading your belongings from start to finish. This is the most popular option for customers who want a hands-off experience.</p>
+                        <p><strong>Labor-Only:</strong> We provide the muscle — you provide the truck, trailer, or container. Our crew will load, unload, and rearrange furniture and boxes. This is a great option if you've rented your own U-Haul, PODS container, or have a moving truck already.</p>
+                        <p>Both options come with fully insured, professional movers who treat your belongings with care.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you provide trucks?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p><strong>Yes!</strong> We have <strong>two 26-foot moving trucks</strong> available for full-service moves. These are large, professional-grade trucks that can handle most residential moves including multi-bedroom homes.</p>
+                        <p>The truck is included as part of our full-service move option. If you prefer labor-only service, you can provide your own truck, trailer, or container and our crew will handle the loading and unloading.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What types of moves do you handle?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>We handle a wide variety of moves across Southern California, including:</p>
+                        <ul>
+                            <li><strong>Local Moving</strong> — Same-day and scheduled moves within San Diego County and surrounding areas</li>
+                            <li><strong>Long Distance Moving</strong> — In-state and interstate relocations</li>
+                            <li><strong>Commercial &amp; Office Moving</strong> — Business relocations with minimal downtime</li>
+                            <li><strong>Apartment Moving</strong> — Stairs, elevators, tight spaces</li>
+                            <li><strong>Senior Moving</strong> — Patient, respectful moves for seniors</li>
+                            <li><strong>Piano &amp; Safe Moving</strong> — Heavy and delicate items</li>
+                            <li><strong>Military Base Moving</strong> — PCS and on-base relocations</li>
+                            <li><strong>Junk Removal</strong> — Declutter before or after your move</li>
+                            <li><strong>Furniture Storage</strong> — Short and long-term solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you offer packing services?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p><strong>Yes!</strong> We offer full-service packing and unpacking with quality materials. Our team can pack your entire home or just the items you need extra help with — fragile items, kitchenware, artwork, electronics, and more.</p>
+                        <p>We use professional-grade packing materials including moving blankets, shrink wrap, and sturdy boxes to ensure everything arrives safely at your new location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INSURANCE & COMMERCIAL -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-category-header fade-up">
+            <span class="section-label">Insurance &amp; Commercial</span>
+            <h2>Insurance &amp; Commercial Moves</h2>
+            <p>Coverage, certificates, and what you need to know for commercial relocations.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Are you insured?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p class="faq-badge">Fully Insured</p>
+                        <p><strong>Yes, Sutton Movers is fully insured.</strong> We carry comprehensive insurance coverage to protect your belongings during every move. This includes general liability insurance, workers' compensation, and commercial auto insurance.</p>
+                        <p>Our insurance gives you peace of mind knowing that your possessions are protected from the moment we arrive until the last box is placed in your new home or office.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What is a COI and how do I get one?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>A <strong>COI (Certificate of Insurance)</strong> is an official document issued by our insurance provider that proves we carry active insurance coverage. Many apartment complexes, HOAs, commercial buildings, and property management companies require a COI before allowing movers on the premises.</p>
+                        <p>We provide COIs with <strong>48-hour notice</strong>. Simply let us know when you book your move if your building requires one, and we'll have it ready in time. The COI will list your property management company or building as an additional insured or certificate holder as needed.</p>
+                        <p>There's no extra charge for this — it's part of our standard service.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What are the insurance requirements for commercial moves in San Diego?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Commercial moves in San Diego typically require movers to meet specific insurance standards set by building management and property owners. Here's what most commercial buildings require:</p>
+                        <ul>
+                            <li><strong>General Liability Insurance:</strong> Most commercial buildings in San Diego require movers to carry general liability coverage, typically with minimum limits of $1 million per occurrence and $2 million aggregate. This covers property damage and bodily injury that may occur during the move.</li>
+                            <li><strong>Workers' Compensation Insurance:</strong> Required by California law for all employers. This protects our crew in case of on-the-job injuries and also protects you as the client from liability. Building managers will verify this before granting access.</li>
+                            <li><strong>Commercial Auto Insurance:</strong> Covers our moving trucks and vehicles while on the premises. This is especially important for commercial properties with parking structures or loading docks where vehicle-related damage could occur.</li>
+                            <li><strong>Certificate of Insurance (COI):</strong> Commercial buildings in San Diego almost always require a COI naming the property owner or management company as an additional insured. This must typically be submitted 48 to 72 hours before the scheduled move. Some buildings also require the COI to include specific endorsements or coverage amounts.</li>
+                        </ul>
+                        <p><strong>Sutton Movers meets all of these requirements.</strong> We carry full general liability, workers' compensation, and commercial auto insurance. We regularly provide COIs for commercial moves throughout San Diego and can have one prepared with 48-hour notice. If your building has specific insurance requirements, let us know and we'll make sure everything is in order before move day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you handle commercial/office relocations?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p><strong>Yes!</strong> We handle commercial and office relocations of all sizes. Whether you're moving a small office, a retail space, or a larger corporate environment, our team is experienced in minimizing downtime so you can get back to business quickly.</p>
+                        <p>We coordinate with building management, handle furniture disassembly and reassembly, and work around your schedule — including evenings and weekends if needed. We also provide the required COI documentation for commercial properties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING & PAYMENT -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-category-header fade-up">
+            <span class="section-label">Pricing &amp; Payment</span>
+            <h2>Pricing &amp; Payment</h2>
+            <p>Transparent pricing and flexible payment options.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How is pricing determined?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Our pricing is based on several factors to ensure you get a fair, competitive rate:</p>
+                        <ul>
+                            <li><strong>Type of service</strong> — Full-service (labor + truck) vs. labor-only</li>
+                            <li><strong>Size of the move</strong> — Number of rooms, amount of furniture and boxes</li>
+                            <li><strong>Distance</strong> — Local moves are typically hourly; long-distance moves are quoted by the job</li>
+                            <li><strong>Special items</strong> — Pianos, safes, and other heavy/delicate items may require additional handling</li>
+                            <li><strong>Access considerations</strong> — Stairs, elevators, long carries, narrow hallways</li>
+                            <li><strong>Timing</strong> — Standard vs. peak season or special scheduling needs</li>
+                        </ul>
+                        <p>We provide transparent quotes with no hidden fees. The price we quote is the price you pay.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What payment methods do you accept?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>We accept a wide variety of payment methods for your convenience:</p>
+                        <ul>
+                            <li><strong>Visa</strong></li>
+                            <li><strong>Mastercard</strong></li>
+                            <li><strong>American Express</strong></li>
+                            <li><strong>Discover</strong></li>
+                            <li><strong>Apple Pay</strong></li>
+                            <li><strong>Zelle</strong></li>
+                            <li><strong>Venmo</strong></li>
+                        </ul>
+                        <p>We make payment easy so you can focus on settling into your new place.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you charge for estimates?</h3>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p><strong>No — all estimates are completely free with no obligation.</strong> We believe in transparent pricing and want you to feel confident about your decision before committing. Call us at <a href="tel:6197763563" style="color: var(--burgundy); font-weight: 600;">(619) 776-3563</a> or fill out our online form to get your free quote today.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+    <div class="container" style="position:relative;">
+        <h2>Still Have Questions?</h2>
+        <p>Our team is happy to help. Give us a call or send us a message — we'll get back to you fast.</p>
+        <div class="cta-phone"><a href="tel:6197763563">(619) 776-3563</a></div>
+        <a href="contact.html" class="btn">Contact Us →</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Sutton Movers">
+                <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
+            </div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
+            <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6197763563">(619) 776-3563</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon–Sun: 6AM–6PM</li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sutton Movers. All Rights Reserved.</p>
+            <p>Serving San Diego, Riverside, Inland Empire, Orange County &amp; LA</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Accordion toggle
+function toggleFaq(el) {
+    const item = el.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isActive = item.classList.contains('active');
+
+    // Close all open items
+    document.querySelectorAll('.faq-item.active').forEach(openItem => {
+        openItem.classList.remove('active');
+        openItem.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked item if it wasn't already open
+    if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+}
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Nav on scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.background = window.scrollY > 50 ? 'rgba(11,18,32,0.99)' : 'rgba(15,26,48,0.97)';
+});
+</script>
+</body>
+</html>

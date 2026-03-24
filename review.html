@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Was Your Move? | Sutton Movers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-deep: #0F1A30;
+            --burgundy: #7A2D3B;
+            --burgundy-light: #9E3A4C;
+            --cream: #F4EDE4;
+            --cream-dark: #E8DDD0;
+            --white: #FFFFFF;
+            --off-white: #FAF8F5;
+            --text-body: #4A4A4A;
+            --text-light: #8A8A8A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--off-white);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            max-width: 520px; width: 100%;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(27,42,74,0.06);
+        }
+        .logo { height: 80px; width: auto; margin: 0 auto 24px; border-radius: 6px; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem; color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1rem; color: var(--text-light);
+            margin-bottom: 32px; line-height: 1.5;
+        }
+        .choices { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; }
+        .choice-btn {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 12px;
+            padding: 28px 36px;
+            border: 2px solid var(--cream-dark);
+            background: var(--off-white);
+            cursor: pointer; transition: all 0.3s;
+            flex: 1;
+        }
+        .choice-btn:hover { border-color: var(--burgundy); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(27,42,74,0.08); }
+        .choice-icon { font-size: 3rem; line-height: 1; }
+        .choice-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--navy);
+        }
+        .stars { display: flex; gap: 4px; justify-content: center; }
+        .stars svg { width: 18px; height: 18px; fill: #D4A243; color: #D4A243; }
+
+        /* Feedback form (hidden by default) */
+        .feedback-section { display: none; text-align: left; margin-top: 24px; }
+        .feedback-section.active { display: block; }
+        .feedback-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; color: var(--navy);
+            margin-bottom: 6px; text-align: center;
+        }
+        .feedback-sub {
+            font-size: 0.9rem; color: var(--text-light);
+            margin-bottom: 20px; text-align: center; line-height: 1.5;
+        }
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--burgundy); margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 11px 14px;
+            font-family: 'Raleway', sans-serif; font-size: 0.95rem;
+            background: var(--off-white);
+            border: 1px solid var(--cream-dark);
+            color: var(--navy); transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--burgundy);
+        }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .btn-submit {
+            display: block; width: 100%;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 15px; border: none; cursor: pointer;
+            background: var(--burgundy); color: var(--white);
+            transition: all 0.3s; margin-top: 8px;
+        }
+        .btn-submit:hover { background: var(--burgundy-light); }
+
+        /* Thank you state */
+        .thank-you { display: none; text-align: center; margin-top: 24px; }
+        .thank-you.active { display: block; }
+        .thank-you h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; color: var(--navy); margin-bottom: 8px;
+        }
+        .thank-you p { font-size: 0.95rem; color: var(--text-light); line-height: 1.5; }
+
+        .back-link {
+            display: inline-block; margin-top: 28px;
+            font-size: 0.85rem; color: var(--text-light);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--burgundy); }
+
+        @media (max-width: 480px) {
+            .card { padding: 32px 24px; }
+            .choices { flex-direction: column; gap: 12px; }
+            .choice-btn { flex-direction: row; padding: 20px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="images/logo.png" alt="Sutton Movers" class="logo">
+
+    <!-- Step 1: Rating choice -->
+    <div id="step1">
+        <h1>How Was Your Move?</h1>
+        <p class="subtitle">We'd love to hear about your experience with Sutton Movers. Your feedback means the world to us.</p>
+        <div class="choices">
+            <div class="choice-btn" onclick="handleHappy()">
+                <div class="choice-icon">😊</div>
+                <div class="stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="choice-label">Great Experience</div>
+            </div>
+            <div class="choice-btn" onclick="handleUnhappy()">
+                <div class="choice-icon">😕</div>
+                <div class="stars">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#D4A243" stroke-width="1.5"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#D4A243" stroke-width="1.5"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#D4A243" stroke-width="1.5"/></svg>
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#D4A243" stroke-width="1.5"/></svg>
+                </div>
+                <div class="choice-label">Could Be Better</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 2a: Private feedback form (unhappy path) -->
+    <div class="feedback-section" id="feedbackForm">
+        <h2>We're Sorry to Hear That</h2>
+        <p class="feedback-sub">Your feedback helps us improve. Please tell us what happened and we'll make it right.</p>
+        <form action="https://formspree.io/f/xwvnnjky" method="POST">
+            <input type="hidden" name="_subject" value="⚠️ Private Feedback — Sutton Movers Review Funnel">
+            <input type="hidden" name="source" value="Review Funnel - Unhappy">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label>Phone or Email</label>
+                <input type="text" name="contact" placeholder="So we can follow up with you" required>
+            </div>
+            <div class="form-group">
+                <label>What happened?</label>
+                <textarea name="feedback" placeholder="Please tell us about your experience and how we can make it right..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Private Feedback →</button>
+        </form>
+    </div>
+
+    <!-- Step 2b: Thank you after private feedback -->
+    <div class="thank-you" id="thankYou">
+        <h2>Thank You for Your Feedback</h2>
+        <p>We take every concern seriously. Gregory will personally review your feedback and reach out to make things right. We appreciate your honesty.</p>
+    </div>
+
+    <a href="/" class="back-link">← Back to Sutton Movers</a>
+</div>
+
+<script>
+function handleHappy() {
+    // Redirect to Google review page
+    window.location.href = 'https://g.page/r/CaJms1a_i9cuEAE/review';
+}
+
+function handleUnhappy() {
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('feedbackForm').classList.add('active');
+}
+
+// Handle private feedback form submission
+const feedbackForm = document.querySelector('#feedbackForm form');
+if (feedbackForm) {
+    feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.btn-submit');
+        btn.textContent = 'Sending...'; btn.disabled = true;
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                document.getElementById('feedbackForm').classList.remove('active');
+                document.getElementById('thankYou').classList.add('active');
+            } else {
+                btn.textContent = 'Error — Try Again'; btn.disabled = false;
+            }
+        }).catch(() => {
+            btn.textContent = 'Error — Try Again'; btn.disabled = false;
+        });
+    });
+}
+</script>
+</body>
+</html>

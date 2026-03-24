@@ -1,0 +1,55 @@
+[build]
+  publish = "."
+
+# Clean URLs - serve .html files without extension
+[[redirects]]
+  from = "/san-diego-movers"
+  to = "/san-diego-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/coronado-movers"
+  to = "/coronado-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/temecula-movers"
+  to = "/temecula-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/oceanside-movers"
+  to = "/oceanside-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/la-movers"
+  to = "/la-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+# Headers for performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

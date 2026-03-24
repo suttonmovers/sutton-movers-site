@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Sutton Movers | Moving Tips & Industry Insights</title>
+    <meta name="description" content="Sutton Movers blog — moving tips, industry insights, insurance guides, and company updates for San Diego and Southern California relocations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-deep: #0F1A30;
+            --navy-light: #2A3F6A;
+            --burgundy: #7A2D3B;
+            --burgundy-light: #9E3A4C;
+            --burgundy-dark: #5C1F2B;
+            --cream: #F4EDE4;
+            --cream-dark: #E8DDD0;
+            --white: #FFFFFF;
+            --off-white: #FAF8F5;
+            --text-dark: #1A1A1A;
+            --text-body: #4A4A4A;
+            --text-light: #8A8A8A;
+            --text-on-dark: #D0CFC8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--off-white);
+            color: var(--text-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ═══════ NAV ═══════ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 26, 48, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            transition: all 0.3s;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 76px;
+        }
+        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-links {
+            display: flex; list-style: none; gap: 28px; align-items: center;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--cream-dark); transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a.active { color: var(--white); }
+        .nav-phone {
+            color: var(--cream) !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.04em !important;
+        }
+        .nav-cta {
+            background: var(--burgundy) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            transition: background 0.3s, transform 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+
+        /* ═══════ HERO ═══════ */
+        .blog-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            background: var(--navy-deep);
+            overflow: hidden;
+        }
+        .blog-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(15,26,48,0.95) 0%, rgba(27,42,74,0.85) 50%, rgba(15,26,48,0.92) 100%);
+            z-index: 1;
+        }
+        .blog-hero-bg {
+            position: absolute; inset: 0;
+            background: linear-gradient(45deg, var(--navy) 0%, var(--navy-light) 50%, var(--burgundy-dark) 100%);
+            opacity: 0.3;
+        }
+        .blog-hero .container {
+            position: relative; z-index: 2; text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 800; color: var(--white);
+            margin-bottom: 16px;
+        }
+        .blog-hero p {
+            font-size: 1.15rem; color: var(--text-on-dark);
+            max-width: 520px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ═══════ BLOG SECTION ═══════ */
+        .blog-section {
+            padding: 72px 0 80px;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: grid; grid-template-columns: 1fr 1fr;
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            overflow: hidden;
+            margin-bottom: 48px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .featured-post:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(27,42,74,0.1);
+        }
+        .featured-post-image {
+            min-height: 340px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--burgundy) 100%);
+            display: flex; align-items: center; justify-content: center;
+            padding: 40px;
+        }
+        .featured-post-image svg {
+            width: 80px; height: 80px; color: rgba(244,237,228,0.25);
+        }
+        .featured-post-content {
+            padding: 44px 40px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .featured-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--burgundy); margin-bottom: 12px;
+        }
+        .featured-label svg { width: 14px; height: 14px; }
+        .post-category {
+            display: inline-block;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 4px 12px;
+            background: rgba(122, 45, 59, 0.1);
+            color: var(--burgundy);
+            margin-bottom: 14px;
+        }
+        .featured-post-content h2 {
+            font-size: 1.6rem; font-weight: 700;
+            line-height: 1.3; margin-bottom: 16px;
+            color: var(--navy);
+        }
+        .featured-post-content p {
+            font-size: 0.95rem; line-height: 1.7;
+            color: var(--text-body); margin-bottom: 20px;
+        }
+        .post-meta {
+            font-size: 0.8rem; color: var(--text-light);
+            margin-bottom: 16px;
+        }
+        .read-more {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--burgundy);
+            transition: color 0.3s, gap 0.3s;
+        }
+        .read-more:hover { color: var(--burgundy-light); gap: 10px; }
+        .read-more svg { width: 16px; height: 16px; }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border: 1px solid var(--cream-dark);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(27,42,74,0.08);
+        }
+        .blog-card-image {
+            height: 200px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .blog-card-image svg {
+            width: 48px; height: 48px; color: rgba(244,237,228,0.3);
+        }
+        .blog-card-content {
+            padding: 28px 28px 32px;
+        }
+        .blog-card-content .post-category {
+            margin-bottom: 12px;
+        }
+        .blog-card-content h3 {
+            font-size: 1.2rem; font-weight: 700;
+            line-height: 1.35; margin-bottom: 12px;
+            color: var(--navy);
+        }
+        .blog-card-content p {
+            font-size: 0.9rem; line-height: 1.7;
+            color: var(--text-body); margin-bottom: 16px;
+        }
+        .blog-card-content .post-meta {
+            margin-bottom: 14px;
+        }
+
+        /* Gradient backgrounds for cards */
+        .gradient-insurance { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--burgundy) 100%); }
+        .gradient-tips { background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 50%, var(--burgundy-light) 100%); }
+        .gradient-tips-2 { background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 60%, var(--burgundy-dark) 100%); }
+        .gradient-military { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-light) 100%); }
+        .gradient-prep { background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 60%, var(--navy-deep) 100%); }
+
+        /* ═══════ CTA SECTION ═══════ */
+        .blog-cta {
+            background: var(--navy-deep);
+            padding: 72px 0;
+            text-align: center;
+        }
+        .blog-cta h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+        .blog-cta p {
+            font-size: 1.05rem; line-height: 1.7;
+            color: var(--text-on-dark);
+            max-width: 520px; margin: 0 auto 28px;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+        }
+        .btn-primary { background: var(--burgundy); color: var(--white); }
+        .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(122,45,59,0.35); }
+
+        /* ═══════ FOOTER ═══════ */
+        .footer {
+            background: var(--navy-deep);
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding: 52px 0 28px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
+        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--burgundy-light); margin-bottom: 18px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding-top: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+
+        /* ═══════ RESPONSIVE ═══════ */
+        @media (min-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 1024px) {
+            .featured-post { grid-template-columns: 1fr; }
+            .featured-post-image { min-height: 240px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 76px; left: 0; right: 0;
+                background: rgba(15,26,48,0.98);
+                flex-direction: column; padding: 24px; gap: 14px;
+                border-bottom: 1px solid rgba(122,45,59,0.3);
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .blog-hero { padding: 130px 0 60px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .featured-post-content { padding: 28px 24px 32px; }
+            .featured-post-content h2 { font-size: 1.35rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .blog-hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#areas">Areas</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:6197763563" class="nav-phone">(619) 776-3563</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Free Quote</a></li>
+        </ul>
+        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="container">
+        <h1>Sutton Movers Blog</h1>
+        <p>Moving tips, industry insights, and company updates</p>
+    </div>
+</section>
+
+<!-- BLOG LISTING -->
+<section class="blog-section">
+    <div class="container">
+
+        <!-- Featured Post -->
+        <a href="#" class="featured-post">
+            <div class="featured-post-image gradient-insurance">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="featured-post-content">
+                <div class="featured-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Featured Article
+                </div>
+                <span class="post-category">Insurance</span>
+                <h2>Insurance Requirements for Commercial Building Moves in San Diego</h2>
+                <p>Navigating insurance for commercial relocations in San Diego County requires understanding key coverages: general liability insurance, workers' compensation, commercial auto insurance, and Certificate of Insurance (COI) requirements that most commercial building managers demand before allowing movers on-site.</p>
+                <div class="post-meta">March 15, 2026</div>
+                <span class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+
+            <!-- Post: Full-Service vs Labor-Only -->
+            <a href="#" class="blog-card">
+                <div class="blog-card-image gradient-tips">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="23 7 16 12 16 7"/></svg>
+                </div>
+                <div class="blog-card-content">
+                    <span class="post-category">Moving Tips</span>
+                    <h3>Full-Service Moving vs. Labor-Only: Which Is Right for You?</h3>
+                    <p>Choosing between a full-service move and labor-only help depends on your budget, timeline, and how hands-on you want to be. We break down the pros, cons, and costs of each option so you can make the best decision for your next move.</p>
+                    <div class="post-meta">March 8, 2026</div>
+                    <span class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Post: 10 Tips -->
+            <a href="#" class="blog-card">
+                <div class="blog-card-image gradient-tips-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div class="blog-card-content">
+                    <span class="post-category">Moving Tips</span>
+                    <h3>10 Tips for a Stress-Free Moving Day</h3>
+                    <p>Moving day does not have to be chaotic. From labeling boxes by room to keeping essentials in a separate bag, these ten practical tips will help you stay organized, save time, and keep your sanity throughout the entire process.</p>
+                    <div class="post-meta">February 24, 2026</div>
+                    <span class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Post: Military -->
+            <a href="#" class="blog-card">
+                <div class="blog-card-image gradient-military">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="blog-card-content">
+                    <span class="post-category">Military</span>
+                    <h3>Why Military Families Choose Sutton Movers for PCS Moves</h3>
+                    <p>PCS moves come with tight timelines and unique challenges. Military families trust Sutton Movers for reliable, flexible scheduling and our military discount, making permanent change of station transitions smoother across Southern California bases.</p>
+                    <div class="post-meta">February 10, 2026</div>
+                    <span class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Post: Prepare Your Home -->
+            <a href="#" class="blog-card">
+                <div class="blog-card-image gradient-prep">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="blog-card-content">
+                    <span class="post-category">Moving Tips</span>
+                    <h3>How to Prepare Your Home for Movers</h3>
+                    <p>A little preparation goes a long way. Learn how to protect your floors, clear pathways, disassemble furniture ahead of time, and communicate special instructions so your moving crew can work safely and efficiently from the moment they arrive.</p>
+                    <div class="post-meta">January 28, 2026</div>
+                    <span class="read-more">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="blog-cta">
+    <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Get a free, no-obligation quote from Sutton Movers. We are here to make your next move smooth and stress-free.</p>
+        <a href="index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Sutton Movers">
+                <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
+            </div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
+            <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6197763563">(619) 776-3563</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon&ndash;Sun: 6AM&ndash;6PM</li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sutton Movers. All Rights Reserved.</p>
+            <p>Serving San Diego, Riverside, Inland Empire, Orange County &amp; LA</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
