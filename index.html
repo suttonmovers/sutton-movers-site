@@ -356,25 +356,7 @@
         }
         .areas-map iframe { width: 100%; height: 100%; border: 0; }
 
-        /* ═══════ TESTIMONIALS ═══════ */
-        .testimonials { padding: 90px 0; background: var(--cream); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .testimonial-card {
-            background: var(--white); border: 1px solid var(--cream-dark);
-            padding: 32px; position: relative;
-        }
-        .testimonial-stars { display: flex; gap: 3px; margin-bottom: 14px; }
-        .testimonial-stars svg { width: 16px; height: 16px; color: var(--burgundy); fill: var(--burgundy); }
-        .testimonial-card p {
-            font-size: 0.95rem; font-style: italic;
-            line-height: 1.65; color: var(--text-body); margin-bottom: 18px;
-        }
-        .testimonial-author {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.85rem; font-weight: 700;
-            color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em;
-        }
-        .testimonial-location { font-size: 0.8rem; color: var(--text-light); }
+        /* testimonials removed — replaced by verified reviews */
 
         /* ═══════ CTA ═══════ */
         .cta-banner {
@@ -636,7 +618,7 @@
             .form-row { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .process-steps { grid-template-columns: 1fr 1fr; }
-            .testimonial-grid { grid-template-columns: 1fr; }
+            /* testimonial grid removed */
             .about-highlights { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -902,34 +884,6 @@
             </div>
             <div class="areas-map fade-up">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d850690.960354!2d-117.43057520746!3d33.52056379477846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc0d19f4733b45%3A0xf0dbc4a498e8eef8!2sSan%20Marcos%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <div class="section-header fade-up">
-            <span class="section-label">What Customers Say</span>
-            <h2>Reviews from Real Customers</h2>
-            <p>Don't just take our word for it — hear from the people we've moved.</p>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card fade-up">
-                <div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <p>"Sutton Movers made our apartment move so easy. The crew showed up on time, worked fast, and was super careful with everything. Highly recommend!"</p>
-                <div class="testimonial-author">Sarah M.</div><div class="testimonial-location">San Diego, CA</div>
-            </div>
-            <div class="testimonial-card fade-up">
-                <div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <p>"We used them for our office relocation and they were incredibly professional. Everything handled carefully — we were up and running the next day."</p>
-                <div class="testimonial-author">David R.</div><div class="testimonial-location">Carlsbad, CA</div>
-            </div>
-            <div class="testimonial-card fade-up">
-                <div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                <p>"They moved my mom from her house of 30 years into assisted living. So patient and respectful the whole time. Can't say enough good things."</p>
-                <div class="testimonial-author">Jennifer T.</div><div class="testimonial-location">Escondido, CA</div>
             </div>
         </div>
     </div>
