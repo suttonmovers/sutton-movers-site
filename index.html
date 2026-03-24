@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sutton Movers | Southern California Moving Company | Moving in Style</title>
+    <title>Sutton Movers | San Diego Movers | Fast, Affordable & Fully Insured | SoCal Moving Company</title>
     <meta name="description" content="Sutton Movers — family-owned Southern California moving company. Local & long distance moves, commercial relocations, senior moving, packing, labor services. Fully insured. Free quotes. Moving in Style since 2020.">
     <meta name="keywords" content="movers San Diego, moving company Southern California, local movers, long distance moving, commercial moving, senior moving, packing services, moving labor, San Marcos movers, Riverside movers, LA County movers">
     
@@ -70,20 +70,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #1B2A4A;
-            --navy-deep: #0F1A30;
-            --navy-light: #2A3F6A;
-            --burgundy: #7A2D3B;
-            --burgundy-light: #9E3A4C;
-            --burgundy-dark: #5C1F2B;
-            --cream: #F4EDE4;
-            --cream-dark: #E8DDD0;
+            --navy: #1E3456;
+            --navy-deep: #152744;
+            --navy-light: #2E4A7A;
+            --burgundy: #8B3A4A;
+            --burgundy-light: #B04D60;
+            --burgundy-dark: #6E2838;
+            --cream: #F7F1E9;
+            --cream-dark: #EBE1D4;
             --white: #FFFFFF;
-            --off-white: #FAF8F5;
+            --off-white: #FDFBF8;
             --text-dark: #1A1A1A;
-            --text-body: #4A4A4A;
-            --text-light: #8A8A8A;
-            --text-on-dark: #D0CFC8;
+            --text-body: #3D3D3D;
+            --text-light: #6B6B6B;
+            --text-on-dark: #E0DDD6;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -103,6 +103,9 @@
         }
 
         a { text-decoration: none; color: inherit; }
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--burgundy); outline-offset: 2px;
+        }
         img { max-width: 100%; display: block; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -340,7 +343,7 @@
         .gallery { padding: 90px 0; background: var(--navy-deep); }
         .gallery .section-header h2 { color: var(--white); }
         .gallery .section-header p { color: var(--text-on-dark); }
-        .gallery .section-label { color: var(--burgundy-light); }
+        .gallery .section-label { color: var(--cream); }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -355,7 +358,6 @@
             transition: transform 0.5s, filter 0.5s;
         }
         .gallery-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
-        .gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
 
         /* ═══════ PROCESS ═══════ */
         .process { padding: 90px 0; background: var(--off-white); }
@@ -393,6 +395,10 @@
         }
         .area-item svg { width: 16px; height: 16px; color: var(--burgundy); flex-shrink: 0; }
         .area-item span { font-size: 0.9rem; font-weight: 500; color: var(--text-body); }
+        a.area-item { transition: color 0.3s; }
+        a.area-item:hover { color: var(--burgundy); }
+        a.area-item:hover span { color: var(--burgundy); font-weight: 600; }
+        a.area-item span { color: var(--burgundy); font-weight: 600; }
         .areas-map {
             width: 100%; aspect-ratio: 4/3;
             border: 1px solid var(--cream-dark); overflow: hidden;
@@ -401,6 +407,9 @@
 
         /* ═══════ CONTACT CARDS ═══════ */
         .contact-info-centered { text-align: center; }
+        .contact-info-centered h2 { color: var(--white); }
+        .contact-info-centered h2 em { color: var(--cream-dark); font-style: italic; }
+        .contact-info-centered > p { color: var(--text-on-dark); }
         .contact-cards {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
             margin-top: 32px;
@@ -436,13 +445,13 @@
             font-size: clamp(1.8rem, 3.5vw, 2.6rem);
             color: var(--white); margin-bottom: 10px; position: relative;
         }
-        .cta-banner p { font-size: 1.05rem; color: rgba(255,255,255,0.7); margin-bottom: 28px; position: relative; }
+        .cta-banner p { font-size: 1.05rem; color: rgba(255,255,255,0.85); margin-bottom: 28px; position: relative; }
         .cta-banner .btn { background: var(--white); color: var(--burgundy); position: relative; }
         .cta-banner .btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
 
         /* ═══════ CONTACT ═══════ */
         .contact { padding: 90px 0; background: var(--navy-deep); }
-        .contact .section-label { color: var(--burgundy-light); }
+        .contact .section-label { color: var(--cream); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
         .contact-info h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--white); margin-bottom: 18px; line-height: 1.15; }
         .contact-info h2 em { font-style: italic; color: var(--cream-dark); }
@@ -454,12 +463,12 @@
             background: rgba(122,45,59,0.15);
             border: 1px solid rgba(122,45,59,0.3); flex-shrink: 0;
         }
-        .contact-detail-icon svg { width: 20px; height: 20px; color: var(--burgundy-light); }
+        .contact-detail-icon svg { width: 20px; height: 20px; color: var(--cream); }
         .contact-detail-text strong {
             display: block; font-family: 'Raleway', sans-serif;
             font-size: 0.72rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--burgundy-light); margin-bottom: 3px;
+            color: var(--cream); margin-bottom: 3px;
         }
         .contact-detail-text span { font-size: 1rem; color: var(--cream-dark); }
         .contact-detail-text a { color: var(--white); transition: color 0.3s; }
@@ -485,7 +494,7 @@
             font-family: 'Raleway', sans-serif;
             font-size: 0.78rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.12em;
-            color: var(--burgundy-light); margin-bottom: 18px;
+            color: var(--cream); margin-bottom: 18px;
         }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 9px; }
@@ -593,7 +602,7 @@
             background: #E8F0FE; color: #3367D6;
         }
         .vr-platform-badge.vr-google {
-            background: #FEF3E8; color: #EA4335;
+            background: #FDEBD2; color: #C5221F;
         }
 
         /* ═══════ PAYMENTS BAR ═══════ */
@@ -873,22 +882,30 @@
             <p>Every move tells a story. Here's a look at what we do every day across Southern California.</p>
         </div>
         <div class="gallery-grid" id="galleryGrid">
-            <div class="gallery-item tall"><img src="images/gallery-2.png" alt="Loaded moving truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-1.png" alt="Sutton Movers crew ready to work" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-2.png" alt="Loaded moving truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-3.png" alt="Furniture carefully wrapped" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-4.png" alt="Wrapped furniture in truck" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-5.png" alt="Moving truck packed" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-6.png" alt="Secured load with straps" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-7.png" alt="Boxes and furniture packed" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-8.png" alt="Professional packing in progress" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-9.png" alt="Truck loaded and ready to go" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-10.png" alt="Moving supplies organized" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-11.png" alt="Full truck packed with boxes" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-12.png" alt="Neatly organized boxes" loading="lazy"></div>
-            <div class="gallery-item tall"><img src="images/gallery-13.png" alt="Crew member loading truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-13.png" alt="Crew member loading truck" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-14.png" alt="Truck loaded wall to wall" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-7.png" alt="Boxes and furniture packed" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-15.png" alt="Heavy item move complete" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-16.png" alt="Furniture in truck" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-17.png" alt="Packed truck with dolly" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-18.png" alt="Home Depot boxes loaded" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-19.png" alt="Crew moving wardrobe box" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-20.png" alt="Packed household goods" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-21.png" alt="Mattress in truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-22.png" alt="Commercial office move" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-23.png" alt="PODS container packed" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gallery-24.png" alt="Move complete and delivered" loading="lazy"></div>
         </div>
     </div>
 </section>
@@ -923,9 +940,9 @@
             <div class="fade-up">
                 <div class="area-columns">
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>San Marcos</span></div>
-                    <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>San Diego</span></div>
+                    <a href="san-diego-movers.html" class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>San Diego →</span></a>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Escondido</span></div>
-                    <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Oceanside</span></div>
+                    <a href="oceanside-movers.html" class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Oceanside →</span></a>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Carlsbad</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Encinitas</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Vista</span></div>
@@ -934,13 +951,13 @@
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Chula Vista</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>El Cajon</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>La Mesa</span></div>
-                    <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Coronado</span></div>
-                    <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Temecula</span></div>
+                    <a href="coronado-movers.html" class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Coronado →</span></a>
+                    <a href="temecula-movers.html" class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Temecula →</span></a>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Riverside</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Murrieta</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Irvine</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Dana Point</span></div>
-                    <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Los Angeles</span></div>
+                    <a href="la-movers.html" class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Los Angeles →</span></a>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Inland Empire</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Camp Pendleton</span></div>
                     <div class="area-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Poway</span></div>
@@ -1076,21 +1093,39 @@
         <div class="platform-reviews" id="google-reviews">
             <div class="reviews-scroll-grid">
                 <div class="vr-card fade-up">
-                    <div class="vr-header"><span class="vr-name">Sarah M.</span><span class="vr-date">Verified</span></div>
+                    <div class="vr-header"><span class="vr-name">Misa Seeger</span><span class="vr-date">March 2026</span></div>
                     <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="vr-text">"Sutton Movers made our apartment move so easy. The crew showed up on time, worked fast, and was super careful with everything. Highly recommend!"</p>
+                    <p class="vr-text">"Greg and George were fantastic! They showed up on time and worked efficiently. Would definitely recommend them for any moving or heavy lifting needs"</p>
                     <span class="vr-platform-badge vr-google">Google</span>
                 </div>
                 <div class="vr-card fade-up">
-                    <div class="vr-header"><span class="vr-name">David R.</span><span class="vr-date">Verified</span></div>
+                    <div class="vr-header"><span class="vr-name">Meagan McAllister</span><span class="vr-date">March 2026</span></div>
                     <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="vr-text">"We used them for our office relocation and they were incredibly professional. Everything handled carefully &mdash; we were up and running the next day."</p>
+                    <p class="vr-text">"Sutton Movers helped me unload a moving truck and they were fantastic. They worked quickly and efficiently, but still took the time to protect my furniture and place everything exactly where I wanted it."</p>
                     <span class="vr-platform-badge vr-google">Google</span>
                 </div>
                 <div class="vr-card fade-up">
-                    <div class="vr-header"><span class="vr-name">Jennifer T.</span><span class="vr-date">Verified</span></div>
+                    <div class="vr-header"><span class="vr-name">Ty Pasfield</span><span class="vr-date">March 2026</span></div>
                     <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="vr-text">"They moved my mom from her house of 30 years into assisted living. So patient and respectful the whole time. Can't say enough good things."</p>
+                    <p class="vr-text">"Entire apartment was cleared out in about an hour. Everyone was very friendly as well."</p>
+                    <span class="vr-platform-badge vr-google">Google</span>
+                </div>
+                <div class="vr-card fade-up">
+                    <div class="vr-header"><span class="vr-name">Mike Iwankiw</span><span class="vr-date">February 2026</span></div>
+                    <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="vr-text">"Gregory helped me a few years back, when I was moving back to the mainland from Hawaii. Great business, very happy with all of their help. Definitely recommended."</p>
+                    <span class="vr-platform-badge vr-google">Google</span>
+                </div>
+                <div class="vr-card fade-up">
+                    <div class="vr-header"><span class="vr-name">Aajani Norman</span><span class="vr-date">February 2026</span></div>
+                    <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="vr-text">"The owner of this company is a very cool guy and he really values creating a great customer experience. Sutton Movers provide easy and efficient moving solutions while prioritizing the safety of the items being transported."</p>
+                    <span class="vr-platform-badge vr-google">Google</span>
+                </div>
+                <div class="vr-card fade-up">
+                    <div class="vr-header"><span class="vr-name">Maggie Griffin</span><span class="vr-date">February 2026</span></div>
+                    <div class="vr-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="vr-text">"I couldn't imagine our move without Gregory and his team. They were kind, professional, and quick! The best moving team I have worked with."</p>
                     <span class="vr-platform-badge vr-google">Google</span>
                 </div>
             </div>

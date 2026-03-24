@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Prepare Your Home for Movers | Sutton Movers Blog</title>
+    <meta name="description" content="Practical guide on preparing your home before moving day — declutter, disassemble furniture, clear pathways, protect floors, label rooms, secure valuables, and more.">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1E3456;
+            --navy-deep: #152744;
+            --navy-light: #2E4A7A;
+            --burgundy: #8B3A4A;
+            --burgundy-light: #B04D60;
+            --burgundy-dark: #6E2838;
+            --cream: #F7F1E9;
+            --cream-dark: #EBE1D4;
+            --white: #FFFFFF;
+            --off-white: #FDFBF8;
+            --text-dark: #1A1A1A;
+            --text-body: #3D3D3D;
+            --text-light: #6B6B6B;
+            --text-on-dark: #E0DDD6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--off-white);
+            color: var(--text-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--burgundy); outline-offset: 2px;
+        }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ═══════ NAV ═══════ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(15, 26, 48, 0.97);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            transition: all 0.3s;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 76px;
+        }
+        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-links {
+            display: flex; list-style: none; gap: 28px; align-items: center;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--cream-dark); transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-phone {
+            color: var(--cream) !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.04em !important;
+        }
+        .nav-cta {
+            background: var(--burgundy) !important;
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            transition: background 0.3s, transform 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+
+        /* ═══════ BLOG HERO ═══════ */
+        .blog-hero {
+            position: relative;
+            padding: 160px 0 72px;
+            background: var(--navy-deep);
+            overflow: hidden;
+        }
+        .blog-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(21,39,68,0.95) 0%, rgba(46,74,122,0.85) 50%, rgba(21,39,68,0.92) 100%);
+            z-index: 1;
+        }
+        .blog-hero-bg {
+            position: absolute; inset: 0;
+            background: linear-gradient(45deg, var(--navy) 0%, var(--navy-light) 50%, var(--burgundy-dark) 100%);
+            opacity: 0.3;
+        }
+        .blog-hero .container {
+            position: relative; z-index: 2; text-align: center;
+        }
+        .blog-hero-meta {
+            display: flex; align-items: center; justify-content: center; gap: 16px;
+            margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .blog-category-badge {
+            display: inline-block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 5px 14px;
+            background: rgba(139, 58, 74, 0.35);
+            border: 1px solid rgba(139, 58, 74, 0.5);
+            color: var(--cream);
+        }
+        .blog-hero-date, .blog-hero-read {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.85rem; color: var(--text-on-dark);
+        }
+        .blog-hero-dot {
+            width: 4px; height: 4px; border-radius: 50%;
+            background: var(--text-on-dark); opacity: 0.5;
+        }
+        .blog-hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 800; color: var(--white);
+            line-height: 1.15; margin-bottom: 0;
+            max-width: 720px; margin-left: auto; margin-right: auto;
+        }
+
+        /* ═══════ COVER IMAGE ═══════ */
+        .blog-cover {
+            max-width: 900px; margin: -36px auto 0; position: relative; z-index: 3;
+            padding: 0 24px;
+        }
+        .blog-cover img {
+            width: 100%; height: 420px; object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 16px 48px rgba(21,39,68,0.18);
+        }
+
+        /* ═══════ ARTICLE ═══════ */
+        .article {
+            max-width: 760px; margin: 0 auto;
+            padding: 56px 24px 80px;
+        }
+        .article p {
+            font-size: 1.05rem; line-height: 1.85;
+            color: var(--text-body); margin-bottom: 24px;
+        }
+        .article h2 {
+            font-size: 1.6rem; font-weight: 700;
+            margin-top: 48px; margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cream-dark);
+        }
+        .article h3 {
+            font-size: 1.25rem; font-weight: 600;
+            margin-top: 32px; margin-bottom: 12px;
+        }
+        .article ul, .article ol {
+            margin-bottom: 24px; padding-left: 24px;
+        }
+        .article li {
+            font-size: 1.02rem; line-height: 1.8;
+            color: var(--text-body); margin-bottom: 10px;
+        }
+        .article strong {
+            color: var(--navy); font-weight: 700;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none; padding-left: 0;
+            margin-bottom: 28px;
+        }
+        .checklist li {
+            position: relative; padding-left: 32px;
+            margin-bottom: 12px;
+        }
+        .checklist li::before {
+            content: '';
+            position: absolute; left: 0; top: 6px;
+            width: 18px; height: 18px;
+            border: 2px solid var(--burgundy);
+            border-radius: 3px;
+        }
+
+        /* Tip box */
+        .tip-box {
+            background: var(--cream);
+            border-left: 4px solid var(--burgundy);
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+        .tip-box p {
+            margin-bottom: 0;
+            font-size: 0.98rem;
+        }
+        .tip-box strong {
+            color: var(--burgundy);
+        }
+
+        /* ═══════ CTA SECTION ═══════ */
+        .blog-cta {
+            max-width: 760px; margin: 0 auto 64px;
+            padding: 0 24px;
+        }
+        .blog-cta-card {
+            background: var(--navy);
+            padding: 48px 44px;
+            text-align: center;
+        }
+        .blog-cta-card h3 {
+            font-size: 1.5rem; color: var(--white);
+            margin-bottom: 12px;
+        }
+        .blog-cta-card p {
+            font-size: 1rem; color: var(--text-on-dark);
+            line-height: 1.7; margin-bottom: 28px;
+            max-width: 480px; margin-left: auto; margin-right: auto;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+        }
+        .btn-primary { background: var(--burgundy); color: var(--white); }
+        .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(139,58,74,0.35); }
+
+        /* ═══════ FOOTER ═══════ */
+        .footer {
+            background: var(--navy-deep);
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding: 52px 0 28px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
+        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--cream); margin-bottom: 18px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(244,237,228,0.06);
+            padding-top: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+
+        /* ═══════ RESPONSIVE ═══════ */
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .blog-cover img { height: 340px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 76px; left: 0; right: 0;
+                background: rgba(15,26,48,0.98);
+                flex-direction: column; padding: 24px; gap: 14px;
+                border-bottom: 1px solid rgba(122,45,59,0.3);
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: flex; }
+            .blog-hero { padding: 130px 0 56px; }
+            .blog-hero h1 { font-size: 1.8rem; }
+            .blog-cover img { height: 260px; }
+            .article { padding: 40px 20px 60px; }
+            .article h2 { font-size: 1.35rem; margin-top: 36px; }
+            .blog-cta-card { padding: 36px 28px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .blog-hero { padding: 110px 0 44px; }
+            .blog-hero h1 { font-size: 1.5rem; }
+            .blog-hero-meta { gap: 10px; }
+            .blog-cover img { height: 200px; }
+            .article p { font-size: 0.98rem; }
+            .blog-cta-card { padding: 28px 20px; }
+            .blog-cta-card h3 { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#areas">Areas</a></li>
+            <li><a href="index.html#verified-reviews">Reviews</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:6196023000" class="nav-phone">(619) 602-3000</a></li>
+            <li><a href="contact.html" class="nav-cta">Free Quote</a></li>
+        </ul>
+        <button class="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false'?'true':'false'); document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- BLOG HERO -->
+<section class="blog-hero">
+    <div class="blog-hero-bg"></div>
+    <div class="container">
+        <div class="blog-hero-meta">
+            <span class="blog-category-badge">Moving Tips</span>
+            <span class="blog-hero-dot"></span>
+            <span class="blog-hero-date">March 10, 2026</span>
+            <span class="blog-hero-dot"></span>
+            <span class="blog-hero-read">8 min read</span>
+        </div>
+        <h1>How to Prepare Your Home for Movers</h1>
+    </div>
+</section>
+
+<!-- COVER IMAGE -->
+<div class="blog-cover">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=500&fit=crop" alt="Packing boxes and home preparation for moving day">
+</div>
+
+<!-- ARTICLE -->
+<article class="article">
+    <p>Moving day is approaching, and you have hired a professional crew to handle the heavy lifting. But what you do in the days leading up to their arrival can make the difference between a smooth, efficient move and a stressful, drawn-out ordeal. A well-prepared home allows movers to work faster, reduces the risk of damage, and can even save you money if you are paying by the hour.</p>
+
+    <p>This guide walks you through everything you should do before the moving truck pulls up to your driveway. Follow these steps and your movers will thank you for it.</p>
+
+    <h2>1. Declutter Before You Pack</h2>
+
+    <p>Moving is the ideal time to lighten your load. Every item you get rid of is one less thing to pack, carry, and unpack at your new home. Start this process at least two to three weeks before moving day so you are not making rushed decisions.</p>
+
+    <ul class="checklist">
+        <li>Go room by room and sort items into keep, donate, sell, and discard piles</li>
+        <li>Donate usable clothing, furniture, and household goods to local charities</li>
+        <li>Host a garage sale or list items on marketplace apps for quick cash</li>
+        <li>Dispose of hazardous materials (paint, propane, chemicals) according to local regulations since movers cannot transport these</li>
+        <li>Shred old documents that contain sensitive information rather than moving them</li>
+    </ul>
+
+    <div class="tip-box">
+        <p><strong>Pro Tip:</strong> If you have not used something in the past year, you probably will not miss it. Be honest with yourself and let go of items that no longer serve you.</p>
+    </div>
+
+    <h2>2. Disassemble Large Furniture</h2>
+
+    <p>Taking apart beds, dining tables, shelving units, and desks before the movers arrive saves significant time. Your crew will handle reassembly at the new location if that is part of your service agreement, but disassembly ahead of time keeps things moving.</p>
+
+    <ul class="checklist">
+        <li>Remove bed frames and headboards, keeping all hardware together in labeled bags</li>
+        <li>Take apart modular shelving, desks, and table legs where possible</li>
+        <li>Place screws, bolts, and Allen keys in small resealable bags taped to the corresponding furniture piece</li>
+        <li>Keep assembly instructions or photograph each step for easier reassembly</li>
+        <li>Remove glass shelves and mirrors from furniture and wrap them separately</li>
+    </ul>
+
+    <h2>3. Clear Pathways and Doorways</h2>
+
+    <p>Movers need a clear, unobstructed route from every room to the front door and then to the truck. Tight hallways, cluttered entryways, and random obstacles slow the process down and create safety hazards.</p>
+
+    <ul class="checklist">
+        <li>Remove rugs, shoe racks, and coat stands from hallways and entryways</li>
+        <li>Move potted plants, decorative items, and fragile objects away from the main walking paths</li>
+        <li>Ensure all doors open fully and prop them open on moving day</li>
+        <li>Clear the driveway and the path from the front door to where the truck will park</li>
+        <li>If you live in an apartment, reserve the elevator and notify building management</li>
+    </ul>
+
+    <h2>4. Protect Your Floors and Walls</h2>
+
+    <p>Heavy furniture and constant foot traffic can damage floors, especially hardwood, tile, and carpet. A little preparation goes a long way toward keeping your deposit or maintaining the resale value of your home.</p>
+
+    <ul class="checklist">
+        <li>Lay down floor runners or old sheets along the main traffic routes</li>
+        <li>Place cardboard or moving blankets at doorway thresholds where furniture will be tilted or pivoted</li>
+        <li>Remove wall-mounted art, shelves, and mirrors to prevent them from being knocked loose during the move</li>
+        <li>Use corner protectors on exposed wall edges in narrow hallways</li>
+    </ul>
+
+    <h2>5. Label Every Room</h2>
+
+    <p>One of the most effective things you can do for an organized move is to label each room in your new home and match those labels to your boxes. This eliminates confusion and prevents boxes from ending up in the wrong place.</p>
+
+    <ul class="checklist">
+        <li>Assign a color or number to each room in your new home</li>
+        <li>Label all boxes on the top and at least two sides with the destination room</li>
+        <li>Print or write room labels and tape them to doorways at your new home before the movers arrive</li>
+        <li>Create a master list showing which color or number corresponds to each room</li>
+    </ul>
+
+    <div class="tip-box">
+        <p><strong>Pro Tip:</strong> Use colored duct tape on boxes for a quick visual system. Blue for the master bedroom, green for the kitchen, red for the living room. Your movers will be able to sort at a glance.</p>
+    </div>
+
+    <h2>6. Secure Valuables and Personal Items</h2>
+
+    <p>While professional movers are trustworthy and insured, certain items should always stay in your personal possession during a move. This is not about trust but about ensuring irreplaceable things are never at risk.</p>
+
+    <ul class="checklist">
+        <li>Keep jewelry, important documents (passports, birth certificates, financial records), and medications with you</li>
+        <li>Transport external hard drives, laptops, and irreplaceable photos in your own vehicle</li>
+        <li>Set aside a clearly marked "do not move" area for items you are transporting yourself</li>
+        <li>Make digital backups of important documents before the move</li>
+    </ul>
+
+    <h2>7. Prepare Appliances</h2>
+
+    <p>Large appliances need specific preparation before they can be safely moved. Failing to do this can result in water damage, mechanical issues, or injury.</p>
+
+    <ul class="checklist">
+        <li>Defrost your refrigerator and freezer at least 24 hours in advance and wipe out all moisture</li>
+        <li>Disconnect and drain washing machines, securing the drum with transit bolts if available</li>
+        <li>Clean and dry the inside of your dishwasher and oven</li>
+        <li>Bundle power cords and secure them to each appliance with tape or zip ties</li>
+        <li>Measure doorways to confirm that large appliances can pass through without removal of doors</li>
+    </ul>
+
+    <h2>8. Communicate with Your Movers</h2>
+
+    <p>Clear communication is the key to a successful moving day. The more your movers know in advance, the better prepared they will be to handle your specific situation.</p>
+
+    <ul class="checklist">
+        <li>Confirm the date, arrival time, and any parking or access restrictions at both locations</li>
+        <li>Point out fragile items, antiques, or anything that requires special handling</li>
+        <li>Let the crew know about stairs, narrow hallways, low ceilings, or tricky corners in advance</li>
+        <li>Discuss which items are going and which are staying, especially in shared living situations</li>
+        <li>Have your phone charged and be available for questions throughout the day</li>
+    </ul>
+
+    <div class="tip-box">
+        <p><strong>Pro Tip:</strong> Walk through both locations with your lead mover at the start of the day. A five-minute walkthrough can prevent hours of confusion and backtracking.</p>
+    </div>
+
+    <h2>Moving Day Essentials Bag</h2>
+
+    <p>Pack a bag with everything you will need immediate access to on moving day and your first night in the new home. This prevents you from frantically searching through dozens of boxes at the end of a long day.</p>
+
+    <ul>
+        <li><strong>Toiletries and medications</strong> you will need that night and the next morning</li>
+        <li><strong>A change of clothes</strong> for each family member</li>
+        <li><strong>Phone chargers and basic electronics</strong></li>
+        <li><strong>Important documents and keys</strong> for the new home</li>
+        <li><strong>Snacks, water, and coffee supplies</strong> for keeping energy up</li>
+        <li><strong>Cleaning supplies</strong> for a quick wipe-down at the old or new place</li>
+        <li><strong>Basic tools</strong> (screwdriver, pliers, utility knife) for any last-minute tasks</li>
+    </ul>
+
+    <p>Preparing your home for movers is not complicated, but it does require planning. By decluttering, disassembling furniture, clearing paths, protecting surfaces, labeling rooms, securing valuables, prepping appliances, and communicating with your moving crew, you are setting everyone up for a fast and smooth moving day. Your movers will arrive, get to work immediately, and finish sooner, which means you can start enjoying your new home that much faster.</p>
+</article>
+
+<!-- CTA -->
+<div class="blog-cta">
+    <div class="blog-cta-card">
+        <h3>Need Help Preparing for Your Move?</h3>
+        <p>Sutton Movers offers full packing services, furniture disassembly, and professional moving labor across Southern California. Let us handle the hard work so you can focus on settling in.</p>
+        <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Sutton Movers">
+                <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
+            </div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
+            <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6196023000">(619) 602-3000</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon&ndash;Sun: 6AM&ndash;6PM</li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sutton Movers. All Rights Reserved.</p>
+            <p>Serving San Diego, Riverside, Inland Empire, Orange County &amp; LA</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Nav on scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.background = window.scrollY > 50 ? 'rgba(11,18,32,0.99)' : 'rgba(15,26,48,0.97)';
+});
+</script>
+</body>
+</html>
