@@ -282,38 +282,57 @@
             line-height: 1.15; margin-bottom: 14px;
         }
         .section-header p { font-size: 1.05rem; color: var(--text-light); max-width: 560px; margin: 0 auto; line-height: 1.6; }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;
+        .services-categories {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
         }
-        .service-card {
+        .service-category {
             background: var(--white); border: 1px solid var(--cream-dark);
-            padding: 32px 24px; text-align: center;
-            transition: all 0.4s; position: relative; overflow: hidden;
+            padding: 40px 32px; position: relative; overflow: hidden;
+            transition: all 0.4s;
         }
-        .service-card::after {
+        .service-category::after {
             content: ''; position: absolute; bottom: 0; left: 0; right: 0;
             height: 3px; background: var(--burgundy);
             transform: scaleX(0); transition: transform 0.4s;
         }
-        .service-card:hover {
+        .service-category:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 36px rgba(27,42,74,0.1);
             border-color: rgba(122,45,59,0.2);
         }
-        .service-card:hover::after { transform: scaleX(1); }
-        .service-icon {
-            width: 52px; height: 52px; margin: 0 auto 14px;
+        .service-category:hover::after { transform: scaleX(1); }
+        .category-icon {
+            width: 56px; height: 56px; margin-bottom: 18px;
             display: flex; align-items: center; justify-content: center;
             background: rgba(27,42,74,0.06); border-radius: 50%;
         }
-        .service-icon svg { width: 24px; height: 24px; color: var(--navy); }
-        .service-card h3 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.95rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.04em;
-            color: var(--navy); margin-bottom: 6px;
+        .category-icon svg { width: 26px; height: 26px; color: var(--navy); }
+        .service-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 10px;
         }
-        .service-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
+        .service-category > p { font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+        .category-services { list-style: none; }
+        .category-services li {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.88rem; font-weight: 500; color: var(--text-body);
+            padding: 7px 0; border-bottom: 1px solid var(--cream-dark);
+        }
+        .category-services li:last-child { border-bottom: none; }
+        .category-services li svg { width: 16px; height: 16px; color: var(--burgundy); flex-shrink: 0; }
+
+        /* ═══════ QUOTE SECTION (after services) ═══════ */
+        .quote-section { padding: 90px 0; background: var(--navy-deep); }
+        .quote-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+        .quote-info .section-label { color: var(--cream); text-align: left; }
+        .quote-info h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--white); margin-bottom: 18px; line-height: 1.15; }
+        .quote-info h2 em { font-style: italic; color: var(--cream-dark); }
+        .quote-info > p { font-size: 1rem; line-height: 1.7; color: var(--text-on-dark); margin-bottom: 20px; }
+        .quote-highlights { display: grid; gap: 12px; }
+        .quote-highlight { display: flex; align-items: center; gap: 10px; }
+        .quote-highlight svg { width: 18px; height: 18px; color: var(--burgundy-light); flex-shrink: 0; }
+        .quote-highlight span { font-size: 0.9rem; font-weight: 500; color: var(--cream-dark); }
 
         /* ═══════ ABOUT ═══════ */
         .about { padding: 90px 0; background: var(--white); }
@@ -359,17 +378,22 @@
         }
         .gallery-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
 
-        /* ═══════ PROCESS ═══════ */
+        /* ═══════ PROCESS (vertical) ═══════ */
         .process { padding: 90px 0; background: var(--off-white); }
-        .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; }
-        .process-steps::before {
-            content: ''; position: absolute; top: 34px;
-            left: 10%; right: 10%; height: 2px;
-            background: linear-gradient(to right, transparent, var(--cream-dark), var(--cream-dark), transparent);
+        .process-steps-v { max-width: 640px; margin: 0 auto; position: relative; }
+        .process-steps-v::before {
+            content: ''; position: absolute; top: 0; bottom: 0;
+            left: 33px; width: 2px;
+            background: var(--cream-dark);
         }
-        .process-step { text-align: center; position: relative; }
+        .process-step-v {
+            display: flex; align-items: flex-start; gap: 24px;
+            padding: 28px 0; position: relative;
+        }
+        .process-step-v:first-child { padding-top: 0; }
+        .process-step-v:last-child { padding-bottom: 0; }
         .step-number {
-            width: 68px; height: 68px; margin: 0 auto 16px;
+            width: 68px; height: 68px; flex-shrink: 0;
             display: flex; align-items: center; justify-content: center;
             background: var(--white); border: 3px solid var(--burgundy);
             border-radius: 50%;
@@ -377,13 +401,14 @@
             font-size: 1.4rem; font-weight: 800; color: var(--burgundy);
             position: relative; z-index: 2;
         }
-        .process-step h3 {
+        .step-content { padding-top: 12px; }
+        .step-content h3 {
             font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem; font-weight: 700;
+            font-size: 1rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.04em;
             color: var(--navy); margin-bottom: 6px;
         }
-        .process-step p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+        .step-content p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
 
         /* ═══════ AREAS ═══════ */
         .areas { padding: 90px 0; background: var(--white); }
@@ -507,12 +532,30 @@
         }
         .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
 
-        /* ═══════ CALL NOW BUTTON ═══════ */
-        .btn-call-now {
-            font-size: 1.05rem !important;
-            padding: 16px 32px !important;
-            animation: pulse-glow 2s infinite;
+        /* ═══════ STICKY CTA ═══════ */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+            background: var(--burgundy);
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
         }
+        .sticky-cta.visible { transform: translateY(0); }
+        .sticky-cta a {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--white);
+        }
+        .sticky-cta a svg { width: 20px; height: 20px; }
+
+        /* ═══════ HERO QUICK FORM ═══════ */
+        .hero-quick-form { display: flex; flex-direction: column; gap: 12px; }
+        .hero-quick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
         @keyframes pulse-glow {
             0%, 100% { box-shadow: 0 0 0 0 rgba(122, 45, 59, 0.5); }
             50% { box-shadow: 0 0 20px 4px rgba(122, 45, 59, 0.4); }
@@ -665,8 +708,8 @@
         @media (max-width: 1024px) {
             .hero-grid { grid-template-columns: 1fr; gap: 36px; }
             .about-grid { grid-template-columns: 1fr; gap: 36px; }
-            .process-steps { grid-template-columns: repeat(3, 1fr); }
-            .process-steps::before { display: none; }
+            .services-categories { grid-template-columns: 1fr; }
+            .quote-layout { grid-template-columns: 1fr; gap: 36px; }
             .areas-content { grid-template-columns: 1fr; gap: 36px; }
             .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -689,21 +732,19 @@
             .hero { min-height: auto; padding: 96px 0 48px; }
             .hero-grid { padding: 32px 0; }
             .hero-form-card { padding: 24px; }
+            .hero-quick-row { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .process-steps { grid-template-columns: 1fr 1fr; }
             .about-highlights { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
             .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
             .trust-items { gap: 20px; }
+            .sticky-cta { padding: 12px 16px; }
+            .sticky-cta a { font-size: 0.9rem; }
         }
         @media (max-width: 480px) {
-            .services-grid { grid-template-columns: 1fr; }
             .reviews-scroll-grid { grid-template-columns: 1fr; }
             .contact-cards { grid-template-columns: 1fr; }
-            .hero-buttons { flex-direction: column; }
-            .hero-buttons .btn { text-align: center; justify-content: center; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
@@ -724,7 +765,7 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tel:6196023000" class="nav-phone">(619) 602-3000</a></li>
-            <li><a href="#contact" class="nav-cta">Free Quote</a></li>
+            <li><a href="#quote" class="nav-cta">Free Quote</a></li>
         </ul>
         <button class="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false'?'true':'false'); document.getElementById('navLinks').classList.toggle('active')">
             <span></span><span></span><span></span>
@@ -741,68 +782,26 @@
                 <div class="hero-logo-wrap"><img src="images/logo.png" alt="Sutton Movers Logo"></div>
                 <div class="hero-badge">★ Family-Owned &amp; Fully Insured Since 2020</div>
                 <h1>Fast, Affordable Movers in San Diego &amp; SoCal – <em>5-Star Rated &amp; Fully Insured</em></h1>
-                <p class="hero-sub">The additional muscle you need for a smooth, stress-free move. On-demand moving labor across San Diego, Riverside, the Inland Empire, and LA County.</p>
+                <p class="hero-sub">On-demand moving labor across San Diego, Riverside, the Inland Empire, and LA County.</p>
                 <div class="hero-features">
-                    <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fully Insured</div>
-                    <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>COI Available</div>
-                    <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Free Quotes</div>
+                    <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fully Insured &amp; COI Ready</div>
                     <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>7 Days a Week</div>
                     <div class="hero-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Military Discount</div>
                 </div>
-                <div class="hero-buttons">
-                    <a href="tel:6196023000" class="btn btn-primary btn-call-now">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        Call Now – Get a Quote in 2 Minutes
-                    </a>
-                    <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
-                </div>
             </div>
             <div class="hero-form-card">
-                <h2>Request a Free Quote</h2>
-                <p class="form-sub">Tell us about your move — we'll get back to you fast.</p>
-                <form id="quoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
-                    <div class="form-row">
-                        <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
-                        <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(619) 555-0123" required></div>
-                    </div>
-                    <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
-                    <div class="form-row">
-                        <div class="form-group"><label>Service Type</label>
-                            <select name="service_type" required>
-                                <option value="" disabled selected>Select type...</option>
-                                <option>Full-Service Move (Labor + Truck)</option>
-                                <option>Labor Only (No Truck)</option>
-                            </select>
+                <h2>Get a Free Quote</h2>
+                <p class="form-sub">We'll call you back within the hour.</p>
+                <form id="quickQuoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
+                    <input type="hidden" name="_subject" value="Quick Quote Request">
+                    <div class="hero-quick-form">
+                        <div class="hero-quick-row">
+                            <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+                            <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(619) 555-0123" required></div>
                         </div>
-                        <div class="form-group"><label>Service Needed</label>
-                            <select name="service" required>
-                                <option value="" disabled selected>Select a service...</option>
-                                <option>Local Moving</option><option>Long Distance Moving</option>
-                                <option>Commercial / Office Moving</option><option>Apartment Moving</option>
-                                <option>Senior Home Moving</option><option>Piano / Safe Moving</option>
-                                <option>Packing Services</option><option>Labor Only</option>
-                                <option>Military Base Moving</option><option>Junk Removal</option>
-                                <option>Furniture Storage</option><option>Other</option>
-                            </select>
-                        </div>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+                        <button type="submit" class="btn btn-primary btn-submit">Get My Free Quote →</button>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group"><label>Preferred Date</label><input type="date" name="preferred_date"></div>
-                        <div class="form-group"><label>Preferred Time</label>
-                            <select name="preferred_time">
-                                <option value="" disabled selected>Select time...</option>
-                                <option>Morning (6AM–10AM)</option>
-                                <option>Midday (10AM–1PM)</option>
-                                <option>Afternoon (1PM–4PM)</option>
-                                <option>Evening (4PM–6PM)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group form-checkbox">
-                        <label class="checkbox-label"><input type="checkbox" name="truck_needed" value="Yes"> Truck needed (we have two 26-ft trucks available)</label>
-                    </div>
-                    <div class="form-group"><label>Moving Details</label><textarea name="message" placeholder="From/to, rooms, special items..."></textarea></div>
-                    <button type="submit" class="btn btn-primary btn-submit">Get My Free Quote →</button>
                 </form>
             </div>
         </div>
@@ -828,21 +827,108 @@
         <div class="section-header fade-up">
             <span class="section-label">What We Do</span>
             <h2>Our Moving Services</h2>
-            <p>From a single piano to an entire office — we bring the muscle, trucks, and care to get it done right.</p>
+            <p>Whatever your move looks like, we've done it before.</p>
         </div>
-        <div class="services-grid">
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3>Local Moving</h3><p>Same-day and scheduled local moves across San Diego County and surrounding areas.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Long Distance</h3><p>In-state and interstate relocations across California and beyond.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h3>Commercial &amp; Office</h3><p>Business relocations with minimal downtime — we keep you moving.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Apartment Moving</h3><p>Stairs, elevators, tight spaces — apartment moves are our specialty.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Senior Moving</h3><p>Patient, respectful moves for seniors transitioning to new homes.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3>Piano &amp; Safe Moving</h3><p>Heavy, delicate, high-value items moved with the right equipment.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><h3>Packing Services</h3><p>Full-service packing and unpacking with quality materials.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Labor Only</h3><p>On-demand muscle — loading, unloading, and heavy lifting.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Military Base Moving</h3><p>Proud to serve military families — PCS and on-base relocations.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><h3>Junk Removal</h3><p>Declutter before or after your move — we haul away what you don't need.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div><h3>Furniture Storage</h3><p>Short and long-term storage solutions for your belongings.</p></div>
-            <div class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><line x1="9" y1="22" x2="9" y2="15"/><line x1="15" y1="22" x2="15" y2="15"/></svg></div><h3>In-State Moving</h3><p>Relocating within California? We handle any distance statewide.</p></div>
+        <div class="services-categories">
+            <div class="service-category fade-up">
+                <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <h3>Residential Moving</h3>
+                <p>Apartments, houses, senior homes — local or long distance across California and beyond.</p>
+                <ul class="category-services">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Local &amp; In-State Moves</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Long Distance &amp; Interstate</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Apartment &amp; Condo</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Senior Relocations</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Military &amp; PCS</li>
+                </ul>
+            </div>
+            <div class="service-category fade-up">
+                <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                <h3>Commercial &amp; Cleanout</h3>
+                <p>Offices, warehouses, storefronts — plus junk removal and storage when you need to make space.</p>
+                <ul class="category-services">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Office &amp; Business Relocation</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Junk Removal &amp; Cleanout</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Furniture Storage</li>
+                </ul>
+            </div>
+            <div class="service-category fade-up">
+                <div class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3>Packing &amp; Heavy Lifting</h3>
+                <p>Need extra muscle or careful hands? We pack, lift, load, and handle the items that need special attention.</p>
+                <ul class="category-services">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full-Service Packing</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Labor Only — Load &amp; Unload</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Piano, Safe &amp; Specialty Items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILED QUOTE FORM -->
+<section class="quote-section" id="quote">
+    <div class="container">
+        <div class="quote-layout">
+            <div class="quote-info fade-up">
+                <span class="section-label">Ready to Move?</span>
+                <h2>Tell Us About <em>Your Move</em></h2>
+                <p>The more details you share, the faster we can get you an accurate quote. We'll follow up within the hour.</p>
+                <div class="quote-highlights">
+                    <div class="quote-highlight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>No-obligation estimate</span></div>
+                    <div class="quote-highlight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Same-day availability</span></div>
+                    <div class="quote-highlight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Transparent pricing</span></div>
+                    <div class="quote-highlight"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Two 26-ft trucks available</span></div>
+                </div>
+            </div>
+            <div class="hero-form-card fade-up">
+                <h2>Request a Detailed Quote</h2>
+                <p class="form-sub">Fill in what you can — we'll figure out the rest together.</p>
+                <form id="quoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
+                    <div class="form-row">
+                        <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+                        <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(619) 555-0123" required></div>
+                    </div>
+                    <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Service Type</label>
+                            <select name="service_type" required>
+                                <option value="" disabled selected>Select type...</option>
+                                <option>Full-Service Move (Labor + Truck)</option>
+                                <option>Labor Only (No Truck)</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>Service Needed</label>
+                            <select name="service" required>
+                                <option value="" disabled selected>Select a service...</option>
+                                <option>Residential Moving</option><option>Long Distance Moving</option>
+                                <option>Commercial / Office Moving</option><option>Apartment Moving</option>
+                                <option>Senior Relocation</option><option>Piano / Safe / Specialty</option>
+                                <option>Packing Services</option><option>Labor Only</option>
+                                <option>Military / PCS</option><option>Junk Removal</option>
+                                <option>Furniture Storage</option><option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Preferred Date</label><input type="date" name="preferred_date"></div>
+                        <div class="form-group"><label>Preferred Time</label>
+                            <select name="preferred_time">
+                                <option value="" disabled selected>Select time...</option>
+                                <option>Morning (6AM–10AM)</option>
+                                <option>Midday (10AM–1PM)</option>
+                                <option>Afternoon (1PM–4PM)</option>
+                                <option>Evening (4PM–6PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group form-checkbox">
+                        <label class="checkbox-label"><input type="checkbox" name="truck_needed" value="Yes"> Truck needed (we have two 26-ft trucks available)</label>
+                    </div>
+                    <div class="form-group"><label>Moving Details</label><textarea name="message" placeholder="From/to, rooms, special items..."></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-submit">Get My Free Quote →</button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
@@ -878,8 +964,8 @@
     <div class="container">
         <div class="section-header fade-up">
             <span class="section-label">Our Work</span>
-            <h2>See Us in Action</h2>
-            <p>Every move tells a story. Here's a look at what we do every day across Southern California.</p>
+            <h2>The People Behind Your Move</h2>
+            <p>Real jobs, real crew, real care. This is what moving day looks like with Sutton Movers.</p>
         </div>
         <div class="gallery-grid" id="galleryGrid">
             <div class="gallery-item"><img src="images/gallery-1.png" alt="Sutton Movers crew ready to work" loading="lazy"></div>
@@ -918,12 +1004,35 @@
             <h2>Our Simple Process</h2>
             <p>From first call to final box — here's how we make your move effortless.</p>
         </div>
-        <div class="process-steps">
-            <div class="process-step fade-up"><div class="step-number">1</div><h3>Request a Quote</h3><p>Fill out our form or call for a free, no-obligation estimate.</p></div>
-            <div class="process-step fade-up"><div class="step-number">2</div><h3>Get Your Estimate</h3><p>We assess your move and provide a transparent, competitive quote.</p></div>
-            <div class="process-step fade-up"><div class="step-number">3</div><h3>Schedule Your Move</h3><p>Pick a date that works. We confirm and lock it in.</p></div>
-            <div class="process-step fade-up"><div class="step-number">4</div><h3>Moving Day</h3><p>Our crew arrives on time, handles everything with care.</p></div>
-            <div class="process-step fade-up"><div class="step-number">5</div><h3>Final Walkthrough</h3><p>Quality check together before we wrap up.</p></div>
+        <div class="process-steps-v">
+            <div class="process-step-v fade-up">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Request a Quote</h3>
+                    <p>Fill out our form or call us. We'll get back to you within the hour with a free, no-obligation estimate.</p>
+                </div>
+            </div>
+            <div class="process-step-v fade-up">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Lock In Your Date</h3>
+                    <p>Once you're happy with the quote, pick a date that works. We confirm and reserve your crew.</p>
+                </div>
+            </div>
+            <div class="process-step-v fade-up">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Moving Day</h3>
+                    <p>Our crew arrives on time, handles everything with care, and keeps you in the loop start to finish.</p>
+                </div>
+            </div>
+            <div class="process-step-v fade-up">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Final Walkthrough</h3>
+                    <p>We walk through the space together before we wrap up. Nothing leaves until you're satisfied.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1175,7 +1284,7 @@
     <div class="container">
         <h2>Ready to Make Your Move?</h2>
         <p>Get a free, no-obligation quote today. We handle the heavy lifting — you handle the excitement.</p>
-        <a href="#contact" class="btn">Get Your Free Quote →</a>
+        <a href="#quote" class="btn">Get Your Free Quote →</a>
     </div>
 </section>
 
@@ -1240,6 +1349,14 @@
     <img id="lightboxImg" src="" alt="Gallery photo">
 </div>
 
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+    <a href="tel:6196023000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (619) 602-3000 — Free Quote
+    </a>
+</div>
+
 <script>
 // Scroll animations
 const observer = new IntersectionObserver(entries => {
@@ -1247,9 +1364,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Nav on scroll
+// Nav on scroll + sticky CTA
+const stickyCta = document.getElementById('stickyCta');
 window.addEventListener('scroll', () => {
     document.getElementById('nav').style.background = window.scrollY > 50 ? 'rgba(11,18,32,0.99)' : 'rgba(15,26,48,0.97)';
+    stickyCta.classList.toggle('visible', window.scrollY > 600);
 });
 
 // Smooth scroll
