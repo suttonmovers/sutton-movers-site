@@ -6,7 +6,7 @@
     <title>Full-Service vs. Labor-Only Moving | Sutton Movers</title>
     <meta name="description" content="Compare full-service moving and labor-only options. Learn the pros, cons, cost differences, and how to choose the right moving service for your needs. Sutton Movers offers both in Southern California.">
     <link rel="canonical" href="https://suttonmovers.com/blog-full-service-vs-labor-only.html">
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo-new.png">
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://suttonmovers.com/blog-full-service-vs-labor-only.html">
@@ -16,130 +16,130 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #243D5C;
-            --navy-deep: #1B3050;
-            --navy-light: #3A5A8A;
-            --burgundy: #A34459;
-            --burgundy-light: #C2576E;
-            --burgundy-dark: #7E3345;
-            --cream: #FAF5EF;
-            --cream-dark: #F0E8DC;
             --white: #FFFFFF;
-            --off-white: #FEFCF9;
-            --text-dark: #1A1A1A;
-            --text-body: #3A3A3A;
-            --text-light: #636363;
-            --text-on-dark: #E8E5DE;
+            --off-white: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --border: #E5E7EB;
+            --text-primary: #1A1A1A;
+            --text-secondary: #555555;
+            --text-light: #9CA3AF;
+            --dark: #1C2431;
+            --dark-deep: #141B27;
+            --amber: #D97B2B;
+            --amber-hover: #C06A1F;
+            --amber-light: rgba(217,123,43,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Raleway', sans-serif;
-            background: var(--off-white);
-            color: var(--text-body);
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--text-secondary);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--navy);
+        h1, h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-primary);
+        }
+        h3, h4 {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
         }
 
         a { text-decoration: none; color: inherit; }
         a:focus-visible, button:focus-visible {
-            outline: 2px solid var(--burgundy); outline-offset: 2px;
+            outline: 2px solid var(--amber); outline-offset: 2px;
         }
         img { max-width: 100%; display: block; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* ═══════ NAV ═══════ */
+        /* NAV */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(15, 26, 48, 0.97);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            background: var(--dark);
             transition: all 0.3s;
         }
         .nav-inner {
             max-width: 1200px; margin: 0 auto; padding: 0 24px;
             display: flex; align-items: center; justify-content: space-between;
-            height: 76px;
+            height: 68px;
         }
-        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .nav-logo-img { height: 44px; width: auto; }
+        .nav-logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem; font-weight: 600;
+            color: var(--white); letter-spacing: 0.02em;
+        }
         .nav-links {
-            display: flex; list-style: none; gap: 28px; align-items: center;
+            display: flex; list-style: none; gap: 24px; align-items: center;
         }
         .nav-links a {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.85rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--cream-dark); transition: color 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem; font-weight: 500;
+            color: rgba(255,255,255,0.75); transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--white); }
         .nav-phone {
-            color: var(--cream) !important;
-            font-weight: 700 !important;
-            font-size: 0.95rem !important;
-            letter-spacing: 0.04em !important;
+            color: var(--white) !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
         }
         .nav-cta {
-            background: var(--burgundy) !important;
+            background: var(--amber) !important;
             color: var(--white) !important;
-            padding: 10px 24px !important;
-            transition: background 0.3s, transform 0.2s !important;
+            padding: 9px 22px !important;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: background 0.3s !important;
         }
-        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+        .nav-cta:hover { background: var(--amber-hover) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
 
-        /* ═══════ BLOG HERO ═══════ */
+        /* BLOG HERO */
         .blog-post-hero {
             position: relative;
-            padding: 160px 0 72px;
-            background: var(--navy-deep);
+            padding: 140px 0 64px;
+            background: var(--dark);
             overflow: hidden;
-        }
-        .blog-post-hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(21,39,68,0.95) 0%, rgba(30,52,86,0.85) 50%, rgba(21,39,68,0.92) 100%);
-            z-index: 1;
-        }
-        .blog-post-hero-bg {
-            position: absolute; inset: 0;
-            background: linear-gradient(45deg, var(--navy) 0%, var(--navy-light) 50%, var(--burgundy-dark) 100%);
-            opacity: 0.3;
         }
         .blog-post-hero .container {
             position: relative; z-index: 2; text-align: center;
         }
         .blog-post-hero .category-badge {
             display: inline-block;
-            background: rgba(139, 58, 74, 0.3);
-            border: 1px solid rgba(139, 58, 74, 0.6);
+            background: var(--amber-light);
+            border: 1px solid rgba(217,123,43,0.25);
             padding: 5px 16px;
-            font-size: 0.72rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.14em;
-            color: var(--cream);
+            border-radius: 3px;
+            font-size: 0.72rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--amber);
             margin-bottom: 20px;
         }
         .blog-post-hero h1 {
             font-size: clamp(2rem, 4.5vw, 3rem);
-            font-weight: 800; color: var(--white);
+            font-weight: 700; color: var(--white);
             margin-bottom: 20px;
             max-width: 760px; margin-left: auto; margin-right: auto;
             line-height: 1.15;
+            text-transform: uppercase;
         }
         .blog-post-meta {
             display: flex; align-items: center; justify-content: center;
             gap: 20px; flex-wrap: wrap;
-            font-size: 0.9rem; color: var(--text-on-dark);
+            font-size: 0.9rem; color: rgba(255,255,255,0.6);
         }
         .blog-post-meta span {
             display: inline-flex; align-items: center; gap: 6px;
@@ -148,7 +148,7 @@
             width: 16px; height: 16px; opacity: 0.7;
         }
 
-        /* ═══════ COVER IMAGE ═══════ */
+        /* COVER IMAGE */
         .blog-cover-wrap {
             max-width: 900px;
             margin: -40px auto 0;
@@ -159,11 +159,11 @@
             width: 100%;
             height: 420px;
             object-fit: cover;
-            border: 4px solid var(--white);
-            box-shadow: 0 12px 40px rgba(21, 39, 68, 0.15);
+            border-radius: 8px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
         }
 
-        /* ═══════ ARTICLE BODY ═══════ */
+        /* ARTICLE BODY */
         .blog-article {
             max-width: 760px;
             margin: 0 auto;
@@ -171,19 +171,20 @@
         }
         .blog-article p {
             font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--text-body);
+            line-height: 1.8;
+            color: var(--text-secondary);
             margin-bottom: 24px;
         }
         .blog-article h2 {
             font-size: 1.7rem;
-            font-weight: 700;
+            font-weight: 600;
             margin-top: 48px;
             margin-bottom: 18px;
             line-height: 1.3;
+            text-transform: uppercase;
         }
         .blog-article h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-top: 36px;
             margin-bottom: 14px;
@@ -192,36 +193,36 @@
         .blog-article ul, .blog-article ol {
             margin: 0 0 24px 20px;
             font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--text-body);
+            line-height: 1.8;
+            color: var(--text-secondary);
         }
         .blog-article li {
             margin-bottom: 8px;
         }
         .blog-article strong {
-            color: var(--navy);
+            color: var(--text-primary);
         }
         .blog-article a {
-            color: var(--burgundy);
+            color: var(--amber);
             font-weight: 600;
-            border-bottom: 1px solid rgba(139, 58, 74, 0.3);
+            border-bottom: 1px solid rgba(217,123,43,0.3);
             transition: border-color 0.3s;
         }
         .blog-article a:hover {
-            border-color: var(--burgundy);
+            border-color: var(--amber);
         }
 
         /* Lead paragraph */
         .blog-article .lead {
             font-size: 1.15rem;
-            color: var(--text-body);
+            color: var(--text-secondary);
             line-height: 1.9;
-            border-left: 3px solid var(--burgundy);
+            border-left: 3px solid var(--amber);
             padding-left: 20px;
             margin-bottom: 32px;
         }
 
-        /* ═══════ COMPARISON TABLE ═══════ */
+        /* COMPARISON TABLE */
         .comparison-table-wrap {
             margin: 32px 0 36px;
             overflow-x: auto;
@@ -232,10 +233,10 @@
             font-size: 0.95rem;
         }
         .comparison-table thead th {
-            background: var(--navy);
+            background: var(--dark);
             color: var(--white);
-            font-family: 'Raleway', sans-serif;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
             font-size: 0.82rem;
@@ -247,18 +248,18 @@
         }
         .comparison-table tbody td {
             padding: 13px 18px;
-            border-bottom: 1px solid var(--cream-dark);
+            border-bottom: 1px solid var(--border);
             vertical-align: top;
             line-height: 1.6;
         }
         .comparison-table tbody tr:nth-child(even) {
-            background: var(--cream);
+            background: var(--off-white);
         }
         .comparison-table tbody tr:nth-child(odd) {
             background: var(--white);
         }
 
-        /* ═══════ SIDE-BY-SIDE CARDS ═══════ */
+        /* SIDE-BY-SIDE CARDS */
         .comparison-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -267,20 +268,21 @@
         }
         .compare-card {
             background: var(--white);
-            border: 1px solid var(--cream-dark);
+            border: 1px solid var(--border);
             padding: 28px 24px;
+            border-radius: 6px;
         }
         .compare-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             margin-top: 0;
             margin-bottom: 14px;
-            color: var(--navy);
+            color: var(--text-primary);
         }
         .compare-card.full-service {
-            border-top: 3px solid var(--navy);
+            border-top: 3px solid var(--dark);
         }
         .compare-card.labor-only {
-            border-top: 3px solid var(--burgundy);
+            border-top: 3px solid var(--amber);
         }
         .compare-card ul {
             margin: 0 0 0 18px;
@@ -290,14 +292,15 @@
             margin-bottom: 6px;
         }
 
-        /* ═══════ TIP BOX ═══════ */
+        /* TIP BOX */
         .tip-box {
-            background: var(--cream);
-            border-left: 4px solid var(--burgundy);
+            background: var(--amber-light);
+            border-left: 4px solid var(--amber);
             padding: 22px 24px;
             margin: 32px 0;
             font-size: 0.98rem;
             line-height: 1.75;
+            border-radius: 0 6px 6px 0;
         }
         .tip-box strong {
             display: block;
@@ -305,23 +308,45 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--burgundy);
+            color: var(--amber);
         }
 
-        /* ═══════ BLOG CTA ═══════ */
+        /* RELATED ARTICLES */
+        .related-articles {
+            margin: 40px 0;
+            padding: 32px;
+            background: var(--off-white);
+            border-left: 4px solid var(--amber);
+            border-radius: 0 6px 6px 0;
+        }
+        .related-articles h3 {
+            font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-primary); margin-bottom: 16px;
+        }
+        .related-articles ul { list-style: none; padding: 0; margin: 0; }
+        .related-articles li { margin-bottom: 10px; }
+        .related-articles a {
+            color: var(--amber); font-weight: 600; font-size: 0.95rem;
+            border-bottom: none;
+        }
+
+        /* BLOG CTA */
         .blog-cta {
-            background: var(--navy);
+            background: var(--dark);
             padding: 48px 40px;
             text-align: center;
             margin-top: 48px;
+            border-radius: 8px;
         }
         .blog-cta h2 {
             color: var(--white);
             font-size: 1.6rem;
             margin-bottom: 12px;
+            text-transform: uppercase;
         }
         .blog-cta p {
-            color: var(--text-on-dark) !important;
+            color: rgba(255,255,255,0.65) !important;
             font-size: 1rem !important;
             margin-bottom: 24px !important;
             max-width: 520px;
@@ -330,15 +355,15 @@
         }
         .btn {
             display: inline-flex; align-items: center; gap: 8px;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            padding: 14px 30px; cursor: pointer; border: none; transition: all 0.3s;
+            border-radius: 4px;
         }
-        .btn-primary { background: var(--burgundy); color: var(--white); }
-        .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(139,58,74,0.35); }
+        .btn-primary { background: var(--amber); color: var(--white); }
+        .btn-primary:hover { background: var(--amber-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(217,123,43,0.3); }
 
-        /* ═══════ BACK TO BLOG ═══════ */
+        /* BACK TO BLOG */
         .back-to-blog {
             max-width: 760px;
             margin: 0 auto;
@@ -350,50 +375,49 @@
             gap: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--burgundy);
+            color: var(--amber);
             transition: color 0.3s;
             border-bottom: none;
         }
         .back-to-blog a:hover {
-            color: var(--burgundy-light);
+            color: var(--amber-hover);
         }
 
-        /* ═══════ FOOTER ═══════ */
+        /* FOOTER */
         .footer {
-            background: var(--navy-deep);
-            border-top: 1px solid rgba(244,237,228,0.06);
+            background: var(--dark-deep);
             padding: 52px 0 28px;
         }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
-        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
-        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 280px; margin-top: 14px; }
+        .footer-brand img { height: 44px; width: auto; }
         .footer h4 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.78rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.12em;
-            color: var(--cream); margin-bottom: 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--white); margin-bottom: 18px;
         }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 9px; }
-        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.3s; }
         .footer-links a:hover { color: var(--white); }
         .footer-bottom {
-            border-top: 1px solid rgba(244,237,228,0.06);
+            border-top: 1px solid rgba(255,255,255,0.08);
             padding-top: 20px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+        .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
 
-        /* ═══════ RESPONSIVE ═══════ */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links {
-                display: none; position: absolute; top: 76px; left: 0; right: 0;
-                background: rgba(15,26,48,0.98);
+                display: none; position: absolute; top: 68px; left: 0; right: 0;
+                background: var(--dark);
                 flex-direction: column; padding: 24px; gap: 14px;
-                border-bottom: 1px solid rgba(122,45,59,0.3);
+                border-top: 1px solid rgba(255,255,255,0.08);
             }
             .nav-links.active { display: flex; }
             .hamburger { display: flex; }
@@ -422,22 +446,21 @@
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
+<nav class="nav">
     <div class="nav-inner">
-        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <a href="index.html" class="nav-logo">
+            <img src="images/logo-new.png" alt="Sutton Movers" class="nav-logo-img">
+            <span class="nav-logo-text">Sutton Movers</span>
+        </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#areas">Areas</a></li>
-            <li><a href="index.html#verified-reviews">Reviews</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#areas">Areas We Serve</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tel:6196023000" class="nav-phone">(619) 602-3000</a></li>
-            <li><a href="contact.html" class="nav-cta">Free Quote</a></li>
+            <li><a href="index.html#quote-form" class="nav-cta">Free Quote</a></li>
         </ul>
-        <button class="hamburger" role="button" aria-label="Toggle navigation menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false'?'true':'false'); document.getElementById('navLinks').classList.toggle('active')">
+        <button class="hamburger" aria-label="Toggle navigation" onclick="document.getElementById('navLinks').classList.toggle('active')">
             <span></span><span></span><span></span>
         </button>
     </div>
@@ -445,7 +468,6 @@
 
 <!-- BLOG POST HERO -->
 <section class="blog-post-hero">
-    <div class="blog-post-hero-bg"></div>
     <div class="container">
         <span class="category-badge">Moving Guide</span>
         <h1>Full-Service Moving vs. Labor-Only: Which Is Right for You?</h1>
@@ -617,11 +639,11 @@
     <p>The right choice depends entirely on your circumstances. There is no one-size-fits-all answer, but with the information above, you should have a clear picture of which option matches your priorities, whether that is maximum convenience or maximum savings.</p>
 
     <!-- RELATED ARTICLES -->
-    <div style="margin: 40px 0; padding: 32px; background: var(--cream); border-left: 4px solid var(--burgundy);">
-        <h3 style="font-family: 'Raleway', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 16px;">Related Articles</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 10px;"><a href="blog-stress-free-moving-tips.html" style="color: var(--burgundy); font-weight: 600; font-size: 0.95rem;">10 Tips for a Stress-Free Moving Day &rarr;</a></li>
-            <li style="margin-bottom: 10px;"><a href="blog-insurance-requirements.html" style="color: var(--burgundy); font-weight: 600; font-size: 0.95rem;">Insurance Requirements for Commercial Building Moves in San Diego &rarr;</a></li>
+    <div class="related-articles">
+        <h3>Related Articles</h3>
+        <ul>
+            <li><a href="blog-stress-free-moving-tips.html">10 Tips for a Stress-Free Moving Day &rarr;</a></li>
+            <li><a href="blog-insurance-requirements.html">Insurance Requirements for Commercial Building Moves in San Diego &rarr;</a></li>
         </ul>
     </div>
 
@@ -646,10 +668,10 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="images/logo.png" alt="Sutton Movers">
+                <img src="images/logo-new.png" alt="Sutton Movers">
                 <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
             </div>
-            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="index.html#reviews">Reviews</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
             <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
             <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6196023000">(619) 602-3000</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon&ndash;Sun: 6AM&ndash;6PM</li></ul></div>
         </div>
@@ -660,11 +682,5 @@
     </div>
 </footer>
 
-<script>
-// Nav background on scroll
-window.addEventListener('scroll', () => {
-    document.getElementById('nav').style.background = window.scrollY > 50 ? 'rgba(11,18,32,0.99)' : 'rgba(15,26,48,0.97)';
-});
-</script>
 </body>
 </html>

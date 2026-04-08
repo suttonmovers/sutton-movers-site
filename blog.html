@@ -7,39 +7,37 @@
     <meta name="description" content="Sutton Movers blog — moving tips, industry insights, insurance guides, and company updates for San Diego and Southern California relocations.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #243D5C;
-            --navy-deep: #1B3050;
-            --navy-light: #3A5A8A;
-            --burgundy: #A34459;
-            --burgundy-light: #C2576E;
-            --burgundy-dark: #7E3345;
-            --cream: #FAF5EF;
-            --cream-dark: #F0E8DC;
             --white: #FFFFFF;
-            --off-white: #FEFCF9;
-            --text-dark: #1A1A1A;
-            --text-body: #3A3A3A;
-            --text-light: #636363;
-            --text-on-dark: #E8E5DE;
+            --off-white: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --border: #E5E7EB;
+            --text-primary: #1A1A1A;
+            --text-secondary: #555555;
+            --text-light: #9CA3AF;
+            --dark: #1C2431;
+            --dark-deep: #141B27;
+            --amber: #D97B2B;
+            --amber-hover: #C06A1F;
+            --amber-light: rgba(217,123,43,0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--off-white);
-            color: var(--text-body);
+            color: var(--text-secondary);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--navy);
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-primary);
         }
 
         a { text-decoration: none; color: inherit; }
@@ -47,78 +45,84 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* ═══════ NAV ═══════ */
+        /* ======= NAV ======= */
         .nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(15, 26, 48, 0.97);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(122, 45, 59, 0.3);
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s;
         }
         .nav-inner {
             max-width: 1200px; margin: 0 auto; padding: 0 24px;
             display: flex; align-items: center; justify-content: space-between;
-            height: 76px;
+            height: 68px;
         }
-        .nav-logo-img { height: 56px; width: auto; border-radius: 4px; }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .nav-logo-img { height: 44px; width: auto; border-radius: 4px; }
+        .nav-logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--white); text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
         .nav-links {
             display: flex; list-style: none; gap: 28px; align-items: center;
         }
         .nav-links a {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 0.85rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--cream-dark); transition: color 0.3s;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.7); transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--white); }
-        .nav-links a.active { color: var(--white); }
         .nav-phone {
-            color: var(--cream) !important;
+            color: var(--white) !important;
             font-weight: 700 !important;
             font-size: 0.95rem !important;
             letter-spacing: 0.04em !important;
         }
         .nav-cta {
-            background: var(--burgundy) !important;
+            background: var(--amber) !important;
             color: var(--white) !important;
             padding: 10px 24px !important;
+            border-radius: 6px !important;
+            text-transform: uppercase !important;
             transition: background 0.3s, transform 0.2s !important;
         }
-        .nav-cta:hover { background: var(--burgundy-light) !important; transform: translateY(-1px); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-        .hamburger span { display: block; width: 26px; height: 2px; background: var(--cream); transition: 0.3s; }
+        .nav-cta:hover { background: var(--amber-hover) !important; transform: translateY(-1px); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+        .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); transition: 0.3s; }
 
-        /* ═══════ HERO ═══════ */
+        /* ======= HERO ======= */
         .blog-hero {
             position: relative;
-            padding: 160px 0 80px;
-            background: var(--navy-deep);
+            padding: 140px 0 72px;
+            background: #E8ECF0;
+            border-bottom: 1px solid var(--border);
             overflow: hidden;
         }
         .blog-hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: linear-gradient(135deg, rgba(15,26,48,0.95) 0%, rgba(27,42,74,0.85) 50%, rgba(15,26,48,0.92) 100%);
-            z-index: 1;
+            display: none;
         }
         .blog-hero-bg {
-            position: absolute; inset: 0;
-            background: linear-gradient(45deg, var(--navy) 0%, var(--navy-light) 50%, var(--burgundy-dark) 100%);
-            opacity: 0.3;
+            display: none;
         }
         .blog-hero .container {
             position: relative; z-index: 2; text-align: center;
         }
         .blog-hero h1 {
             font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-            font-weight: 800; color: var(--white);
-            margin-bottom: 16px;
+            font-weight: 700; color: var(--text-primary);
+            margin-bottom: 16px; text-transform: uppercase;
         }
         .blog-hero p {
-            font-size: 1.15rem; color: var(--text-on-dark);
+            font-size: 1.15rem; color: var(--text-secondary);
             max-width: 520px; margin: 0 auto; line-height: 1.7;
         }
 
-        /* ═══════ BLOG SECTION ═══════ */
+        /* ======= BLOG SECTION ======= */
         .blog-section {
             padding: 72px 0 80px;
         }
@@ -127,23 +131,24 @@
         .featured-post {
             display: grid; grid-template-columns: 1fr 1fr;
             background: var(--white);
-            border: 1px solid var(--cream-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
             margin-bottom: 48px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .featured-post:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(27,42,74,0.1);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
         }
         .featured-post-image {
             min-height: 340px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--burgundy) 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, #2a3545 40%, var(--amber) 100%);
             display: flex; align-items: center; justify-content: center;
             padding: 40px;
         }
         .featured-post-image svg {
-            width: 80px; height: 80px; color: rgba(244,237,228,0.25);
+            width: 80px; height: 80px; color: rgba(255,255,255,0.2);
         }
         .featured-post-content {
             padding: 44px 40px;
@@ -153,7 +158,7 @@
             display: inline-flex; align-items: center; gap: 6px;
             font-size: 0.72rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.12em;
-            color: var(--burgundy); margin-bottom: 12px;
+            color: var(--amber); margin-bottom: 12px;
         }
         .featured-label svg { width: 14px; height: 14px; }
         .post-category {
@@ -161,18 +166,19 @@
             font-size: 0.7rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
             padding: 4px 12px;
-            background: rgba(122, 45, 59, 0.1);
-            color: var(--burgundy);
+            background: var(--amber-light);
+            color: var(--amber);
+            border-radius: 4px;
             margin-bottom: 14px;
         }
         .featured-post-content h2 {
             font-size: 1.6rem; font-weight: 700;
             line-height: 1.3; margin-bottom: 16px;
-            color: var(--navy);
+            text-transform: uppercase;
         }
         .featured-post-content p {
             font-size: 0.95rem; line-height: 1.7;
-            color: var(--text-body); margin-bottom: 20px;
+            color: var(--text-secondary); margin-bottom: 20px;
         }
         .post-meta {
             font-size: 0.8rem; color: var(--text-light);
@@ -180,13 +186,13 @@
         }
         .read-more {
             display: inline-flex; align-items: center; gap: 6px;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 0.85rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--burgundy);
+            color: var(--amber);
             transition: color 0.3s, gap 0.3s;
         }
-        .read-more:hover { color: var(--burgundy-light); gap: 10px; }
+        .read-more:hover { color: var(--amber-hover); gap: 10px; }
         .read-more svg { width: 16px; height: 16px; }
 
         /* Blog Grid */
@@ -198,20 +204,21 @@
 
         .blog-card {
             background: var(--white);
-            border: 1px solid var(--cream-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .blog-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(27,42,74,0.08);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.06);
         }
         .blog-card-image {
             height: 200px;
             display: flex; align-items: center; justify-content: center;
         }
         .blog-card-image svg {
-            width: 48px; height: 48px; color: rgba(244,237,228,0.3);
+            width: 48px; height: 48px; color: rgba(255,255,255,0.25);
         }
         .blog-card-content {
             padding: 28px 28px 32px;
@@ -222,77 +229,86 @@
         .blog-card-content h3 {
             font-size: 1.2rem; font-weight: 700;
             line-height: 1.35; margin-bottom: 12px;
-            color: var(--navy);
+            text-transform: uppercase;
         }
         .blog-card-content p {
             font-size: 0.9rem; line-height: 1.7;
-            color: var(--text-body); margin-bottom: 16px;
+            color: var(--text-secondary); margin-bottom: 16px;
         }
         .blog-card-content .post-meta {
             margin-bottom: 14px;
         }
 
         /* Gradient backgrounds for cards */
-        .gradient-insurance { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--burgundy) 100%); }
-        .gradient-tips { background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 50%, var(--burgundy-light) 100%); }
-        .gradient-tips-2 { background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 60%, var(--burgundy-dark) 100%); }
-        .gradient-military { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-light) 100%); }
-        .gradient-prep { background: linear-gradient(135deg, var(--burgundy) 0%, var(--navy) 60%, var(--navy-deep) 100%); }
+        .gradient-insurance { background: linear-gradient(135deg, var(--dark) 0%, #2a3545 40%, var(--amber) 100%); }
+        .gradient-tips { background: linear-gradient(135deg, #3a2a1a 0%, var(--amber-hover) 50%, var(--amber) 100%); }
+        .gradient-tips-2 { background: linear-gradient(135deg, #2a3545 0%, var(--dark) 60%, #3a2a1a 100%); }
+        .gradient-military { background: linear-gradient(135deg, var(--dark-deep) 0%, var(--dark) 50%, #2a3545 100%); }
+        .gradient-prep { background: linear-gradient(135deg, var(--amber) 0%, var(--dark) 60%, var(--dark-deep) 100%); }
 
-        /* ═══════ CTA SECTION ═══════ */
+        /* ======= CTA SECTION ======= */
         .blog-cta {
-            background: var(--navy-deep);
+            background: #E8ECF0;
             padding: 72px 0;
             text-align: center;
+            border-top: 1px solid var(--border);
         }
         .blog-cta h2 {
             font-size: clamp(1.8rem, 3.5vw, 2.6rem);
             font-weight: 700;
-            color: var(--white);
+            color: var(--text-primary);
             margin-bottom: 16px;
+            text-transform: uppercase;
         }
         .blog-cta p {
             font-size: 1.05rem; line-height: 1.7;
-            color: var(--text-on-dark);
+            color: var(--text-secondary);
             max-width: 520px; margin: 0 auto 28px;
         }
         .btn {
             display: inline-flex; align-items: center; gap: 8px;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 0.9rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
-            padding: 15px 32px; cursor: pointer; border: none; transition: all 0.3s;
+            padding: 15px 32px; cursor: pointer; border: none;
+            border-radius: 6px; transition: all 0.3s;
         }
-        .btn-primary { background: var(--burgundy); color: var(--white); }
-        .btn-primary:hover { background: var(--burgundy-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(122,45,59,0.35); }
+        .btn-primary { background: var(--amber); color: var(--white); }
+        .btn-primary:hover { background: var(--amber-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(217,123,43,0.3); }
 
-        /* ═══════ FOOTER ═══════ */
+        /* ======= FOOTER ======= */
         .footer {
-            background: var(--navy-deep);
-            border-top: 1px solid rgba(244,237,228,0.06);
+            background: var(--dark-deep);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding: 52px 0 28px;
         }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
-        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: var(--text-on-dark); max-width: 280px; margin-top: 14px; }
-        .footer-brand img { height: 50px; width: auto; border-radius: 4px; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.55); max-width: 280px; margin-top: 14px; }
+        .footer-brand .footer-logo { display: flex; align-items: center; gap: 10px; }
+        .footer-brand img { height: 40px; width: auto; border-radius: 4px; }
+        .footer-brand .footer-logo-text {
+            font-family: 'Oswald', sans-serif; font-size: 1.05rem;
+            font-weight: 600; color: var(--white); text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
         .footer h4 {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 0.78rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.12em;
-            color: var(--cream); margin-bottom: 18px;
+            color: var(--white); margin-bottom: 18px;
         }
         .footer-links { list-style: none; }
         .footer-links li { margin-bottom: 9px; }
-        .footer-links a { font-size: 0.85rem; color: var(--text-on-dark); transition: color 0.3s; }
+        .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.3s; }
         .footer-links a:hover { color: var(--white); }
         .footer-bottom {
-            border-top: 1px solid rgba(244,237,228,0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 20px;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .footer-bottom p { font-size: 0.8rem; color: var(--text-on-dark); }
+        .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
 
-        /* ═══════ RESPONSIVE ═══════ */
+        /* ======= RESPONSIVE ======= */
         @media (min-width: 1024px) {
             .blog-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -305,14 +321,14 @@
         }
         @media (max-width: 768px) {
             .nav-links {
-                display: none; position: absolute; top: 76px; left: 0; right: 0;
-                background: rgba(15,26,48,0.98);
+                display: none; position: absolute; top: 68px; left: 0; right: 0;
+                background: var(--dark);
                 flex-direction: column; padding: 24px; gap: 14px;
-                border-bottom: 1px solid rgba(122,45,59,0.3);
+                border-bottom: 1px solid rgba(255,255,255,0.08);
             }
             .nav-links.active { display: flex; }
             .hamburger { display: flex; }
-            .blog-hero { padding: 130px 0 60px; }
+            .blog-hero { padding: 120px 0 56px; }
             .blog-grid { grid-template-columns: 1fr; }
             .featured-post-content { padding: 28px 24px 32px; }
             .featured-post-content h2 { font-size: 1.35rem; }
@@ -327,23 +343,23 @@
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
+<nav class="nav">
     <div class="nav-inner">
-        <a href="index.html"><img src="images/logo.png" alt="Sutton Movers" class="nav-logo-img"></a>
+        <a href="index.html" class="nav-logo">
+            <img src="images/logo-new.png" alt="Sutton Movers" class="nav-logo-img">
+            <span class="nav-logo-text">Sutton Movers</span>
+        </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#areas">Areas</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="index.html#areas">Areas We Serve</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tel:6196023000" class="nav-phone">(619) 602-3000</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Free Quote</a></li>
+            <li><a href="index.html#quote-form" class="nav-cta">Free Quote</a></li>
         </ul>
-        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <button class="hamburger" aria-label="Toggle navigation" onclick="document.getElementById('navLinks').classList.toggle('active')">
             <span></span><span></span><span></span>
-        </div>
+        </button>
     </div>
 </nav>
 
@@ -441,7 +457,7 @@
     <div class="container">
         <h2>Ready to Get Started?</h2>
         <p>Get a free, no-obligation quote from Sutton Movers. We are here to make your next move smooth and stress-free.</p>
-        <a href="index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="index.html#quote-form" class="btn btn-primary">Get a Free Quote</a>
     </div>
 </section>
 
@@ -450,10 +466,13 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="images/logo.png" alt="Sutton Movers">
+                <div class="footer-logo">
+                    <img src="images/logo-new.png" alt="Sutton Movers">
+                    <span class="footer-logo-text">Sutton Movers</span>
+                </div>
                 <p>Family-owned moving company based in San Marcos, California. Fully insured, on-demand moving labor serving all of Southern California since 2020. Moving in Style.</p>
             </div>
-            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About Us</a></li><li><a href="index.html#gallery">Gallery</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="faq.html">FAQ</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#areas">Service Areas</a></li><li><a href="index.html#reviews">Reviews</a></li><li><a href="contact.html">Contact</a></li></ul></div>
             <div><h4>Services</h4><ul class="footer-links"><li><a href="index.html#services">Local Moving</a></li><li><a href="index.html#services">Long Distance</a></li><li><a href="index.html#services">Commercial Moving</a></li><li><a href="index.html#services">Senior Moving</a></li><li><a href="index.html#services">Packing</a></li><li><a href="index.html#services">Labor Only</a></li></ul></div>
             <div><h4>Contact</h4><ul class="footer-links"><li><a href="tel:6196023000">(619) 602-3000</a></li><li><a href="mailto:contactsuttonmovers@gmail.com">contactsuttonmovers@gmail.com</a></li><li>San Marcos, CA</li><li>Mon&ndash;Sun: 6AM&ndash;6PM</li></ul></div>
         </div>
