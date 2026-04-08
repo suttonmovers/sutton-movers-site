@@ -3,3 +3,6 @@
 *.swo
 *~
 .env
+*.pdf
+.claude/
+brand-preview*.html
