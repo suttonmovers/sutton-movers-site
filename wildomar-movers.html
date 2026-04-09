@@ -33,8 +33,8 @@
     <style>
         :root {
             --white: #FFFFFF; --off-white: #F8F9FA; --dark: #1C2431; --dark-deep: #141B27;
-            --amber: #D97B2B; --amber-hover: #C06A1F; --text-primary: #1A1A1A; --text-secondary: #555555;
-            --border: #E5E7EB;
+            --amber: #D97B2B; --amber-hover: #C06A1F; --amber-light: rgba(217,123,43,0.08);
+            --text-primary: #1A1A1A; --text-secondary: #555555; --border: #E5E7EB;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -43,6 +43,8 @@
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.06); }
         .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
         .nav-logo { display: flex; align-items: center; gap: 10px; }
@@ -56,24 +58,60 @@
         .nav-cta:hover { background: var(--amber-hover); }
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
         .hamburger span { display: block; width: 24px; height: 2px; background: #fff; transition: 0.3s; }
-        .hero { position: relative; min-height: 420px; display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 68px; background: url('https://source.unsplash.com/1600x900/?wildomar+california') center/cover no-repeat; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(28,36,49,0.7), rgba(28,36,49,0.8)); }
-        .hero-content { position: relative; z-index: 1; padding: 60px 24px; max-width: 800px; }
-        .hero h1 { font-size: 3rem; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
-        .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.7; }
-        .section { padding: 72px 0; }
-        .section-alt { background: var(--off-white); }
-        .section-title { font-size: 2rem; text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
-        .section-text { text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; }
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 32px; }
-        .service-card h3 { font-size: 1.2rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.01em; }
-        .service-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* PAGE HEADER */
+        .page-header { margin-top: 68px; padding: 48px 0 44px; text-align: center; background: #E8ECF0; }
+        .page-header h1 { font-size: 3.2rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-primary); }
+
+        /* CITY IMAGE */
+        .city-image { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .city-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; }
+
+        /* CONTENT */
+        .content-section { padding: 56px 0; }
+        .content-wrap { max-width: 800px; margin: 0 auto; }
+        .content-wrap p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 18px; }
+        .content-wrap p:last-child { margin-bottom: 0; }
+
+        /* SERVICE CARDS */
+        .services-section { padding: 64px 0; background: var(--off-white); }
+        .services-section h2 { font-size: 1.8rem; text-align: center; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 40px; }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 28px 28px 72px;
+            position: relative;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+        .service-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--amber);
+            border-radius: 12px 0 0 12px;
+        }
+        .service-card-icon {
+            position: absolute; left: 24px; top: 28px;
+            width: 32px; height: 32px;
+            background: var(--amber-light);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .service-card-icon svg { width: 18px; height: 18px; color: var(--amber); }
+        .service-card h3 { font-size: 1.05rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.01em; }
+        .service-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* CTA */
         .cta-section { background: var(--amber); padding: 56px 0; text-align: center; }
         .cta-section h2 { color: #fff; font-size: 2rem; margin-bottom: 12px; text-transform: uppercase; }
         .cta-section p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 24px; }
         .cta-btn { display: inline-block; background: var(--dark); color: #fff; padding: 14px 36px; border-radius: 6px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.3s; }
         .cta-btn:hover { background: var(--dark-deep); }
+
+        /* FOOTER */
         .footer { background: var(--dark-deep); padding: 48px 0 24px; color: rgba(255,255,255,0.5); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 36px; }
         .footer-brand p { font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.5); max-width: 280px; margin-top: 14px; }
@@ -87,15 +125,19 @@
         .footer-links a:hover { color: #fff; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
         .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-links { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--dark); flex-direction: column; padding: 20px; gap: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
             .nav-links.active { display: flex; }
             .hamburger { display: flex; }
-            .hero h1 { font-size: 2.2rem; }
+            .page-header h1 { font-size: 2rem; }
+            .city-image img { height: 280px; }
             .services-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 480px) {
+            .city-image img { height: 200px; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
             .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
         }
@@ -123,38 +165,55 @@
     </div>
 </nav>
 
-<section class="hero">
-    <div class="hero-content">
+<header class="page-header">
+    <div class="container">
         <h1>Wildomar Movers</h1>
-        <p>Moving to Wildomar? With its rural charm, equestrian-friendly communities, and relaxed Inland Empire living, Wildomar offers a peaceful escape while staying connected to the rest of Southern California. Sutton Movers provides dependable, full-service moving throughout Wildomar.</p>
+    </div>
+</header>
+
+<div class="city-image">
+    <img src="https://images.unsplash.com/photo-1674414927618-ff2e9f40fde2?w=2400&q=80&fit=crop" alt="Wildomar community, California" loading="eager">
+</div>
+
+<section class="content-section">
+    <div class="container">
+        <div class="content-wrap">
+            <p>Moving to Wildomar? This charming Southwest Riverside County city offers rural character, equestrian properties, and a tight-knit community. Sutton Movers provides dependable, full-service moving throughout Wildomar and the Inland Empire.</p>
+            <p>As a Southern California moving company, we know Wildomar's unique mix of rural and suburban neighborhoods. Our experienced team handles every move with care — providing transparent pricing, on-time arrivals, and the kind of personal service that's earned us a 5-star reputation.</p>
+        </div>
     </div>
 </section>
 
-<section class="section">
+<section class="services-section">
     <div class="container">
-        <h2 class="section-title">Why Choose Sutton Movers for Your Wildomar Move?</h2>
-        <p class="section-text">As a local Southern California moving company, we know Wildomar inside and out. Our experienced team handles every move with care — providing transparent pricing, on-time arrivals, and the kind of personal service that's earned us a 5-star reputation across the Inland Empire.</p>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <h2 class="section-title">Moving Services in Wildomar, CA</h2>
+        <h2>Moving Services in Wildomar, CA</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Residential Moves in Wildomar</h3>
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Residential Moves</h3>
                 <p>Careful handling of your belongings, from fragile items to large furniture.</p>
             </div>
             <div class="service-card">
-                <h3>Commercial Moves in Wildomar</h3>
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Commercial Moves</h3>
                 <p>Efficient office and business relocation with minimal downtime.</p>
             </div>
             <div class="service-card">
-                <h3>Packing Services in Wildomar</h3>
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Packing Services</h3>
                 <p>Full-service packing and unpacking to save you time and effort.</p>
             </div>
             <div class="service-card">
-                <h3>Local Expertise in Wildomar</h3>
+                <div class="service-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h3>Local Expertise</h3>
                 <p>Knowledge of Wildomar neighborhoods ensures smooth navigation and timely service.</p>
             </div>
         </div>
