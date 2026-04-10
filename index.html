@@ -220,15 +220,11 @@
         /* Autocomplete dropdown */
         .pac-container { border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-top: 4px; z-index: 9999; }
 
-        /* ═══════ SOCIAL PROOF BAR ═══════ */
-        .proof-bar {
-            background: var(--off-white);
-            border-bottom: 1px solid var(--border);
-            padding: 18px 0;
-        }
-        .proof-items { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+        /* ═══════ SOCIAL PROOF ITEMS ═══════ */
+        .proof-items { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; margin-bottom: 40px; padding: 20px 0; }
         .proof-item { display: flex; align-items: center; gap: 12px; }
         .proof-logo { width: 32px; height: 32px; flex-shrink: 0; }
+        .proof-logo-img { height: 28px; width: auto; flex-shrink: 0; }
         .proof-info { display: flex; flex-direction: column; }
         .proof-rating { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 6px; }
         .proof-rating .stars { color: var(--amber); font-size: 0.85rem; letter-spacing: 1px; }
@@ -281,6 +277,32 @@
             color: var(--text-primary); margin-bottom: 8px;
         }
         .service-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.55; }
+
+        /* ═══════ WHY CHOOSE US ═══════ */
+        .why-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+        }
+        .why-card {
+            display: flex; align-items: flex-start; gap: 16px;
+            background: var(--white); border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            border-radius: 8px; padding: 24px;
+            transition: all 0.3s;
+        }
+        .why-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+        .why-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--amber-light); border-radius: 10px;
+        }
+        .why-icon svg { width: 22px; height: 22px; color: var(--amber); }
+        .why-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.02em;
+            color: var(--text-primary); margin-bottom: 4px;
+        }
+        .why-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin: 0; }
 
         /* ═══════ AREAS ═══════ */
         .area-region { margin-bottom: 40px; }
@@ -490,11 +512,10 @@
         }
         .payments-icons {
             display: flex; justify-content: center; align-items: center;
-            gap: 24px; flex-wrap: wrap;
+            gap: 28px; flex-wrap: wrap;
         }
-        .payment-icon { text-align: center; }
-        .payment-icon svg { width: 48px; height: 32px; }
-        .payment-icon span { font-size: 0.65rem; font-weight: 600; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; }
+        .payment-icon { text-align: center; display: flex; align-items: center; }
+        .payment-icon img { height: 36px; width: auto; display: block; }
 
         /* ═══════ FOOTER ═══════ */
         .footer {
@@ -571,6 +592,7 @@
         /* ═══════ RESPONSIVE ═══════ */
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
             .reviews-grid { grid-template-columns: repeat(2, 1fr); }
             .blog-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -591,6 +613,7 @@
             .hero-form-row { flex-direction: column; }
             .hero-form-input[type="date"] { max-width: 100%; }
             .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
             .area-photo { height: 160px; }
             .reviews-grid { grid-template-columns: 1fr; }
             .contact-cards { grid-template-columns: 1fr 1fr; }
@@ -655,40 +678,6 @@
     </div>
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<section class="proof-bar">
-    <div class="container">
-        <div class="proof-items">
-            <div class="proof-item">
-                <!-- Google "G" logo -->
-                <svg class="proof-logo" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.001-.001 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
-                <div class="proof-info">
-                    <div class="proof-rating">5.0 <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-                    <div class="proof-detail">Google Reviews</div>
-                </div>
-            </div>
-            <div class="proof-divider"></div>
-            <div class="proof-item">
-                <!-- MovingHelp icon -->
-                <svg class="proof-logo" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#1A73E8"/><path d="M12 34V16h4l5 9 5-9h4v18h-4V23l-5 9-5-9v11h-4z" fill="white"/><path d="M36 16v18" stroke="white" stroke-width="3.5" stroke-linecap="round"/></svg>
-                <div class="proof-info">
-                    <div class="proof-rating">5.0 <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-                    <div class="proof-detail">50+ MovingHelp Reviews</div>
-                </div>
-            </div>
-            <div class="proof-divider"></div>
-            <div class="proof-item">
-                <!-- Shield icon -->
-                <svg class="proof-logo" viewBox="0 0 48 48" fill="none"><path d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" fill="#22C55E" opacity="0.15"/><path d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" stroke="#22C55E" stroke-width="2.5" fill="none"/><path d="M16 24l5 5 11-11" stroke="#22C55E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <div class="proof-info">
-                    <div class="proof-rating">Fully Insured</div>
-                    <div class="proof-detail">COI on 48hr Notice</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- SERVICES -->
 <section class="section" id="services">
     <div class="container">
@@ -737,6 +726,61 @@
                 <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
                 <h3>Junk Removal</h3>
                 <p>Getting rid of stuff? We haul it away same day so you don't have to.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section section-alt" id="why-us">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="section-label">Why Choose Us</span>
+            <h2>The Sutton Movers Difference</h2>
+            <p>Trusted by hundreds of San Diego families and businesses — here's what sets us apart.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                <div>
+                    <h3>300+ 5-Star Reviews</h3>
+                    <p>Verified reviews across Google and MovingHelp from real San Diego customers.</p>
+                </div>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div>
+                    <h3>On-Time Guaranteed</h3>
+                    <p>We show up when we say we will. No missed windows, no excuses.</p>
+                </div>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <div>
+                    <h3>No Hidden Fees</h3>
+                    <p>Flat, upfront hourly pricing. What we quote is what you pay — period.</p>
+                </div>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div>
+                    <h3>Professional &amp; Friendly Crew</h3>
+                    <p>Uniformed, background-checked movers who treat your belongings like their own.</p>
+                </div>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div>
+                    <h3>Same-Day &amp; Last-Minute Moves</h3>
+                    <p>Tight timeline? Last-minute change of plans? We'll get you moved fast.</p>
+                </div>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div>
+                    <h3>Fully Equipped &amp; Insured</h3>
+                    <p>Trucks, pads, dollies, wrap, tools — plus full insurance and COI on 72hr notice.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -840,6 +884,31 @@
             <h2>Real Reviews From Real Customers</h2>
             <p>See what people are saying about us on Google and MovingHelp.</p>
         </div>
+        <div class="proof-items fade-up">
+            <div class="proof-item">
+                <svg class="proof-logo" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.001-.001 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+                <div class="proof-info">
+                    <div class="proof-rating">5.0 <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+                    <div class="proof-detail">Google Reviews</div>
+                </div>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+                <img class="proof-logo-img" src="images/logos/movinghelp.png" alt="MovingHelp powered by U-Haul">
+                <div class="proof-info">
+                    <div class="proof-rating">5.0 <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+                    <div class="proof-detail">300+ MovingHelp Reviews</div>
+                </div>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-item">
+                <svg class="proof-logo" viewBox="0 0 48 48" fill="none"><path d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" fill="#22C55E" opacity="0.15"/><path d="M24 4L6 12v12c0 11.1 7.7 21.5 18 24 10.3-2.5 18-12.9 18-24V12L24 4z" stroke="#22C55E" stroke-width="2.5" fill="none"/><path d="M16 24l5 5 11-11" stroke="#22C55E" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="proof-info">
+                    <div class="proof-rating">Fully Insured</div>
+                    <div class="proof-detail">COI on 72hr Notice</div>
+                </div>
+            </div>
+        </div>
         <div class="platform-tabs fade-up">
             <button class="platform-tab active" data-platform="google">Google Reviews</button>
             <button class="platform-tab" data-platform="movinghelp">MovingHelp Reviews</button>
@@ -936,14 +1005,14 @@
             <p>Real jobs, real crew, real care.</p>
         </div>
         <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item"><img src="images/sutton-gallery-1.png" alt="Stacked labeled fragile boxes loaded in truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/sutton-gallery-2.png" alt="Wrapped furniture secured in moving truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/sutton-gallery-3.png" alt="Padded furniture pack in Sutton Movers truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/sutton-gallery-4.png" alt="Carefully wrapped piano in elegant foyer" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/sutton-gallery-5.png" alt="Blanket-wrapped furniture load in truck" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/sutton-gallery-6.png" alt="Labeled clothing boxes stacked in truck" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-1.png" alt="Sutton Movers crew ready to work" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-2.png" alt="Loaded moving truck" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-3.png" alt="Furniture carefully wrapped" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-5.png" alt="Moving truck packed" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-6.png" alt="Secured load with straps" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-9.png" alt="Truck loaded and ready to go" loading="lazy"></div>
             <div class="gallery-item"><img src="images/gallery-13.png" alt="Crew member loading truck" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/gallery-19.png" alt="Crew moving wardrobe box" loading="lazy"></div>
         </div>
     </div>
 </section>
@@ -980,7 +1049,7 @@
                     <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <div class="faq-answer-inner">No problem. We're fully insured with general liability and workers' comp. We provide Certificates of Insurance (COI) within 48 hours of request — just send us your building's requirements and we'll handle it.</div>
+                    <div class="faq-answer-inner">No problem. We're fully insured with general liability and workers' comp. We provide Certificates of Insurance (COI) within 72 hours of request — just send us your building's requirements and we'll handle it.</div>
                 </div>
             </div>
             <div class="faq-item">
@@ -1131,13 +1200,13 @@
     <div class="container">
         <p class="payments-title">Accepted Payment Methods</p>
         <div class="payments-icons">
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#1A1F71"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">VISA</text></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#252525"/><circle cx="19" cy="16" r="9" fill="#EB001B"/><circle cx="29" cy="16" r="9" fill="#F79E1B"/><path d="M24 9.3a9 9 0 0 1 0 13.4 9 9 0 0 1 0-13.4z" fill="#FF5F00"/></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#000"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="7" font-weight="600" font-family="Arial">Apple Pay</text></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#008CFF"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="Arial">Zelle</text></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#3D95CE"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="Arial">Venmo</text></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#2E77BC"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="6" font-weight="bold" font-family="Arial">AMEX</text></svg></div>
-            <div class="payment-icon"><svg viewBox="0 0 48 32" fill="none"><rect width="48" height="32" rx="4" fill="#FF6600"/><text x="24" y="20" text-anchor="middle" fill="white" font-size="6" font-weight="bold" font-family="Arial">DISCOVER</text></svg></div>
+            <div class="payment-icon"><img src="images/logos/visa.svg" alt="Visa"></div>
+            <div class="payment-icon"><img src="images/logos/mastercard.svg" alt="Mastercard"></div>
+            <div class="payment-icon"><img src="images/logos/amex.svg" alt="American Express"></div>
+            <div class="payment-icon"><img src="images/logos/discover.svg" alt="Discover"></div>
+            <div class="payment-icon"><img src="images/logos/applepay.svg" alt="Apple Pay"></div>
+            <div class="payment-icon"><img src="images/logos/zelle.svg" alt="Zelle"></div>
+            <div class="payment-icon"><img src="images/logos/venmo.svg" alt="Venmo"></div>
         </div>
     </div>
 </section>
