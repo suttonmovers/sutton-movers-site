@@ -831,6 +831,18 @@
 </head>
 <body>
 
+<!-- ═══ LOGIN GATE ═══ -->
+<div id="login-gate" style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#F8F9FA;">
+    <div style="background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:40px;width:360px;max-width:90vw;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+        <h2 style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;margin-bottom:6px;">Job Scheduler</h2>
+        <p style="font-size:13px;color:#9CA3AF;margin-bottom:24px;">Enter password to continue</p>
+        <input type="password" id="login-pw" placeholder="Password" style="width:100%;padding:12px 14px;border:1px solid #E5E7EB;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;background:#fff;color:#1A1A1A;margin-bottom:12px;" autofocus>
+        <div id="login-error" style="font-size:12px;color:#DC2626;margin-bottom:12px;display:none;">Incorrect password</div>
+        <button id="login-btn" style="width:100%;padding:14px;background:#1C2431;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;">Enter</button>
+    </div>
+</div>
+
+<div id="app-content" style="display:none;">
 <!-- ═══ HEADER ═══ -->
 <div class="scheduler-header">
     <div class="header-top">
@@ -1046,6 +1058,40 @@
         </div>
     </div>
 </div>
+
+</div><!-- /app-content -->
+
+<script>
+// ── Auth Gate ──
+(function() {
+    var HASH = '7b665f1656d9a44e07406f2fd75acf45f5da2fc84184f53985500e719e5e1968';
+    var SESSION_KEY = 'sutton_scheduler_auth';
+
+    async function sha256(str) {
+        var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+        return Array.from(new Uint8Array(buf)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');
+    }
+
+    function unlock() {
+        document.getElementById('login-gate').style.display = 'none';
+        document.getElementById('app-content').style.display = 'block';
+        sessionStorage.setItem(SESSION_KEY, '1');
+    }
+
+    if (sessionStorage.getItem(SESSION_KEY) === '1') { unlock(); }
+
+    document.getElementById('login-btn').addEventListener('click', async function() {
+        var pw = document.getElementById('login-pw').value;
+        var h = await sha256(pw);
+        if (h === HASH) { unlock(); }
+        else { document.getElementById('login-error').style.display = 'block'; }
+    });
+
+    document.getElementById('login-pw').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') document.getElementById('login-btn').click();
+    });
+})();
+</script>
 
 <script>
 (function() {
