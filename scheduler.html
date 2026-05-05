@@ -1660,13 +1660,14 @@
             return d.getFullYear() === year && d.getMonth() === month;
         });
 
-        var totalRev = 0, totalHours = 0;
+        var totalRev = 0, totalHours = 0, completedHours = 0, completedCount = 0;
         var byStat = { quoted: 0, confirmed: 0, inprogress: 0, completed: 0 };
 
         monthJobs.forEach(function(j) {
             byStat[j.status] = (byStat[j.status] || 0) + 1;
             if (j.quote) totalRev += Number(j.quote);
             if (j.hours) totalHours += Number(j.hours);
+            if (j.status === 'completed') { completedCount++; completedHours += Number(j.hours) || 0; }
         });
 
         // Stats
@@ -1675,7 +1676,7 @@
             '<div class="stat-card highlight"><div class="label">Revenue</div><div class="value">$' + totalRev.toLocaleString('en-US', {minimumFractionDigits:0}) + '</div></div>' +
             '<div class="stat-card"><div class="label">Total Hours</div><div class="value">' + totalHours + '</div></div>' +
             '<div class="stat-card"><div class="label">Avg per Job</div><div class="value">$' + (monthJobs.length ? Math.round(totalRev/monthJobs.length) : 0) + '</div></div>' +
-            '<div class="stat-card"><div class="label">Avg Time / Job</div><div class="value">' + (monthJobs.length ? (totalHours/monthJobs.length).toFixed(1) : '0') + 'h</div></div>';
+            '<div class="stat-card"><div class="label">Avg Time / Job</div><div class="value">' + (completedCount ? (completedHours/completedCount).toFixed(1) : '0') + 'h</div></div>';
 
         // Summary cards
         var maxStat = Math.max.apply(null, Object.values(byStat)) || 1;
