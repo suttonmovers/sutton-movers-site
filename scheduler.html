@@ -812,20 +812,112 @@
         }
         .sync-dot.online { background: var(--green); }
 
+        #monthly-stats { grid-template-columns: repeat(5, 1fr); }
+
+        /* ═══ Expenses Tab ═══ */
+        .exp-form-wrap {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .exp-form-wrap h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .exp-form-row {
+            display: grid;
+            grid-template-columns: 140px 1fr 1fr 120px auto;
+            gap: 12px;
+            align-items: end;
+        }
+        .exp-form-row .form-group { margin-bottom: 0; }
+        .btn-add-exp {
+            padding: 10px 20px;
+            background: var(--dark);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background 0.15s;
+            white-space: nowrap;
+        }
+        .btn-add-exp:hover { background: var(--dark-hover); }
+        .exp-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .exp-cat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .exp-cat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        .exp-cat-row .cat-name { color: var(--text-secondary); }
+        .exp-cat-row .cat-amt { font-weight: 600; }
+        .exp-delete {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .exp-delete:hover { color: var(--red); background: #FEE2E2; }
+
         /* ═══ Responsive ═══ */
         @media (max-width: 1024px) {
             .scheduler-body { grid-template-columns: 1fr; }
             .form-panel { position: static; }
             .summary-grid { grid-template-columns: 1fr; }
+            #monthly-stats { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 768px) {
             .stat-cards, .crew-stats { grid-template-columns: repeat(2, 1fr); }
+            #monthly-stats { grid-template-columns: repeat(2, 1fr); }
             .revenue-cards { grid-template-columns: 1fr; }
             .main-content, .toolbar { padding-left: 16px; padding-right: 16px; }
             .scheduler-header { padding: 16px 16px 0; }
             .week-grid { overflow-x: auto; }
             .day-col { min-width: 120px; }
             .month-cell { min-height: 70px; }
+            .header-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .tab-btn { white-space: nowrap; padding: 12px 16px; }
+            .legend { flex-wrap: wrap; gap: 10px; }
+            .toolbar { flex-direction: column; }
+            .search-box { max-width: 100%; }
+            .filter-select { width: 100%; }
+            .modal { padding: 20px; width: 95vw; }
+            .modal-detail { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .exp-form-row { grid-template-columns: 1fr !important; }
+            .exp-summary { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .header-left h1 { font-size: 20px; }
+            .stat-cards, .crew-stats, #monthly-stats { grid-template-columns: 1fr 1fr; }
+            .stat-card .value { font-size: 28px; }
+            .rev-card .rev-value { font-size: 26px; }
+            .month-cell { min-height: 56px; padding: 4px; }
+            .month-cell .cell-date { font-size: 11px; width: 22px; height: 22px; }
+            .cell-job { font-size: 10px; }
+            .day-col { min-width: 100px; }
         }
     </style>
 </head>
@@ -865,6 +957,7 @@
         <button class="tab-btn" data-tab="monthly">Monthly</button>
         <button class="tab-btn" data-tab="revenue">Revenue</button>
         <button class="tab-btn" data-tab="crew">Crew</button>
+        <button class="tab-btn" data-tab="expenses">Expenses</button>
     </div>
 </div>
 
@@ -1040,6 +1133,66 @@
                 </div>
             </div>
             <div class="week-grid" id="crew-week-grid"></div>
+        </div>
+    </div>
+
+    <!-- ═══ EXPENSES TAB ═══ -->
+    <div class="tab-page" id="page-expenses">
+        <div class="calendar-panel" style="margin-bottom:24px;padding:16px 24px;">
+            <div class="calendar-nav" style="margin-bottom:0;">
+                <span class="week-label" id="exp-period-label"></span>
+                <div class="nav-controls">
+                    <button class="nav-btn" id="exp-prev">&#8249;</button>
+                    <button class="today-btn" id="exp-this-month">This Month</button>
+                    <button class="nav-btn" id="exp-next">&#8250;</button>
+                </div>
+            </div>
+        </div>
+        <div class="exp-summary" id="exp-summary"></div>
+        <div class="exp-form-wrap">
+            <h3>Add Expense</h3>
+            <div class="exp-form-row">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="exp-date">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="exp-category">
+                        <option value="Gas">Gas</option>
+                        <option value="Truck Maintenance">Truck Maintenance</option>
+                        <option value="Equipment">Equipment</option>
+                        <option value="Supplies">Supplies</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Labor">Labor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="exp-desc" placeholder="e.g. Fuel for truck #2">
+                </div>
+                <div class="form-group">
+                    <label>Amount ($)</label>
+                    <input type="number" id="exp-amount" placeholder="0.00" min="0" step="0.01">
+                </div>
+                <button class="btn-add-exp" id="btn-add-exp">Add</button>
+            </div>
+        </div>
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>By Category</h3>
+                <div class="exp-cat-list" id="exp-cat-breakdown"></div>
+            </div>
+            <div class="summary-card">
+                <h3>Expense Log</h3>
+                <table class="rev-table">
+                    <thead><tr><th>Date</th><th>Category</th><th>Description</th><th style="text-align:right">Amount</th><th></th></tr></thead>
+                    <tbody id="exp-table-body"></tbody>
+                </table>
+                <div id="exp-empty" style="text-align:center;padding:32px;color:var(--text-light);font-size:14px;display:none;">No expenses this month</div>
+            </div>
         </div>
     </div>
 </div>
@@ -1521,7 +1674,8 @@
             '<div class="stat-card"><div class="label">Total Jobs</div><div class="value">' + monthJobs.length + '</div></div>' +
             '<div class="stat-card highlight"><div class="label">Revenue</div><div class="value">$' + totalRev.toLocaleString('en-US', {minimumFractionDigits:0}) + '</div></div>' +
             '<div class="stat-card"><div class="label">Total Hours</div><div class="value">' + totalHours + '</div></div>' +
-            '<div class="stat-card"><div class="label">Avg per Job</div><div class="value">$' + (monthJobs.length ? Math.round(totalRev/monthJobs.length) : 0) + '</div></div>';
+            '<div class="stat-card"><div class="label">Avg per Job</div><div class="value">$' + (monthJobs.length ? Math.round(totalRev/monthJobs.length) : 0) + '</div></div>' +
+            '<div class="stat-card"><div class="label">Avg Time / Job</div><div class="value">' + (monthJobs.length ? (totalHours/monthJobs.length).toFixed(1) : '0') + 'h</div></div>';
 
         // Summary cards
         var maxStat = Math.max.apply(null, Object.values(byStat)) || 1;
@@ -1695,6 +1849,133 @@
     document.getElementById('crew-go-today').addEventListener('click', function() { crewMonday = getMonday(new Date()); renderCrew(); });
 
     // ══════════════════════════════════════════
+    //  EXPENSES TAB
+    // ══════════════════════════════════════════
+    const EXP_STORAGE_KEY = 'sutton_scheduler_expenses';
+    var expMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    var expDbRef = null;
+
+    function initExpensesFirebase() {
+        if (firebaseEnabled && typeof firebase !== 'undefined') {
+            expDbRef = firebase.database().ref('expenses');
+            expDbRef.on('value', function(snap) {
+                var data = snap.val();
+                var exps = data ? Object.values(data) : [];
+                localStorage.setItem(EXP_STORAGE_KEY, JSON.stringify(exps));
+                if (currentTab === 'expenses') renderExpenses();
+            });
+        }
+    }
+
+    function getExpenses() {
+        try { return JSON.parse(localStorage.getItem(EXP_STORAGE_KEY)) || []; }
+        catch { return []; }
+    }
+
+    function saveExpenses(exps) {
+        localStorage.setItem(EXP_STORAGE_KEY, JSON.stringify(exps));
+        if (expDbRef) {
+            var obj = {};
+            exps.forEach(function(e) { obj[e.id] = e; });
+            expDbRef.set(obj);
+        }
+    }
+
+    function renderExpenses() {
+        var year = expMonth.getFullYear();
+        var month = expMonth.getMonth();
+        document.getElementById('exp-period-label').textContent = MONTH_FULL[month] + ' ' + year;
+        document.getElementById('exp-date').value = document.getElementById('exp-date').value || toDateStr(new Date());
+
+        var exps = getExpenses().filter(function(e) {
+            if (!e.date) return false;
+            var d = new Date(e.date + 'T00:00:00');
+            return d.getFullYear() === year && d.getMonth() === month;
+        }).sort(function(a,b) { return b.date.localeCompare(a.date); });
+
+        var total = 0;
+        var byCat = {};
+        exps.forEach(function(e) {
+            var amt = Number(e.amount) || 0;
+            total += amt;
+            byCat[e.category] = (byCat[e.category] || 0) + amt;
+        });
+
+        // Also get revenue for this month for profit calc
+        var jobs = getJobs();
+        var monthRev = 0;
+        jobs.forEach(function(j) {
+            if (!j.date) return;
+            var d = new Date(j.date + 'T00:00:00');
+            if (d.getFullYear() === year && d.getMonth() === month && j.status === 'completed') {
+                monthRev += Number(j.quote) || 0;
+            }
+        });
+
+        document.getElementById('exp-summary').innerHTML =
+            '<div class="rev-card"><div class="rev-label">Total Expenses</div><div class="rev-value" style="color:var(--red)">$' + total.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</div><div class="rev-sub">' + exps.length + ' entries</div></div>' +
+            '<div class="rev-card"><div class="rev-label">Completed Revenue</div><div class="rev-value" style="color:#22C55E">$' + monthRev.toLocaleString('en-US', {minimumFractionDigits: 2}) + '</div><div class="rev-sub">This month</div></div>' +
+            '<div class="rev-card"><div class="rev-label">Net Profit</div><div class="rev-value" style="color:' + ((monthRev - total) >= 0 ? '#22C55E' : 'var(--red)') + '">$' + (monthRev - total).toLocaleString('en-US', {minimumFractionDigits: 2}) + '</div><div class="rev-sub">Revenue - Expenses</div></div>';
+
+        // Category breakdown
+        var catHtml = '';
+        var sortedCats = Object.keys(byCat).sort(function(a,b) { return byCat[b] - byCat[a]; });
+        sortedCats.forEach(function(cat) {
+            catHtml += '<div class="exp-cat-row"><span class="cat-name">' + escapeHtml(cat) + '</span><span class="cat-amt">$' + byCat[cat].toFixed(2) + '</span></div>';
+        });
+        if (!catHtml) catHtml = '<div style="color:var(--text-light);font-size:13px;padding:12px;">No expenses this month</div>';
+        document.getElementById('exp-cat-breakdown').innerHTML = catHtml;
+
+        // Expense table
+        var tbody = document.getElementById('exp-table-body');
+        tbody.innerHTML = '';
+        document.getElementById('exp-empty').style.display = exps.length ? 'none' : 'block';
+
+        exps.forEach(function(e) {
+            var d = new Date(e.date + 'T00:00:00');
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() + '</td><td>' + escapeHtml(e.category) + '</td><td>' + escapeHtml(e.description || '-') + '</td><td style="text-align:right;font-weight:600">$' + (Number(e.amount)||0).toFixed(2) + '</td><td><button class="exp-delete" data-id="' + e.id + '">&times;</button></td>';
+            tbody.appendChild(tr);
+        });
+
+        // Delete buttons
+        tbody.querySelectorAll('.exp-delete').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (!confirm('Delete this expense?')) return;
+                var all = getExpenses().filter(function(e) { return e.id !== btn.dataset.id; });
+                saveExpenses(all);
+                renderExpenses();
+            });
+        });
+    }
+
+    document.getElementById('btn-add-exp').addEventListener('click', function() {
+        var date = document.getElementById('exp-date').value;
+        var amount = document.getElementById('exp-amount').value;
+        if (!date || !amount) { alert('Date and amount are required.'); return; }
+
+        var expense = {
+            id: generateId(),
+            date: date,
+            category: document.getElementById('exp-category').value,
+            description: document.getElementById('exp-desc').value.trim(),
+            amount: amount
+        };
+
+        var exps = getExpenses();
+        exps.push(expense);
+        saveExpenses(exps);
+
+        document.getElementById('exp-desc').value = '';
+        document.getElementById('exp-amount').value = '';
+        renderExpenses();
+    });
+
+    document.getElementById('exp-prev').addEventListener('click', function() { expMonth.setMonth(expMonth.getMonth()-1); renderExpenses(); });
+    document.getElementById('exp-next').addEventListener('click', function() { expMonth.setMonth(expMonth.getMonth()+1); renderExpenses(); });
+    document.getElementById('exp-this-month').addEventListener('click', function() { expMonth = new Date(today.getFullYear(), today.getMonth(), 1); renderExpenses(); });
+
+    // ══════════════════════════════════════════
     //  MODAL
     // ══════════════════════════════════════════
     var overlay = document.getElementById('modal-overlay');
@@ -1826,10 +2107,12 @@
         else if (currentTab === 'monthly') renderMonthly();
         else if (currentTab === 'revenue') renderRevenue();
         else if (currentTab === 'crew') renderCrew();
+        else if (currentTab === 'expenses') renderExpenses();
     }
 
     // ── Init ──
     initFirebase();
+    initExpensesFirebase();
     renderAll();
 })();
 </script>
