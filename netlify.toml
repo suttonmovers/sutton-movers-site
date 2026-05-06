@@ -42,6 +42,235 @@
   to = "/contact.html"
   status = 200
 
+[[redirects]]
+  from = "/review"
+  to = "/review.html"
+  status = 200
+
+[[redirects]]
+  from = "/junk-removal"
+  to = "/junk-removal.html"
+  status = 200
+
+# San Diego Region
+[[redirects]]
+  from = "/san-marcos-movers"
+  to = "/san-marcos-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/escondido-movers"
+  to = "/escondido-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/carlsbad-movers"
+  to = "/carlsbad-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/encinitas-movers"
+  to = "/encinitas-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/vista-movers"
+  to = "/vista-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/del-mar-movers"
+  to = "/del-mar-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/la-jolla-movers"
+  to = "/la-jolla-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/chula-vista-movers"
+  to = "/chula-vista-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/el-cajon-movers"
+  to = "/el-cajon-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/la-mesa-movers"
+  to = "/la-mesa-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/poway-movers"
+  to = "/poway-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/rancho-bernardo-movers"
+  to = "/rancho-bernardo-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/national-city-movers"
+  to = "/national-city-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/camp-pendleton-movers"
+  to = "/camp-pendleton-movers.html"
+  status = 200
+
+# Riverside / Inland Empire
+[[redirects]]
+  from = "/riverside-movers"
+  to = "/riverside-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/murrieta-movers"
+  to = "/murrieta-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/corona-movers"
+  to = "/corona-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/menifee-movers"
+  to = "/menifee-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/perris-movers"
+  to = "/perris-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/lake-elsinore-movers"
+  to = "/lake-elsinore-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/hemet-movers"
+  to = "/hemet-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/san-jacinto-movers"
+  to = "/san-jacinto-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/moreno-valley-movers"
+  to = "/moreno-valley-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/beaumont-movers"
+  to = "/beaumont-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/wildomar-movers"
+  to = "/wildomar-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/fallbrook-movers"
+  to = "/fallbrook-movers.html"
+  status = 200
+
+# LA / Orange County
+[[redirects]]
+  from = "/irvine-movers"
+  to = "/irvine-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/dana-point-movers"
+  to = "/dana-point-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/long-beach-movers"
+  to = "/long-beach-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/anaheim-movers"
+  to = "/anaheim-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/santa-ana-movers"
+  to = "/santa-ana-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/huntington-beach-movers"
+  to = "/huntington-beach-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/newport-beach-movers"
+  to = "/newport-beach-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/pasadena-movers"
+  to = "/pasadena-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/fullerton-movers"
+  to = "/fullerton-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/costa-mesa-movers"
+  to = "/costa-mesa-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/mission-viejo-movers"
+  to = "/mission-viejo-movers.html"
+  status = 200
+
+[[redirects]]
+  from = "/san-clemente-movers"
+  to = "/san-clemente-movers.html"
+  status = 200
+
+# Blog posts
+[[redirects]]
+  from = "/blog-insurance-requirements"
+  to = "/blog-insurance-requirements.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-full-service-vs-labor-only"
+  to = "/blog-full-service-vs-labor-only.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-stress-free-moving-tips"
+  to = "/blog-stress-free-moving-tips.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-military-pcs-moves"
+  to = "/blog-military-pcs-moves.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog-prepare-home-for-movers"
+  to = "/blog-prepare-home-for-movers.html"
+  status = 200
+
 # Headers for performance
 [[headers]]
   for = "/*"
