@@ -72,7 +72,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -543,6 +543,14 @@
         .footer-links li { margin-bottom: 8px; }
         .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); transition: color 0.3s; }
         .footer-links a:hover { color: #fff; }
+        .footer-areas { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; margin-bottom: 28px; }
+        .footer-areas h4 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+        .footer-areas-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .footer-areas-grid strong { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+        .footer-areas-grid a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.3s; margin-right: 6px; }
+        .footer-areas-grid a::after { content: " \00b7"; color: rgba(255,255,255,0.2); margin-left: 6px; }
+        .footer-areas-grid a:last-child::after { content: ""; }
+        .footer-areas-grid a:hover { color: #fff; }
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding-top: 20px;
@@ -596,6 +604,57 @@
         .fade-up.visible { opacity: 1; transform: translateY(0); }
 
         /* ═══════ RESPONSIVE ═══════ */
+        /* ═══════ QUOTE FORM ═══════ */
+        .qf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+        .qf-field { margin-bottom: 14px; }
+        .qf-row > .qf-field { margin-bottom: 0; }
+        .qf-label {
+            display: block; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-secondary); margin-bottom: 5px;
+        }
+        .qf-input {
+            width: 100%; padding: 12px 14px;
+            font-family: Inter, sans-serif; font-size: 0.9rem;
+            border: 1px solid var(--border); border-radius: 8px;
+            background: var(--white); color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+        .qf-input:focus { outline: none; border-color: var(--amber); }
+        select.qf-input {
+            cursor: pointer; appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239CA3AF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center;
+        }
+        .qf-chip {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 14px; border-radius: 50px; cursor: pointer;
+            border: 1px solid var(--border); background: var(--white);
+            font-size: 0.82rem; font-weight: 500; color: var(--text-secondary);
+            transition: all 0.2s; user-select: none;
+        }
+        .qf-chip:hover { border-color: var(--amber); color: var(--text-primary); }
+        .qf-chip input { display: none; }
+        .qf-chip:has(input:checked) {
+            background: var(--amber-light); border-color: var(--amber); color: var(--amber); font-weight: 600;
+        }
+        .qf-supplies-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+        }
+        .qf-supply {
+            display: flex; align-items: center; justify-content: space-between; gap: 8px;
+            padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+            background: var(--white); font-size: 0.82rem; color: var(--text-secondary);
+        }
+        .qf-supply em { font-style: normal; color: var(--amber); font-weight: 600; }
+        .qf-qty {
+            width: 48px; padding: 4px 6px; text-align: center;
+            font-family: Inter, sans-serif; font-size: 0.85rem;
+            border: 1px solid var(--border); border-radius: 6px;
+            background: var(--off-white); color: var(--text-primary);
+        }
+        .qf-qty:focus { outline: none; border-color: var(--amber); }
+
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -620,10 +679,13 @@
             .hero-form-input[type="date"] { max-width: 100%; }
             .services-grid { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
+            .qf-row { grid-template-columns: 1fr; }
+            .qf-supplies-grid { grid-template-columns: repeat(2, 1fr); }
             .area-photo { height: 160px; }
             .reviews-grid { grid-template-columns: 1fr; }
             .contact-cards { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-areas-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .proof-items { gap: 20px; }
@@ -1121,41 +1183,187 @@
     </div>
 </section>
 
-<!-- DETAILED QUOTE FORM -->
-<section class="section" id="quote-form">
+<!-- INSTANT QUOTE CALCULATOR -->
+<section class="section section-alt" id="quote-form">
     <div class="container">
         <div class="section-header fade-up">
             <span class="section-label">Ready to Move?</span>
-            <h2>Get Your Free Quote</h2>
-            <p>Fill in what you can — we'll figure out the rest together. We respond within the hour.</p>
+            <h2>Get Your Instant Quote</h2>
+            <p>Select your move details below and see your estimated price instantly. No waiting, no obligation.</p>
         </div>
-        <div style="max-width: 640px; margin: 0 auto;">
-            <form action="https://formspree.io/f/xwvnnjky" method="POST" class="fade-up" style="background: var(--off-white); border: 1px solid var(--border); border-radius: 12px; padding: 32px;">
-                <input type="hidden" name="_subject" value="Website Quote Request">
-                <input type="hidden" name="pickup_address" id="hiddenPickup">
-                <input type="hidden" name="dropoff_address" id="hiddenDropoff">
-                <input type="hidden" name="move_date_hero" id="hiddenDate">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
-                    <div><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Full Name</label><input type="text" name="name" placeholder="Your name" required style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white);"></div>
-                    <div><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Phone</label><input type="tel" name="phone" placeholder="(619) 555-0123" required style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white);"></div>
-                </div>
-                <div style="margin-bottom: 14px;"><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Email</label><input type="email" name="email" placeholder="you@email.com" required style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white);"></div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
-                    <div><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Service Needed</label>
-                        <select name="service" required style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white); cursor:pointer;">
-                            <option value="" disabled selected>Select a service...</option>
-                            <option>Residential Moving</option><option>Commercial Moving</option>
-                            <option>Long Distance Moving</option><option>Small Moves</option>
-                            <option>Last Minute Moving</option><option>Packing Services</option>
-                            <option>Piano / Safe / Specialty</option><option>Junk Removal</option>
-                            <option>Labor Only</option><option>Other</option>
-                        </select>
+        <div style="max-width: 720px; margin: 0 auto;">
+            <div class="fade-up" style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; position: relative;">
+
+                <!-- STEP 1: Service details (drives the estimate) -->
+                <div style="margin-bottom: 24px;">
+                    <h3 style="font-size: 1.1rem; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">1</span>
+                        Move Details
+                    </h3>
+
+                    <div class="qf-row">
+                        <div class="qf-field">
+                            <label class="qf-label">Truck Needed?</label>
+                            <select id="qfTruck" class="qf-input" onchange="updateQuote()">
+                                <option value="1" selected>Yes, include our truck</option>
+                                <option value="0">No, I have my own / labor only</option>
+                            </select>
+                        </div>
+                        <div class="qf-field">
+                            <label class="qf-label">Crew Size</label>
+                            <select id="qfCrew" class="qf-input" onchange="updateQuote()">
+                                <option value="2" selected>2 movers (studio - 2BR)</option>
+                                <option value="1">1 mover (small jobs)</option>
+                                <option value="3">3 movers (2BR - 3BR)</option>
+                                <option value="4">4 movers (3BR+ / office)</option>
+                                <option value="5">5 movers (large home)</option>
+                                <option value="6">6 movers (commercial)</option>
+                            </select>
+                        </div>
                     </div>
-                    <div><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Preferred Date</label><input type="date" name="preferred_date" style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white); cursor:pointer;"></div>
+
+                    <div class="qf-row">
+                        <div class="qf-field">
+                            <label class="qf-label">Estimated Hours</label>
+                            <select id="qfHours" class="qf-input" onchange="updateQuote()">
+                                <option value="3" selected>3 hours (minimum with truck)</option>
+                                <option value="4">4 hours</option>
+                                <option value="5">5 hours</option>
+                                <option value="6">6 hours</option>
+                                <option value="7">7 hours</option>
+                                <option value="8">8 hours</option>
+                            </select>
+                        </div>
+                        <div class="qf-field" id="qfServiceWrap" style="display:none;">
+                            <label class="qf-label">Service Type</label>
+                            <select id="qfService" class="qf-input" onchange="updateQuote()">
+                                <option value="labor" selected>Labor / Loading / Unloading</option>
+                                <option value="pack">Packing Only</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Locations (for moves) -->
+                    <div id="qfLocations" class="qf-row">
+                        <div class="qf-field">
+                            <label class="qf-label">Pickup Address</label>
+                            <input type="text" id="qfPickup" class="qf-input" placeholder="Enter pickup address" autocomplete="off" onchange="calcDistance()">
+                        </div>
+                        <div class="qf-field">
+                            <label class="qf-label">Drop-off Address</label>
+                            <input type="text" id="qfDropoff" class="qf-input" placeholder="Enter drop-off address" autocomplete="off" onchange="calcDistance()">
+                        </div>
+                    </div>
+                    <div id="qfDistanceBadge" style="display:none; margin-bottom:12px;">
+                        <span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--amber-light);border-radius:20px;font-size:0.8rem;font-weight:600;color:var(--amber);">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span id="qfDistanceText">~15 miles</span>
+                        </span>
+                    </div>
+
+                    <!-- Stairs -->
+                    <div class="qf-row">
+                        <div class="qf-field">
+                            <label class="qf-label">Stairs at Pickup</label>
+                            <select id="qfStairsPickup" class="qf-input" onchange="updateQuote()">
+                                <option value="0" selected>No stairs / elevator</option>
+                                <option value="1">1 flight (+$25)</option>
+                                <option value="2">2 flights (+$50)</option>
+                                <option value="3">3+ flights (+$75)</option>
+                            </select>
+                        </div>
+                        <div class="qf-field" id="qfStairsDropWrap">
+                            <label class="qf-label">Stairs at Drop-off</label>
+                            <select id="qfStairsDrop" class="qf-input" onchange="updateQuote()">
+                                <option value="0" selected>No stairs / elevator</option>
+                                <option value="1">1 flight (+$25)</option>
+                                <option value="2">2 flights (+$50)</option>
+                                <option value="3">3+ flights (+$75)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Specialty items -->
+                    <div class="qf-field">
+                        <label class="qf-label">Specialty Items</label>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            <label class="qf-chip"><input type="checkbox" value="treadmill" onchange="updateQuote()"><span>Heavy Item (+$150)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="piano_upright" onchange="updateQuote()"><span>Piano - Upright (+$350)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="safe_small" onchange="updateQuote()"><span>Safe - Small (+$350)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="pool_table" onchange="updateQuote()"><span>Pool Table (+$400)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="piano_grand" onchange="updateQuote()"><span>Piano - Grand (+$600)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="safe_large" onchange="updateQuote()"><span>Safe - Large (+$600)</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Materials / Supplies -->
+                    <div class="qf-field" style="margin-bottom:0;">
+                        <label class="qf-label">Moving Supplies <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-light);">(optional, we bring them on move day)</span></label>
+                        <div class="qf-supplies-grid">
+                            <div class="qf-supply"><span>Small Box <em>$3</em></span><input type="number" min="0" value="0" data-supply="box_small" data-price="3" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Medium Box <em>$5</em></span><input type="number" min="0" value="0" data-supply="box_medium" data-price="5" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Packing Tape <em>$5</em></span><input type="number" min="0" value="0" data-supply="tape" data-price="5" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Large Box <em>$7</em></span><input type="number" min="0" value="0" data-supply="box_large" data-price="7" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Moving Straps <em>$10</em></span><input type="number" min="0" value="0" data-supply="straps" data-price="10" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Bubble Wrap <em>$10</em></span><input type="number" min="0" value="0" data-supply="bubble_wrap" data-price="10" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Moving Blankets <em>$15</em></span><input type="number" min="0" value="0" data-supply="blankets" data-price="15" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Shrink Wrap <em>$25</em></span><input type="number" min="0" value="0" data-supply="shrink_wrap" data-price="25" onchange="updateQuote()" class="qf-qty"></div>
+                            <div class="qf-supply"><span>Wardrobe Box <em>$25</em></span><input type="number" min="0" value="0" data-supply="box_wardrobe" data-price="25" onchange="updateQuote()" class="qf-qty"></div>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin-bottom: 14px;"><label style="display:block; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-secondary); margin-bottom:5px;">Moving Details</label><textarea name="message" placeholder="Pickup address, dropoff address, number of rooms, special items..." rows="4" style="width:100%; padding:12px 14px; font-family:Inter,sans-serif; font-size:0.9rem; border:1px solid var(--border); border-radius:8px; background:var(--white); resize:vertical;"></textarea></div>
-                <button type="submit" class="btn btn-amber btn-full">Get My Free Quote &rarr;</button>
-            </form>
+
+                <!-- LIVE ESTIMATE DISPLAY -->
+                <div id="quoteResult" style="background:#2a3444;border-radius:10px;padding:28px 32px;text-align:center;margin-bottom:24px;">
+                    <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--amber);margin-bottom:8px;">Your Estimated Cost</p>
+                    <div style="display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:6px;">
+                        <span id="quoteLow" style="font-family:Oswald,sans-serif;font-size:2.4rem;font-weight:700;color:#fff;">$360</span>
+                        <span style="color:rgba(255,255,255,0.45);font-size:1.2rem;font-weight:500;">&ndash;</span>
+                        <span id="quoteHigh" style="font-family:Oswald,sans-serif;font-size:2.4rem;font-weight:700;color:#fff;">$530</span>
+                    </div>
+                    <p id="quoteSummary" style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.5;">Based on 2 movers, 3 hours, local move</p>
+                    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);line-height:1.5;">Estimate only. Final price confirmed after a quick call with our team.<br>3-hour minimum with truck, 2-hour minimum labor only. Access conditions may affect final pricing.</p>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Contact info to lock in the quote -->
+                <div>
+                    <h3 style="font-size: 1.1rem; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                        <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">2</span>
+                        Lock In Your Quote
+                    </h3>
+                    <form id="quoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
+                        <input type="hidden" name="_subject" value="Instant Quote Request">
+                        <input type="hidden" name="pickup_address" id="hiddenPickup">
+                        <input type="hidden" name="dropoff_address" id="hiddenDropoff">
+                        <input type="hidden" name="move_date_hero" id="hiddenDate">
+                        <input type="hidden" name="estimate_low" id="hiddenLow">
+                        <input type="hidden" name="estimate_high" id="hiddenHigh">
+                        <input type="hidden" name="estimate_details" id="hiddenDetails">
+                        <div class="qf-row">
+                            <div class="qf-field"><label class="qf-label">Full Name</label><input type="text" name="name" class="qf-input" placeholder="Your name" required></div>
+                            <div class="qf-field"><label class="qf-label">Phone</label><input type="tel" name="phone" class="qf-input" placeholder="(619) 555-0123" required></div>
+                        </div>
+                        <div class="qf-field"><label class="qf-label">Email</label><input type="email" name="email" class="qf-input" placeholder="you@email.com" required></div>
+                        <div class="qf-row">
+                            <div class="qf-field"><label class="qf-label">Preferred Date</label><input type="date" name="preferred_date" id="qfDate" class="qf-input" style="cursor:pointer;"></div>
+                            <div class="qf-field"><label class="qf-label">Preferred Time</label>
+                                <select name="preferred_time" class="qf-input">
+                                    <option value="" disabled selected>Select time...</option>
+                                    <option>Morning (6AM-10AM)</option>
+                                    <option>Midday (10AM-1PM)</option>
+                                    <option>Afternoon (1PM-4PM)</option>
+                                    <option>Evening (4PM-6PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="qf-field"><label class="qf-label">Anything Else We Should Know?</label><textarea name="message" class="qf-input" placeholder="Special requests, access notes, additional details..." rows="3" style="resize:vertical;"></textarea></div>
+                        <button type="submit" class="btn btn-amber btn-full">Request This Quote &rarr;</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
@@ -1261,6 +1469,23 @@
                 </ul>
             </div>
         </div>
+        <div class="footer-areas">
+            <h4>Service Areas</h4>
+            <div class="footer-areas-grid">
+                <div>
+                    <strong>San Diego</strong>
+                    <a href="san-diego-movers.html">San Diego</a> <a href="san-marcos-movers.html">San Marcos</a> <a href="escondido-movers.html">Escondido</a> <a href="carlsbad-movers.html">Carlsbad</a> <a href="oceanside-movers.html">Oceanside</a> <a href="encinitas-movers.html">Encinitas</a> <a href="vista-movers.html">Vista</a> <a href="del-mar-movers.html">Del Mar</a> <a href="la-jolla-movers.html">La Jolla</a> <a href="chula-vista-movers.html">Chula Vista</a> <a href="el-cajon-movers.html">El Cajon</a> <a href="la-mesa-movers.html">La Mesa</a> <a href="coronado-movers.html">Coronado</a> <a href="poway-movers.html">Poway</a> <a href="rancho-bernardo-movers.html">Rancho Bernardo</a> <a href="national-city-movers.html">National City</a> <a href="camp-pendleton-movers.html">Camp Pendleton</a> <a href="fallbrook-movers.html">Fallbrook</a>
+                </div>
+                <div>
+                    <strong>Riverside / Inland Empire</strong>
+                    <a href="temecula-movers.html">Temecula</a> <a href="riverside-movers.html">Riverside</a> <a href="murrieta-movers.html">Murrieta</a> <a href="corona-movers.html">Corona</a> <a href="menifee-movers.html">Menifee</a> <a href="perris-movers.html">Perris</a> <a href="lake-elsinore-movers.html">Lake Elsinore</a> <a href="hemet-movers.html">Hemet</a> <a href="san-jacinto-movers.html">San Jacinto</a> <a href="moreno-valley-movers.html">Moreno Valley</a> <a href="beaumont-movers.html">Beaumont</a> <a href="wildomar-movers.html">Wildomar</a>
+                </div>
+                <div>
+                    <strong>Orange County / LA</strong>
+                    <a href="la-movers.html">Los Angeles</a> <a href="irvine-movers.html">Irvine</a> <a href="dana-point-movers.html">Dana Point</a> <a href="long-beach-movers.html">Long Beach</a> <a href="anaheim-movers.html">Anaheim</a> <a href="santa-ana-movers.html">Santa Ana</a> <a href="huntington-beach-movers.html">Huntington Beach</a> <a href="newport-beach-movers.html">Newport Beach</a> <a href="pasadena-movers.html">Pasadena</a> <a href="fullerton-movers.html">Fullerton</a> <a href="costa-mesa-movers.html">Costa Mesa</a> <a href="mission-viejo-movers.html">Mission Viejo</a> <a href="san-clemente-movers.html">San Clemente</a>
+                </div>
+            </div>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Sutton Movers. All Rights Reserved.</p>
             <p>Serving San Diego, Riverside, Inland Empire, Orange County &amp; LA</p>
@@ -1308,9 +1533,267 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // Transfer hero form fields to quote form
 function transferHeroFields() {
-    document.getElementById('hiddenPickup').value = document.getElementById('pickupAddress').value;
-    document.getElementById('hiddenDropoff').value = document.getElementById('dropoffAddress').value;
-    document.getElementById('hiddenDate').value = document.getElementById('moveDate').value;
+    var pu = document.getElementById('pickupAddress').value;
+    var dp = document.getElementById('dropoffAddress').value;
+    var dt = document.getElementById('moveDate').value;
+    document.getElementById('hiddenPickup').value = pu;
+    document.getElementById('hiddenDropoff').value = dp;
+    document.getElementById('hiddenDate').value = dt;
+    // Also populate the quote calculator fields
+    if (pu) document.getElementById('qfPickup').value = pu;
+    if (dp) document.getElementById('qfDropoff').value = dp;
+    if (dt) document.getElementById('qfDate').value = dt;
+    // Trigger distance calculation if both addresses filled
+    if (pu && dp) setTimeout(calcDistance, 500);
+}
+
+// ═══════ INSTANT QUOTE CALCULATOR ═══════
+var qfMiles = 0;
+var qfPickupPlace = null;
+var qfDropoffPlace = null;
+
+// WITH TRUCK: all-in rates (labor + truck), 3hr minimum
+var TRUCK_RATES = {1: 110, 2: 150, 3: 180, 4: 220, 5: 260, 6: 300};
+// LABOR ONLY: no truck, 2hr minimum
+var LABOR_RATES = {1: 75, 2: 100, 3: 130, 4: 170, 5: 210, 6: 250};
+// PACKING ONLY
+var PACK_RATES  = {1: 100, 2: 125, 3: 200, 4: 300, 5: 350, 6: 400};
+
+var SPECIALTY_FEES = {
+    piano_upright: 350, piano_grand: 600,
+    safe_small: 350, safe_large: 600,
+    pool_table: 400, treadmill: 150
+};
+
+// Mileage fee: $2/mi over 15mi (on top of truck rate)
+function mileageFee(miles) {
+    if (miles <= 15) return 0;
+    return (miles - 15) * 2;
+}
+
+function seasonalMultiplier() {
+    var m = new Date().getMonth() + 1;
+    var mult = {1:1,2:1,3:1,4:1,5:1.05,6:1.10,7:1.15,8:1.15,9:1.10,10:1.05,11:1,12:1};
+    return mult[m] || 1;
+}
+
+function updateQuote() {
+    var service = document.getElementById('qfService').value;
+    var crew = parseInt(document.getElementById('qfCrew').value);
+    var hours = parseInt(document.getElementById('qfHours').value);
+    var truck = parseInt(document.getElementById('qfTruck').value);
+    var stairsP = parseInt(document.getElementById('qfStairsPickup').value);
+    var stairsD = parseInt(document.getElementById('qfStairsDrop').value);
+
+    var withTruck = parseInt(truck) === 1;
+
+    // Show/hide fields based on truck selection
+    var locWrap = document.getElementById('qfLocations');
+    var stairsDropWrap = document.getElementById('qfStairsDropWrap');
+    var serviceWrap = document.getElementById('qfServiceWrap');
+
+    if (withTruck) {
+        locWrap.style.display = '';
+        stairsDropWrap.style.display = '';
+        serviceWrap.style.display = 'none';
+    } else {
+        // No truck: show service type (labor vs packing), show locations only for labor moves
+        serviceWrap.style.display = '';
+        if (service === 'pack') {
+            locWrap.style.display = 'none';
+            stairsDropWrap.style.display = 'none';
+            document.getElementById('qfDistanceBadge').style.display = 'none';
+            qfMiles = 0; stairsD = 0;
+        } else {
+            locWrap.style.display = '';
+            stairsDropWrap.style.display = '';
+        }
+    }
+
+    // Update hours minimum label
+    var hoursSelect = document.getElementById('qfHours');
+    var firstOpt = hoursSelect.options[0];
+    if (withTruck) {
+        if (!hoursSelect.querySelector('option[value="2"]')) {
+            // Remove 2hr option if exists (truck = 3hr min)
+        }
+        firstOpt.value = '3'; firstOpt.textContent = '3 hours (minimum with truck)';
+        if (parseInt(hoursSelect.value) < 3) hoursSelect.value = '3';
+    } else {
+        firstOpt.value = '2'; firstOpt.textContent = '2 hours (minimum)';
+    }
+    hours = parseInt(hoursSelect.value);
+
+    // Get specialty items
+    var specialties = [];
+    document.querySelectorAll('.qf-chip input:checked').forEach(function(cb) {
+        specialties.push(cb.value);
+    });
+
+    // Get materials total
+    var materialsTotal = 0;
+    var materialsDetail = [];
+    document.querySelectorAll('.qf-qty').forEach(function(input) {
+        var qty = parseInt(input.value) || 0;
+        if (qty > 0) {
+            var price = parseInt(input.dataset.price) || 0;
+            materialsTotal += qty * price;
+            materialsDetail.push(input.dataset.supply + ':' + qty);
+        }
+    });
+
+    // Calculate
+    var crewClamped = Math.min(Math.max(crew, 1), 6);
+    var baseRate, minHours;
+
+    if (withTruck) {
+        baseRate = TRUCK_RATES[crewClamped] || 150;
+        minHours = 3;
+    } else if (service === 'pack') {
+        baseRate = PACK_RATES[crewClamped] || 125;
+        minHours = 2;
+    } else {
+        baseRate = LABOR_RATES[crewClamped] || 100;
+        minHours = 2;
+    }
+
+    hours = Math.max(hours, minHours);
+    var total = baseRate * hours;
+
+    // Seasonal
+    total *= seasonalMultiplier();
+
+    // Mileage (only with our truck)
+    if (withTruck && qfMiles > 0) {
+        total += mileageFee(qfMiles);
+    }
+
+    // Stairs ($25/flight)
+    total += stairsP * 25;
+    total += stairsD * 25;
+
+    // Specialty items
+    specialties.forEach(function(item) {
+        total += SPECIALTY_FEES[item] || 0;
+    });
+
+    // Materials
+    total += materialsTotal;
+
+    // Minimum
+    total = Math.max(total, 120);
+
+    // Range: -10% to +20% (tight but slightly high)
+    var low = Math.max(Math.round(total * 0.90 / 5) * 5, 120);
+    var high = Math.round(total * 1.20 / 5) * 5;
+
+    // Update display
+    document.getElementById('quoteLow').textContent = '$' + low.toLocaleString();
+    document.getElementById('quoteHigh').textContent = '$' + high.toLocaleString();
+
+    // Build summary text
+    var summary = crew + ' mover' + (crew > 1 ? 's' : '') + ', ' + hours + ' hours';
+    if (withTruck) {
+        summary += ', with our truck';
+    } else {
+        summary += ', ' + (service === 'pack' ? 'packing only' : 'labor only');
+    }
+    if (qfMiles > 0 && withTruck) {
+        summary += ', ~' + qfMiles + ' miles';
+    }
+    if (materialsTotal > 0) {
+        summary += ' + $' + materialsTotal + ' supplies';
+    }
+    document.getElementById('quoteSummary').textContent = summary;
+
+    // Update hidden fields for form submission
+    document.getElementById('hiddenLow').value = '$' + low;
+    document.getElementById('hiddenHigh').value = '$' + high;
+    var details = (withTruck ? 'truck' : service) + ' | ' + crew + ' crew | ' + hours + 'hr';
+    details += ' | $' + baseRate + '/hr';
+    if (qfMiles > 0) details += ' | ~' + qfMiles + 'mi';
+    if (stairsP > 0) details += ' | stairs-pickup:' + stairsP;
+    if (stairsD > 0) details += ' | stairs-dropoff:' + stairsD;
+    if (specialties.length) details += ' | ' + specialties.join(', ');
+    if (materialsDetail.length) details += ' | supplies: ' + materialsDetail.join(', ');
+    document.getElementById('hiddenDetails').value = details;
+
+    // Sync addresses to hidden fields
+    document.getElementById('hiddenPickup').value = document.getElementById('qfPickup').value;
+    document.getElementById('hiddenDropoff').value = document.getElementById('qfDropoff').value;
+}
+
+// Distance calculation using Google Maps geometry (Haversine)
+function haversine(lat1, lon1, lat2, lon2) {
+    var R = 3959; // miles
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function calcDistance() {
+    if (!qfPickupPlace || !qfDropoffPlace) return;
+    var loc1 = qfPickupPlace.geometry.location;
+    var loc2 = qfDropoffPlace.geometry.location;
+    var straightLine = haversine(loc1.lat(), loc1.lng(), loc2.lat(), loc2.lng());
+    // Driving distance is roughly 1.3x straight line in urban areas
+    qfMiles = Math.round(straightLine * 1.3);
+    if (qfMiles < 1) qfMiles = 1;
+    document.getElementById('qfDistanceBadge').style.display = '';
+    document.getElementById('qfDistanceText').textContent = '~' + qfMiles + ' miles';
+    updateQuote();
+}
+
+// Initialize Places Autocomplete on quote form fields
+function initQuoteAutocomplete() {
+    try {
+        if (typeof google === 'undefined' || !google.maps || !google.maps.places) return;
+        var opts = {types: ['address'], componentRestrictions: {country: 'us'}};
+        var acPickup = new google.maps.places.Autocomplete(document.getElementById('qfPickup'), opts);
+        var acDropoff = new google.maps.places.Autocomplete(document.getElementById('qfDropoff'), opts);
+        acPickup.addListener('place_changed', function() {
+            qfPickupPlace = acPickup.getPlace();
+            if (qfPickupPlace && qfDropoffPlace) calcDistance();
+        });
+        acDropoff.addListener('place_changed', function() {
+            qfDropoffPlace = acDropoff.getPlace();
+            if (qfPickupPlace && qfDropoffPlace) calcDistance();
+        });
+    } catch(e) {}
+}
+
+// Quote form AJAX submission
+document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = this.querySelector('button[type="submit"]');
+    var orig = btn.textContent;
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {'Accept': 'application/json'}
+    }).then(function(r) {
+        if (r.ok) {
+            btn.textContent = '\u2713 Quote Sent!'; btn.style.background = '#2a7a4a';
+            setTimeout(function() { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+        } else {
+            btn.textContent = 'Error - Try Again'; btn.style.background = '#c0392b'; btn.disabled = false;
+        }
+    }).catch(function() {
+        btn.textContent = 'Error - Try Again'; btn.style.background = '#c0392b'; btn.disabled = false;
+    });
+});
+
+// Run initial quote calculation on page load
+updateQuote();
+// Init autocomplete after Google Maps loads (slight delay to ensure API is ready)
+if (document.readyState === 'complete') {
+    initQuoteAutocomplete();
+} else {
+    window.addEventListener('load', function() { setTimeout(initQuoteAutocomplete, 500); });
 }
 
 // Platform tabs
