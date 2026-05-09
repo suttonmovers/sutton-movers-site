@@ -1226,7 +1226,8 @@
                         <div class="qf-field">
                             <label class="qf-label">Estimated Hours</label>
                             <select id="qfHours" class="qf-input" onchange="updateQuote()">
-                                <option value="3" selected>3 hours (minimum with truck)</option>
+                                <option value="2" id="qfHoursMin">2 hours (minimum)</option>
+                                <option value="3" selected>3 hours</option>
                                 <option value="4">4 hours</option>
                                 <option value="5">5 hours</option>
                                 <option value="6">6 hours</option>
@@ -1287,7 +1288,7 @@
                     <div class="qf-field">
                         <label class="qf-label">Specialty Items</label>
                         <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                            <label class="qf-chip"><input type="checkbox" value="treadmill" onchange="updateQuote()"><span>Heavy Item (+$150)</span></label>
+                            <label class="qf-chip"><input type="checkbox" value="treadmill" onchange="updateQuote()"><span>Item Over 200 lbs (+$150)</span></label>
                             <label class="qf-chip"><input type="checkbox" value="piano_upright" onchange="updateQuote()"><span>Piano - Upright (+$350)</span></label>
                             <label class="qf-chip"><input type="checkbox" value="safe_small" onchange="updateQuote()"><span>Safe - Small (+$350)</span></label>
                             <label class="qf-chip"><input type="checkbox" value="pool_table" onchange="updateQuote()"><span>Pool Table (+$400)</span></label>
@@ -1610,19 +1611,17 @@ function updateQuote() {
         }
     }
 
-    // Update hours minimum label
-    var hoursSelect = document.getElementById('qfHours');
-    var firstOpt = hoursSelect.options[0];
+    // Update hours minimum based on truck selection
+    var hoursMin = document.getElementById('qfHoursMin');
     if (withTruck) {
-        if (!hoursSelect.querySelector('option[value="2"]')) {
-            // Remove 2hr option if exists (truck = 3hr min)
+        hoursMin.style.display = 'none';
+        if (parseInt(document.getElementById('qfHours').value) < 3) {
+            document.getElementById('qfHours').value = '3';
         }
-        firstOpt.value = '3'; firstOpt.textContent = '3 hours (minimum with truck)';
-        if (parseInt(hoursSelect.value) < 3) hoursSelect.value = '3';
     } else {
-        firstOpt.value = '2'; firstOpt.textContent = '2 hours (minimum)';
+        hoursMin.style.display = '';
     }
-    hours = parseInt(hoursSelect.value);
+    hours = parseInt(document.getElementById('qfHours').value);
 
     // Get specialty items
     var specialties = [];
