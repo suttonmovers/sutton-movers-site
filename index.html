@@ -638,6 +638,11 @@
         .qf-chip:has(input:checked) {
             background: var(--amber-light); border-color: var(--amber); color: var(--amber); font-weight: 600;
         }
+        .qf-split {
+            display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start;
+        }
+        .qf-split-right { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 0; }
+        .qf-split-right .qf-row { grid-template-columns: 1fr 1fr; }
         .qf-supplies-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
         }
@@ -679,6 +684,8 @@
             .hero-form-input[type="date"] { max-width: 100%; }
             .services-grid { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
+            .qf-split { grid-template-columns: 1fr; }
+            .qf-split-right { position: static; }
             .qf-row { grid-template-columns: 1fr; }
             .qf-supplies-grid { grid-template-columns: repeat(2, 1fr); }
             .area-photo { height: 160px; }
@@ -1191,10 +1198,10 @@
             <h2>Get Your Instant Quote</h2>
             <p>Select your move details below and see your estimated price instantly. No waiting, no obligation.</p>
         </div>
-        <div style="max-width: 720px; margin: 0 auto;">
-            <div class="fade-up" style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 32px; position: relative;">
+        <div class="qf-split fade-up">
+            <!-- LEFT: Move details -->
+            <div class="qf-split-left" style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 36px;">
 
-                <!-- STEP 1: Service details (drives the estimate) -->
                 <div style="margin-bottom: 24px;">
                     <h3 style="font-size: 1.1rem; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
                         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">1</span>
@@ -1314,22 +1321,23 @@
                     </div>
                 </div>
 
+            </div>
+            <!-- RIGHT: Estimate + Contact -->
+            <div class="qf-split-right">
                 <!-- LIVE ESTIMATE DISPLAY -->
-                <div id="quoteResult" style="background:#2a3444;border-radius:10px;padding:28px 32px;text-align:center;margin-bottom:24px;">
+                <div id="quoteResult" style="background:#2a3444;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px 28px;text-align:center;margin-bottom:20px;">
                     <p style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--amber);margin-bottom:8px;">Your Estimated Cost</p>
                     <div style="display:flex;align-items:baseline;justify-content:center;gap:8px;margin-bottom:6px;">
-                        <span id="quoteLow" style="font-family:Oswald,sans-serif;font-size:2.4rem;font-weight:700;color:#fff;">$360</span>
-                        <span style="color:rgba(255,255,255,0.45);font-size:1.2rem;font-weight:500;">&ndash;</span>
-                        <span id="quoteHigh" style="font-family:Oswald,sans-serif;font-size:2.4rem;font-weight:700;color:#fff;">$530</span>
+                        <span id="quoteLow" style="font-family:Oswald,sans-serif;font-size:2.2rem;font-weight:700;color:#fff;">$360</span>
+                        <span style="color:rgba(255,255,255,0.45);font-size:1.1rem;font-weight:500;">&ndash;</span>
+                        <span id="quoteHigh" style="font-family:Oswald,sans-serif;font-size:2.2rem;font-weight:700;color:#fff;">$530</span>
                     </div>
-                    <p id="quoteSummary" style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.5;">Based on 2 movers, 3 hours, local move</p>
-                    <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);">
-                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);line-height:1.5;">Estimate only. Final price confirmed after a quick call with our team.<br>3-hour minimum with truck, 2-hour minimum labor only. Access conditions may affect final pricing.</p>
-                    </div>
+                    <p id="quoteSummary" style="font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.4;">Based on 2 movers, 3 hours, local move</p>
+                    <p style="font-size:0.7rem;color:rgba(255,255,255,0.35);line-height:1.5;margin-top:10px;">Estimate only. Final price confirmed on call. 3-hr min with truck, 2-hr min labor only.</p>
                 </div>
 
                 <!-- STEP 2: Contact info to lock in the quote -->
-                <div>
+                <div style="background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 28px; flex: 1;">
                     <h3 style="font-size: 1.1rem; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
                         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">2</span>
                         Lock In Your Quote
