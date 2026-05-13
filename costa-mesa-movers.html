@@ -29,6 +29,46 @@
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does it cost to hire movers in Costa Mesa?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Local moves in Costa Mesa typically range from $400 to $1,500, depending on home size, the number of items, and whether you need packing services. Costa Mesa's central location in Orange County helps keep travel costs reasonable. We provide free, transparent quotes with no hidden fees."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What cities near Costa Mesa do you serve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We serve all of Orange County and beyond, including Newport Beach, Huntington Beach, Irvine, Santa Ana, Fountain Valley, and Tustin. We also handle moves throughout San Diego, Riverside, and Los Angeles counties."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can you navigate moves near South Coast Plaza and the busy freeway areas?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Our team is experienced with the traffic patterns around the 405/55 interchange and South Coast Plaza. We schedule moves during lower-traffic windows when possible and plan efficient routes to minimize time on congested roads. For apartment and condo moves near these areas, we coordinate loading dock access and elevator reservations in advance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are my belongings insured during the move?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Basic valuation coverage is included with every Sutton Movers job at no additional charge. Full-value protection is also available for customers who want more comprehensive coverage. We wrap all furniture in moving blankets and use shrink wrap to prevent scratches and damage during transit."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -125,6 +165,14 @@
         .footer-links li { margin-bottom: 8px; }
         .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); transition: color 0.3s; }
         .footer-links a:hover { color: #fff; }
+        .footer-areas { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; margin-bottom: 28px; }
+        .footer-areas h4 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+        .footer-areas-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .footer-areas-grid strong { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+        .footer-areas-grid a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.3s; margin-right: 6px; }
+        .footer-areas-grid a::after { content: " \00b7"; color: rgba(255,255,255,0.2); margin-left: 6px; }
+        .footer-areas-grid a:last-child::after { content: ""; }
+        .footer-areas-grid a:hover { color: #fff; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
         .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
 
@@ -141,6 +189,7 @@
         @media (max-width: 480px) {
             .city-image img { height: 200px; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-areas-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
@@ -180,8 +229,11 @@
 <section class="content-section">
     <div class="container">
         <div class="content-wrap">
-            <p>Planning a move in Costa Mesa? Known for South Coast Plaza and a thriving arts scene, Costa Mesa offers central Orange County living with easy beach access. Sutton Movers provides dependable, full-service moving throughout Costa Mesa and Orange County.</p>
-            <p>As a Southern California moving company, we know Costa Mesa's mix of established and modern neighborhoods. Our experienced team handles every move with care — providing transparent pricing, on-time arrivals, and the kind of personal service that's earned us a 5-star reputation.</p>
+            <p>Planning a move in Costa Mesa? Centrally located in Orange County with easy access to the beach, world-class shopping at South Coast Plaza, and a thriving arts and dining scene, Costa Mesa offers some of the best urban-suburban living in Southern California. Sutton Movers provides dependable, full-service moving throughout Costa Mesa and Orange County.</p>
+            <p>Costa Mesa's neighborhoods cater to a wide range of lifestyles. Eastside Costa Mesa is one of the city's most desirable areas, with tree-lined streets, updated single-family homes, and proximity to Newport Beach. Mesa Verde features established homes, good schools, and a community feel anchored by the Mesa Verde Country Club. The South Coast Plaza area draws professionals who want to live near major employers, shopping, and the Segerstrom Center for the Arts. The Camp and SoBeCa (South on Bristol, Entertainment, Culture, and Arts) district has become a creative hub with independent shops, restaurants, and a younger, walkable vibe.</p>
+            <p>Moving in Costa Mesa involves some logistical planning. The streets around South Coast Plaza and the 405/55 freeway interchange can be heavily congested, especially on weekends and during the holiday shopping season. Many older homes on the Eastside have narrow lots and tight driveway access. Apartment complexes along Harbor and Baker boulevards often have specific move-in windows and elevator scheduling. Our team is experienced with these conditions and plans routing and timing to keep your move efficient.</p>
+            <p>We also serve cities surrounding Costa Mesa, including <a href="newport-beach-movers.html" style="color: var(--amber); text-decoration: underline;">Newport Beach</a>, <a href="huntington-beach-movers.html" style="color: var(--amber); text-decoration: underline;">Huntington Beach</a>, and <a href="irvine-movers.html" style="color: var(--amber); text-decoration: underline;">Irvine</a>. Whether you are moving within Costa Mesa or relocating from a neighboring city, we manage the process from start to finish.</p>
+            <p>Our services include residential and commercial moving, full and partial packing, furniture disassembly and reassembly, and specialty item handling. Every move includes furniture protection with professional blankets and shrink wrap. Call (619) 602-3000 for a free quote.</p>
         </div>
     </div>
 </section>
@@ -209,7 +261,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                 </div>
                 <h3>Packing Services</h3>
-                <p>Full-service packing and unpacking to save you time and effort.</p>
+                <p>We wrap, box, and protect everything from kitchenware and electronics to artwork and fragile items using professional-grade materials including moving blankets, shrink wrap, and sturdy boxes.</p>
             </div>
             <div class="service-card">
                 <div class="service-card-icon">
@@ -218,6 +270,22 @@
                 <h3>Local Expertise</h3>
                 <p>Knowledge of Costa Mesa neighborhoods ensures smooth navigation and timely service.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" style="background: var(--off-white, #F8F9FA);">
+    <div class="container">
+        <div class="content-wrap">
+            <h2 style="font-size: 1.6rem; margin-bottom: 24px;">Frequently Asked Questions About Moving in Costa Mesa</h2>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 8px;">How much does it cost to hire movers in Costa Mesa?</h3>
+            <p>Local moves in Costa Mesa typically range from $400 to $1,500, depending on home size, the number of items, and whether you need packing services. Costa Mesa's central location in Orange County helps keep travel costs reasonable. We provide free, transparent quotes with no hidden fees.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">What cities near Costa Mesa do you serve?</h3>
+            <p>We serve all of Orange County and beyond, including <a href="newport-beach-movers.html" style="color: var(--amber); text-decoration: underline;">Newport Beach</a>, <a href="huntington-beach-movers.html" style="color: var(--amber); text-decoration: underline;">Huntington Beach</a>, <a href="irvine-movers.html" style="color: var(--amber); text-decoration: underline;">Irvine</a>, Santa Ana, Fountain Valley, and Tustin. We also handle moves throughout San Diego, Riverside, and Los Angeles counties.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Can you navigate moves near South Coast Plaza and the busy freeway areas?</h3>
+            <p>Yes. Our team is experienced with the traffic patterns around the 405/55 interchange and South Coast Plaza. We schedule moves during lower-traffic windows when possible and plan efficient routes to minimize time on congested roads. For apartment and condo moves near these areas, we coordinate loading dock access and elevator reservations in advance.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Are my belongings insured during the move?</h3>
+            <p>Yes. Basic valuation coverage is included with every Sutton Movers job at no additional charge. Full-value protection is also available for customers who want more comprehensive coverage. We wrap all furniture in moving blankets and use shrink wrap to prevent scratches and damage during transit.</p>
         </div>
     </div>
 </section>
@@ -271,6 +339,23 @@
                     <li>San Marcos, CA</li>
                     <li>Mon&ndash;Sun: 6AM&ndash;6PM</li>
                 </ul>
+            </div>
+        </div>
+        <div class="footer-areas">
+            <h4>Service Areas</h4>
+            <div class="footer-areas-grid">
+                <div>
+                    <strong>San Diego</strong>
+                    <a href="san-diego-movers.html">San Diego</a> <a href="san-marcos-movers.html">San Marcos</a> <a href="escondido-movers.html">Escondido</a> <a href="carlsbad-movers.html">Carlsbad</a> <a href="oceanside-movers.html">Oceanside</a> <a href="encinitas-movers.html">Encinitas</a> <a href="vista-movers.html">Vista</a> <a href="del-mar-movers.html">Del Mar</a> <a href="la-jolla-movers.html">La Jolla</a> <a href="chula-vista-movers.html">Chula Vista</a> <a href="el-cajon-movers.html">El Cajon</a> <a href="la-mesa-movers.html">La Mesa</a> <a href="coronado-movers.html">Coronado</a> <a href="poway-movers.html">Poway</a> <a href="rancho-bernardo-movers.html">Rancho Bernardo</a> <a href="national-city-movers.html">National City</a> <a href="camp-pendleton-movers.html">Camp Pendleton</a> <a href="fallbrook-movers.html">Fallbrook</a>
+                </div>
+                <div>
+                    <strong>Riverside / Inland Empire</strong>
+                    <a href="temecula-movers.html">Temecula</a> <a href="riverside-movers.html">Riverside</a> <a href="murrieta-movers.html">Murrieta</a> <a href="corona-movers.html">Corona</a> <a href="menifee-movers.html">Menifee</a> <a href="perris-movers.html">Perris</a> <a href="lake-elsinore-movers.html">Lake Elsinore</a> <a href="hemet-movers.html">Hemet</a> <a href="san-jacinto-movers.html">San Jacinto</a> <a href="moreno-valley-movers.html">Moreno Valley</a> <a href="beaumont-movers.html">Beaumont</a> <a href="wildomar-movers.html">Wildomar</a>
+                </div>
+                <div>
+                    <strong>Orange County / LA</strong>
+                    <a href="la-movers.html">Los Angeles</a> <a href="irvine-movers.html">Irvine</a> <a href="dana-point-movers.html">Dana Point</a> <a href="long-beach-movers.html">Long Beach</a> <a href="anaheim-movers.html">Anaheim</a> <a href="santa-ana-movers.html">Santa Ana</a> <a href="huntington-beach-movers.html">Huntington Beach</a> <a href="newport-beach-movers.html">Newport Beach</a> <a href="pasadena-movers.html">Pasadena</a> <a href="fullerton-movers.html">Fullerton</a> <a href="costa-mesa-movers.html">Costa Mesa</a> <a href="mission-viejo-movers.html">Mission Viejo</a> <a href="san-clemente-movers.html">San Clemente</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

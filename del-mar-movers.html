@@ -29,6 +29,46 @@
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much do movers cost in Del Mar?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Moving costs in Del Mar vary based on home size, access difficulty, distance, and services needed. Luxury homes in Del Mar Heights with steep driveways and multi-level layouts may require larger crews and more time. We provide free, detailed quotes for every move. Call (619) 602-3000 or submit our online form to get your estimate."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What areas near Del Mar do you serve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We serve the entire San Diego coast and beyond. Nearby communities we frequently move to and from include Encinitas, La Jolla, and San Diego. We handle moves throughout Southern California, from the coast to the Inland Empire and up to Orange County and LA."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you work around Del Mar Fair season traffic?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. During the San Diego County Fair (typically June through September), traffic near the fairgrounds and along Jimmy Durante Boulevard gets heavy. We schedule moves in Del Mar during these months with earlier start times and adjusted routes to avoid congestion. We are familiar with alternate access roads and timing that keeps your move on track."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are you licensed and insured?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Sutton Movers is fully insured with general liability, workers' compensation, and commercial auto insurance. We provide Certificates of Insurance (COI) for apartment complexes and HOAs with 48-hour notice at no extra charge."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -125,6 +165,14 @@
         .footer-links li { margin-bottom: 8px; }
         .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.45); transition: color 0.3s; }
         .footer-links a:hover { color: #fff; }
+        .footer-areas { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; margin-bottom: 28px; }
+        .footer-areas h4 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+        .footer-areas-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .footer-areas-grid strong { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+        .footer-areas-grid a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.3s; margin-right: 6px; }
+        .footer-areas-grid a::after { content: " \00b7"; color: rgba(255,255,255,0.2); margin-left: 6px; }
+        .footer-areas-grid a:last-child::after { content: ""; }
+        .footer-areas-grid a:hover { color: #fff; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
         .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
 
@@ -141,6 +189,7 @@
         @media (max-width: 480px) {
             .city-image img { height: 200px; }
             .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-areas-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
         }
     </style>
@@ -180,8 +229,11 @@
 <section class="content-section">
     <div class="container">
         <div class="content-wrap">
-            <p>Moving to exclusive Del Mar? From the blufftop homes overlooking the Pacific to the charming village downtown, Sutton Movers provides dependable, full-service moving throughout Del Mar and the North County coast.</p>
-            <p>As a local Southern California moving company, we understand the care required for Del Mar's luxury homes and coastal properties. Our experienced team handles every move with precision — providing transparent pricing, on-time arrivals, and the kind of personal service that's earned us a 5-star reputation.</p>
+            <p>Moving to exclusive Del Mar? Whether you are relocating to a blufftop estate in Del Mar Heights, a home in the Del Mar Mesa community, or a property near the Torrey Pines State Reserve, Sutton Movers provides dependable, full-service moving throughout Del Mar and the North County coast.</p>
+            <p>Del Mar is a small but prestigious coastal community with distinct residential areas. Del Mar Heights, perched above the village, features luxury homes with ocean views, many on steep lots with multi-level layouts and limited truck access. The village area near the Del Mar Fairgrounds offers a mix of charming older homes and newer coastal construction on compact lots with narrow streets. Del Mar Mesa, an inland enclave, has spacious homes on larger lots near open space preserves with quieter, wider roads. The areas adjacent to Carmel Valley and Torrey Pines include a range of condos, townhomes, and single-family homes near business parks and UCSD.</p>
+            <p>Moving in Del Mar requires attention to detail. Many homes in the Heights have steep driveways, tight turning radii, and limited space for large trucks. Some blufftop properties can only be accessed from certain directions due to one-way or dead-end streets. During fair season at the Del Mar Fairgrounds (typically June through September), traffic congestion and parking restrictions increase significantly, and we plan around these events. Several condo and townhome complexes in the Carmel Valley adjacent area require advance coordination with property management for elevator reservations and COI documentation.</p>
+            <p>We offer full-service and labor-only options to match your needs. Full-service moves include loading, transport, unloading, and careful furniture placement with professional padding. Our labor-only service is available if you are managing your own truck or container and just need experienced help with loading and unloading. Every move includes dollies, moving blankets, shrink wrap, and any specialty equipment needed for large or fragile items.</p>
+            <p>Sutton Movers also serves neighboring communities including <a href="encinitas-movers.html">Encinitas</a>, <a href="la-jolla-movers.html">La Jolla</a>, and <a href="san-diego-movers.html">San Diego</a>. Our team handles every move with precision, providing transparent pricing, on-time arrivals, and the kind of personal service that has earned us a 5-star reputation across San Diego's coastal communities.</p>
         </div>
     </div>
 </section>
@@ -209,7 +261,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                 </div>
                 <h3>Packing Services</h3>
-                <p>Full-service packing and unpacking to save you time and effort.</p>
+                <p>We wrap, box, and protect everything from kitchenware and electronics to artwork and fragile items using professional-grade materials including moving blankets, shrink wrap, and sturdy boxes.</p>
             </div>
             <div class="service-card">
                 <div class="service-card-icon">
@@ -218,6 +270,22 @@
                 <h3>Local Expertise</h3>
                 <p>Knowledge of Del Mar neighborhoods ensures smooth navigation and timely service.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" style="background: var(--off-white, #F8F9FA);">
+    <div class="container">
+        <div class="content-wrap">
+            <h2 style="font-size: 1.6rem; margin-bottom: 24px;">Frequently Asked Questions About Moving in Del Mar</h2>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 8px;">How much do movers cost in Del Mar?</h3>
+            <p>Moving costs in Del Mar vary based on home size, access difficulty, distance, and services needed. Luxury homes in Del Mar Heights with steep driveways and multi-level layouts may require larger crews and more time. We provide free, detailed quotes for every move. Call (619) 602-3000 or submit our online form to get your estimate.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">What areas near Del Mar do you serve?</h3>
+            <p>We serve the entire San Diego coast and beyond. Nearby communities we frequently move to and from include <a href="encinitas-movers.html">Encinitas</a>, <a href="la-jolla-movers.html">La Jolla</a>, and <a href="san-diego-movers.html">San Diego</a>. We handle moves throughout Southern California, from the coast to the Inland Empire and up to Orange County and LA.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Do you work around Del Mar Fair season traffic?</h3>
+            <p>Yes. During the San Diego County Fair (typically June through September), traffic near the fairgrounds and along Jimmy Durante Boulevard gets heavy. We schedule moves in Del Mar during these months with earlier start times and adjusted routes to avoid congestion. We are familiar with alternate access roads and timing that keeps your move on track.</p>
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Are you licensed and insured?</h3>
+            <p>Yes, Sutton Movers is fully insured with general liability, workers' compensation, and commercial auto insurance. We provide Certificates of Insurance (COI) for apartment complexes and HOAs with 48-hour notice at no extra charge.</p>
         </div>
     </div>
 </section>
@@ -271,6 +339,24 @@
                     <li>San Marcos, CA</li>
                     <li>Mon&ndash;Sun: 6AM&ndash;6PM</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="footer-areas">
+            <h4>Service Areas</h4>
+            <div class="footer-areas-grid">
+                <div>
+                    <strong>San Diego</strong>
+                    <a href="san-diego-movers.html">San Diego</a> <a href="san-marcos-movers.html">San Marcos</a> <a href="escondido-movers.html">Escondido</a> <a href="carlsbad-movers.html">Carlsbad</a> <a href="oceanside-movers.html">Oceanside</a> <a href="encinitas-movers.html">Encinitas</a> <a href="vista-movers.html">Vista</a> <a href="del-mar-movers.html">Del Mar</a> <a href="la-jolla-movers.html">La Jolla</a> <a href="chula-vista-movers.html">Chula Vista</a> <a href="el-cajon-movers.html">El Cajon</a> <a href="la-mesa-movers.html">La Mesa</a> <a href="coronado-movers.html">Coronado</a> <a href="poway-movers.html">Poway</a> <a href="rancho-bernardo-movers.html">Rancho Bernardo</a> <a href="national-city-movers.html">National City</a> <a href="camp-pendleton-movers.html">Camp Pendleton</a> <a href="fallbrook-movers.html">Fallbrook</a>
+                </div>
+                <div>
+                    <strong>Riverside / Inland Empire</strong>
+                    <a href="temecula-movers.html">Temecula</a> <a href="riverside-movers.html">Riverside</a> <a href="murrieta-movers.html">Murrieta</a> <a href="corona-movers.html">Corona</a> <a href="menifee-movers.html">Menifee</a> <a href="perris-movers.html">Perris</a> <a href="lake-elsinore-movers.html">Lake Elsinore</a> <a href="hemet-movers.html">Hemet</a> <a href="san-jacinto-movers.html">San Jacinto</a> <a href="moreno-valley-movers.html">Moreno Valley</a> <a href="beaumont-movers.html">Beaumont</a> <a href="wildomar-movers.html">Wildomar</a>
+                </div>
+                <div>
+                    <strong>Orange County / LA</strong>
+                    <a href="la-movers.html">Los Angeles</a> <a href="irvine-movers.html">Irvine</a> <a href="dana-point-movers.html">Dana Point</a> <a href="long-beach-movers.html">Long Beach</a> <a href="anaheim-movers.html">Anaheim</a> <a href="santa-ana-movers.html">Santa Ana</a> <a href="huntington-beach-movers.html">Huntington Beach</a> <a href="newport-beach-movers.html">Newport Beach</a> <a href="pasadena-movers.html">Pasadena</a> <a href="fullerton-movers.html">Fullerton</a> <a href="costa-mesa-movers.html">Costa Mesa</a> <a href="mission-viejo-movers.html">Mission Viejo</a> <a href="san-clemente-movers.html">San Clemente</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
