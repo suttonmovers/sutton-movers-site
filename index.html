@@ -1342,14 +1342,19 @@
                         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">2</span>
                         Lock In Your Quote
                     </h3>
-                    <form id="quoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
-                        <input type="hidden" name="_subject" value="Instant Quote Request">
+                    <form id="quoteForm" action="/.netlify/functions/quote" method="POST">
                         <input type="hidden" name="pickup_address" id="hiddenPickup">
                         <input type="hidden" name="dropoff_address" id="hiddenDropoff">
-                        <input type="hidden" name="move_date_hero" id="hiddenDate">
+                        <input type="hidden" name="truck" id="hiddenTruck">
+                        <input type="hidden" name="crew" id="hiddenCrew">
+                        <input type="hidden" name="hours" id="hiddenHours">
+                        <input type="hidden" name="service" id="hiddenService">
+                        <input type="hidden" name="miles" id="hiddenMiles">
+                        <input type="hidden" name="stairs_pickup" id="hiddenStairsP">
+                        <input type="hidden" name="stairs_dropoff" id="hiddenStairsD">
+                        <input type="hidden" name="specialties" id="hiddenSpecialties">
                         <input type="hidden" name="estimate_low" id="hiddenLow">
                         <input type="hidden" name="estimate_high" id="hiddenHigh">
-                        <input type="hidden" name="estimate_details" id="hiddenDetails">
                         <div class="qf-row">
                             <div class="qf-field"><label class="qf-label">Full Name</label><input type="text" name="name" class="qf-input" placeholder="Your name" required></div>
                             <div class="qf-field"><label class="qf-label">Phone</label><input type="tel" name="phone" class="qf-input" placeholder="(619) 555-0123" required></div>
@@ -1547,7 +1552,6 @@ function transferHeroFields() {
     var dt = document.getElementById('moveDate').value;
     document.getElementById('hiddenPickup').value = pu;
     document.getElementById('hiddenDropoff').value = dp;
-    document.getElementById('hiddenDate').value = dt;
     // Also populate the quote calculator fields
     if (pu) document.getElementById('qfPickup').value = pu;
     if (dp) document.getElementById('qfDropoff').value = dp;
@@ -1714,16 +1718,29 @@ function updateQuote() {
     document.getElementById('quoteSummary').textContent = summary;
 
     // Update hidden fields for form submission
-    document.getElementById('hiddenLow').value = '$' + low;
-    document.getElementById('hiddenHigh').value = '$' + high;
-    var details = (withTruck ? 'truck' : service) + ' | ' + crew + ' crew | ' + hours + 'hr';
-    details += ' | $' + baseRate + '/hr';
-    if (qfMiles > 0) details += ' | ~' + qfMiles + 'mi';
-    if (stairsP > 0) details += ' | stairs-pickup:' + stairsP;
-    if (stairsD > 0) details += ' | stairs-dropoff:' + stairsD;
-    if (specialties.length) details += ' | ' + specialties.join(', ');
-    if (materialsDetail.length) details += ' | supplies: ' + materialsDetail.join(', ');
-    document.getElementById('hiddenDetails').value = details;
+    document.getElementById('hiddenLow').value = low;
+    document.getElementById('hiddenHigh').value = high;
+    document.getElementById('hiddenTruck').value = truck;
+    document.getElementById('hiddenCrew').value = crew;
+    document.getElementById('hiddenHours').value = hours;
+    document.getElementById('hiddenService').value = service;
+    document.getElementById('hiddenMiles').value = qfMiles;
+    document.getElementById('hiddenStairsP').value = stairsP;
+    document.getElementById('hiddenStairsD').value = stairsD;
+    document.getElementById('hiddenSpecialties').value = specialties.join(',');
+
+    // Add supply quantities as hidden fields dynamically
+    document.querySelectorAll('input[name^="supply_"]').forEach(function(el) { el.remove(); });
+    document.querySelectorAll('.qf-qty').forEach(function(input) {
+        var qty = parseInt(input.value) || 0;
+        if (qty > 0) {
+            var hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = 'supply_' + input.dataset.supply;
+            hidden.value = qty;
+            document.getElementById('quoteForm').appendChild(hidden);
+        }
+    });
 
     // Sync addresses to hidden fields
     document.getElementById('hiddenPickup').value = document.getElementById('qfPickup').value;
@@ -1778,14 +1795,17 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     var btn = this.querySelector('button[type="submit"]');
     var orig = btn.textContent;
     btn.textContent = 'Sending...'; btn.disabled = true;
+    // Sync addresses before submit
+    document.getElementById('hiddenPickup').value = document.getElementById('qfPickup').value;
+    document.getElementById('hiddenDropoff').value = document.getElementById('qfDropoff').value;
     fetch(this.action, {
         method: 'POST',
-        body: new FormData(this),
-        headers: {'Accept': 'application/json'}
+        body: new URLSearchParams(new FormData(this)),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function(r) {
         if (r.ok) {
-            btn.textContent = '\u2713 Quote Sent!'; btn.style.background = '#2a7a4a';
-            setTimeout(function() { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
+            btn.textContent = '\u2713 Quote Sent! Check your email.'; btn.style.background = '#2a7a4a';
+            setTimeout(function() { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 5000);
         } else {
             btn.textContent = 'Error - Try Again'; btn.style.background = '#c0392b'; btn.disabled = false;
         }

@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Clean URLs - serve .html files without extension
 [[redirects]]
