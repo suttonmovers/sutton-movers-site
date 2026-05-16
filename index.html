@@ -1342,7 +1342,7 @@
                         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--amber);color:#fff;border-radius:50%;font-family:Inter,sans-serif;font-size:0.8rem;font-weight:700;">2</span>
                         Lock In Your Quote
                     </h3>
-                    <form id="quoteForm" action="/.netlify/functions/quote" method="POST">
+                    <form id="quoteForm" action="https://formspree.io/f/xwvnnjky" method="POST">
                         <input type="hidden" name="pickup_address" id="hiddenPickup">
                         <input type="hidden" name="dropoff_address" id="hiddenDropoff">
                         <input type="hidden" name="truck" id="hiddenTruck">
@@ -1800,11 +1800,11 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
     document.getElementById('hiddenDropoff').value = document.getElementById('qfDropoff').value;
     fetch(this.action, {
         method: 'POST',
-        body: new URLSearchParams(new FormData(this)),
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        body: new FormData(this),
+        headers: {'Accept': 'application/json'}
     }).then(function(r) {
         if (r.ok) {
-            btn.textContent = '\u2713 Quote Sent! Check your email.'; btn.style.background = '#2a7a4a';
+            btn.textContent = '\u2713 Quote Sent!'; btn.style.background = '#2a7a4a';
             setTimeout(function() { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; }, 5000);
         } else {
             btn.textContent = 'Error - Try Again'; btn.style.background = '#c0392b'; btn.disabled = false;
