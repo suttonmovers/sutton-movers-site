@@ -745,10 +745,7 @@
                 <input type="text" class="hero-form-input" id="pickupAddress" placeholder="Enter pickup address" autocomplete="off">
                 <input type="text" class="hero-form-input" id="dropoffAddress" placeholder="Enter dropoff address" autocomplete="off">
             </div>
-            <div class="hero-form-row">
-                <input type="date" class="hero-form-input" id="moveDate" style="max-width:100%; flex:1;">
-                <a href="#quote-form" class="btn btn-amber" style="flex:2;" onclick="transferHeroFields()">Get a Free Quote</a>
-            </div>
+            <a href="#quote-form" class="btn btn-amber" style="width:100%;" onclick="transferHeroFields()">Get a Free Quote</a>
         </div>
     </div>
 </section>
@@ -1549,13 +1546,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 function transferHeroFields() {
     var pu = document.getElementById('pickupAddress').value;
     var dp = document.getElementById('dropoffAddress').value;
-    var dt = document.getElementById('moveDate').value;
     document.getElementById('hiddenPickup').value = pu;
     document.getElementById('hiddenDropoff').value = dp;
     // Also populate the quote calculator fields
     if (pu) document.getElementById('qfPickup').value = pu;
     if (dp) document.getElementById('qfDropoff').value = dp;
-    if (dt) document.getElementById('qfDate').value = dt;
     // Trigger distance calculation if both addresses filled
     if (pu && dp) setTimeout(calcDistance, 500);
 }
