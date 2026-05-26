@@ -1032,7 +1032,7 @@
                             <input type="time" id="f-time">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row" style="grid-template-columns:1fr 1fr 1fr;">
                         <div class="form-group">
                             <label>Crew</label>
                             <input type="text" id="f-crew" placeholder="Greg, Eddie">
@@ -1044,6 +1044,14 @@
                                 <option value="confirmed">Confirmed</option>
                                 <option value="inprogress">In Progress</option>
                                 <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Source</label>
+                            <select id="f-source">
+                                <option value="">- Select -</option>
+                                <option value="direct">Direct</option>
+                                <option value="movinghelp">MovingHelp</option>
                             </select>
                         </div>
                     </div>
@@ -1107,11 +1115,21 @@
             </div>
         </div>
         <div class="revenue-cards" id="revenue-cards"></div>
+        <div class="summary-grid" style="margin-bottom:24px;">
+            <div class="summary-card" id="rev-source-direct">
+                <h3>Direct Bookings</h3>
+                <div id="rev-direct-content"></div>
+            </div>
+            <div class="summary-card" id="rev-source-movinghelp">
+                <h3>MovingHelp</h3>
+                <div id="rev-movinghelp-content"></div>
+            </div>
+        </div>
         <div class="rev-table-wrap">
             <h3>Completed Jobs</h3>
             <table class="rev-table">
                 <thead>
-                    <tr><th>Date</th><th>Customer</th><th>Crew</th><th>Hours</th><th style="text-align:right">Quote</th></tr>
+                    <tr><th>Date</th><th>Customer</th><th>Crew</th><th>Source</th><th>Hours</th><th style="text-align:right">Quote</th></tr>
                 </thead>
                 <tbody id="rev-table-body"></tbody>
             </table>
@@ -1540,6 +1558,7 @@
             hours: document.getElementById('f-hours').value,
             quote: document.getElementById('f-quote').value,
             notes: document.getElementById('f-notes').value.trim(),
+            source: document.getElementById('f-source').value,
             recurring: recurCheckbox.checked,
             recurFreq: document.getElementById('f-recur-freq').value
         };
@@ -1744,6 +1763,20 @@
             '<div class="rev-card"><div class="rev-label">Pipeline Revenue</div><div class="rev-value" style="color:var(--blue)">$' + confirmedRev.toLocaleString('en-US',{minimumFractionDigits:2}) + '</div><div class="rev-sub">Confirmed + In Progress</div></div>' +
             '<div class="rev-card"><div class="rev-label">Conversion Rate</div><div class="rev-value">' + convRate + '%</div><div class="rev-sub">Quoted to Booked</div></div>';
 
+        // Source breakdown
+        var directJobs = monthJobs.filter(function(j){return j.source==='direct' && j.status==='completed';});
+        var mhJobs = monthJobs.filter(function(j){return j.source==='movinghelp' && j.status==='completed';});
+        var directRev = directJobs.reduce(function(s,j){return s+(Number(j.quote)||0);},0);
+        var mhRev = mhJobs.reduce(function(s,j){return s+(Number(j.quote)||0);},0);
+
+        function sourceCard(rev, count) {
+            if (!count) return '<div style="color:var(--text-light);font-size:13px;padding:8px 0;">No completed jobs</div>';
+            return '<div style="margin-bottom:8px;"><span style="font-family:Oswald,sans-serif;font-size:28px;font-weight:700;">$' + rev.toLocaleString('en-US',{minimumFractionDigits:2}) + '</span></div>' +
+                   '<div style="font-size:13px;color:var(--text-secondary);">' + count + ' completed job' + (count!==1?'s':'') + ' &middot; avg $' + Math.round(rev/count) + '/job</div>';
+        }
+        document.getElementById('rev-direct-content').innerHTML = sourceCard(directRev, directJobs.length);
+        document.getElementById('rev-movinghelp-content').innerHTML = sourceCard(mhRev, mhJobs.length);
+
         // Completed jobs table
         var completed = monthJobs.filter(function(j){return j.status==='completed';}).sort(function(a,b){return a.date.localeCompare(b.date);});
         var tbody = document.getElementById('rev-table-body');
@@ -1752,7 +1785,8 @@
 
         completed.forEach(function(j) {
             var d = new Date(j.date + 'T00:00:00');
-            tbody.innerHTML += '<tr><td>' + MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() + '</td><td>' + escapeHtml(j.name) + '</td><td>' + escapeHtml(j.crew||'-') + '</td><td>' + (j.hours||'-') + '</td><td style="text-align:right;font-weight:600">$' + (Number(j.quote)||0).toFixed(2) + '</td></tr>';
+            var src = j.source === 'movinghelp' ? 'MovingHelp' : j.source === 'direct' ? 'Direct' : '-';
+            tbody.innerHTML += '<tr><td>' + MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() + '</td><td>' + escapeHtml(j.name) + '</td><td>' + escapeHtml(j.crew||'-') + '</td><td>' + src + '</td><td>' + (j.hours||'-') + '</td><td style="text-align:right;font-weight:600">$' + (Number(j.quote)||0).toFixed(2) + '</td></tr>';
         });
     }
 
@@ -1999,6 +2033,7 @@
             '<div class="detail-item"><div class="detail-label">Crew</div><div class="detail-value">' + escapeHtml(job.crew||'-') + '</div></div>' +
             '<div class="detail-item"><div class="detail-label">Est. Hours</div><div class="detail-value">' + (job.hours||'-') + '</div></div>' +
             '<div class="detail-item"><div class="detail-label">Quote</div><div class="detail-value">' + (job.quote ? '$' + Number(job.quote).toFixed(2) : '-') + '</div></div>' +
+            '<div class="detail-item"><div class="detail-label">Source</div><div class="detail-value">' + (job.source === 'movinghelp' ? 'MovingHelp' : job.source === 'direct' ? 'Direct' : '-') + '</div></div>' +
             '<div class="detail-item full"><div class="detail-label">Notes</div><div class="detail-value">' + escapeHtml(job.notes||'-') + '</div></div>';
 
         overlay.classList.add('active');
@@ -2032,6 +2067,7 @@
         document.getElementById('f-hours').value = job.hours || '';
         document.getElementById('f-quote').value = job.quote || '';
         document.getElementById('f-notes').value = job.notes || '';
+        document.getElementById('f-source').value = job.source || '';
 
         if (job.recurring) {
             recurCheckbox.checked = true;
@@ -2064,9 +2100,10 @@
         var jobs = getJobs();
         if (!jobs.length) { alert('No jobs to export.'); return; }
 
-        var headers = ['Name','Phone','Email','Pickup','Drop-off','Date','Time','Crew','Status','Est Hours','Quote','Notes'];
+        var headers = ['Name','Phone','Email','Pickup','Drop-off','Date','Time','Crew','Status','Source','Est Hours','Quote','Notes'];
         var rows = jobs.map(function(j) {
-            return [j.name,j.phone,j.email,j.pickup,j.dropoff,j.date,j.time?formatTime12(j.time):'',j.crew,STATUS_LABELS[j.status]||j.status,j.hours,j.quote,j.notes].map(function(v) {
+            var src = j.source === 'movinghelp' ? 'MovingHelp' : j.source === 'direct' ? 'Direct' : '';
+            return [j.name,j.phone,j.email,j.pickup,j.dropoff,j.date,j.time?formatTime12(j.time):'',j.crew,STATUS_LABELS[j.status]||j.status,src,j.hours,j.quote,j.notes].map(function(v) {
                 return '"' + String(v||'').replace(/"/g,'""') + '"';
             }).join(',');
         });
