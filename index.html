@@ -1252,11 +1252,11 @@
                     <div id="qfLocations" class="qf-row">
                         <div class="qf-field">
                             <label class="qf-label">Pickup Address</label>
-                            <input type="text" id="qfPickup" class="qf-input" placeholder="Enter pickup address" autocomplete="off" onchange="calcDistance()">
+                            <input type="text" id="qfPickup" class="qf-input" placeholder="Enter pickup address" autocomplete="off" oninput="scheduleCalcDistance()" onchange="scheduleCalcDistance()">
                         </div>
                         <div class="qf-field">
                             <label class="qf-label">Drop-off Address</label>
-                            <input type="text" id="qfDropoff" class="qf-input" placeholder="Enter drop-off address" autocomplete="off" onchange="calcDistance()">
+                            <input type="text" id="qfDropoff" class="qf-input" placeholder="Enter drop-off address" autocomplete="off" oninput="scheduleCalcDistance()" onchange="scheduleCalcDistance()">
                         </div>
                     </div>
                     <div id="qfDistanceBadge" style="display:none; margin-bottom:12px;">
@@ -1548,11 +1548,15 @@ function transferHeroFields() {
     var dp = document.getElementById('dropoffAddress').value;
     document.getElementById('hiddenPickup').value = pu;
     document.getElementById('hiddenDropoff').value = dp;
-    // Also populate the quote calculator fields
     if (pu) document.getElementById('qfPickup').value = pu;
     if (dp) document.getElementById('qfDropoff').value = dp;
-    // Trigger distance calculation if both addresses filled
-    if (pu && dp) setTimeout(calcDistance, 500);
+    if (pu && dp) {
+        qfPickupCoords = null;
+        qfDropoffCoords = null;
+        qfPickupPlace = null;
+        qfDropoffPlace = null;
+        setTimeout(calcDistance, 500);
+    }
 }
 
 // ═══════ INSTANT QUOTE CALCULATOR ═══════
@@ -1742,9 +1746,9 @@ function updateQuote() {
     document.getElementById('hiddenDropoff').value = document.getElementById('qfDropoff').value;
 }
 
-// Distance calculation using Google Maps geometry (Haversine)
+// Distance calculation using Haversine
 function haversine(lat1, lon1, lat2, lon2) {
-    var R = 3959; // miles
+    var R = 3959;
     var dLat = (lat2 - lat1) * Math.PI / 180;
     var dLon = (lon2 - lon1) * Math.PI / 180;
     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -1753,17 +1757,76 @@ function haversine(lat1, lon1, lat2, lon2) {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
-function calcDistance() {
-    if (!qfPickupPlace || !qfDropoffPlace) return;
-    var loc1 = qfPickupPlace.geometry.location;
-    var loc2 = qfDropoffPlace.geometry.location;
-    var straightLine = haversine(loc1.lat(), loc1.lng(), loc2.lat(), loc2.lng());
-    // Driving distance is roughly 1.3x straight line in urban areas
-    qfMiles = Math.round(straightLine * 1.3);
+function drivingMultiplier(straightMiles) {
+    if (straightMiles < 20) return 1.3;
+    if (straightMiles < 50) return 1.2;
+    return 1.15;
+}
+
+var qfPickupCoords = null;
+var qfDropoffCoords = null;
+
+function computeDistanceFromCoords() {
+    if (!qfPickupCoords || !qfDropoffCoords) return;
+    var straight = haversine(qfPickupCoords.lat, qfPickupCoords.lng, qfDropoffCoords.lat, qfDropoffCoords.lng);
+    qfMiles = Math.round(straight * drivingMultiplier(straight));
     if (qfMiles < 1) qfMiles = 1;
     document.getElementById('qfDistanceBadge').style.display = '';
     document.getElementById('qfDistanceText').textContent = '~' + qfMiles + ' miles';
     updateQuote();
+}
+
+function geocodeAddress(address, callback) {
+    if (typeof google === 'undefined' || !google.maps) return;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({address: address}, function(results, status) {
+        if (status === 'OK' && results[0]) {
+            var loc = results[0].geometry.location;
+            callback({lat: loc.lat(), lng: loc.lng()});
+        }
+    });
+}
+
+function calcDistance() {
+    if (qfPickupPlace && qfDropoffPlace) {
+        var loc1 = qfPickupPlace.geometry.location;
+        var loc2 = qfDropoffPlace.geometry.location;
+        qfPickupCoords = {lat: loc1.lat(), lng: loc1.lng()};
+        qfDropoffCoords = {lat: loc2.lat(), lng: loc2.lng()};
+        computeDistanceFromCoords();
+        return;
+    }
+    var puVal = document.getElementById('qfPickup').value.trim();
+    var doVal = document.getElementById('qfDropoff').value.trim();
+    if (!puVal || !doVal) return;
+    var pending = 0;
+    if (!qfPickupCoords && puVal) {
+        pending++;
+        geocodeAddress(puVal, function(coords) {
+            qfPickupCoords = coords;
+            if (--pending === 0) computeDistanceFromCoords();
+        });
+    }
+    if (!qfDropoffCoords && doVal) {
+        pending++;
+        geocodeAddress(doVal, function(coords) {
+            qfDropoffCoords = coords;
+            if (--pending === 0) computeDistanceFromCoords();
+        });
+    }
+    if (pending === 0) computeDistanceFromCoords();
+}
+
+var qfCalcTimer = null;
+function scheduleCalcDistance() {
+    clearTimeout(qfCalcTimer);
+    qfCalcTimer = setTimeout(function() {
+        qfPickupCoords = null;
+        qfDropoffCoords = null;
+        qfPickupPlace = null;
+        qfDropoffPlace = null;
+        calcDistance();
+    }, 1200);
 }
 
 // Initialize Places Autocomplete on quote form fields
@@ -1774,12 +1837,22 @@ function initQuoteAutocomplete() {
         var acPickup = new google.maps.places.Autocomplete(document.getElementById('qfPickup'), opts);
         var acDropoff = new google.maps.places.Autocomplete(document.getElementById('qfDropoff'), opts);
         acPickup.addListener('place_changed', function() {
+            clearTimeout(qfCalcTimer);
             qfPickupPlace = acPickup.getPlace();
-            if (qfPickupPlace && qfDropoffPlace) calcDistance();
+            if (qfPickupPlace && qfPickupPlace.geometry) {
+                var loc = qfPickupPlace.geometry.location;
+                qfPickupCoords = {lat: loc.lat(), lng: loc.lng()};
+            }
+            calcDistance();
         });
         acDropoff.addListener('place_changed', function() {
+            clearTimeout(qfCalcTimer);
             qfDropoffPlace = acDropoff.getPlace();
-            if (qfPickupPlace && qfDropoffPlace) calcDistance();
+            if (qfDropoffPlace && qfDropoffPlace.geometry) {
+                var loc = qfDropoffPlace.geometry.location;
+                qfDropoffCoords = {lat: loc.lat(), lng: loc.lng()};
+            }
+            calcDistance();
         });
     } catch(e) {}
 }

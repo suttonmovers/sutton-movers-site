@@ -39,3 +39,5 @@ Static HTML/CSS/JS site. Primary goal: maximize SEO and local search visibility.
 - Don't add JavaScript frameworks or build tools
 - Don't restructure the flat file layout — it works for this scale
 - Don't remove or rename existing URLs (breaks SEO / existing backlinks)
+- Don't use em dashes (—) in any output — use commas, periods, or dashes instead
+- Don't commit .xlsx, .pdf, .zip, or data files unless explicitly asked
