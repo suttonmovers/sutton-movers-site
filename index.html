@@ -1760,7 +1760,8 @@ function haversine(lat1, lon1, lat2, lon2) {
 function drivingMultiplier(straightMiles) {
     if (straightMiles < 20) return 1.3;
     if (straightMiles < 50) return 1.2;
-    return 1.15;
+    if (straightMiles < 150) return 1.15;
+    return 1.2;
 }
 
 var qfPickupCoords = null;
