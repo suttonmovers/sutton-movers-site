@@ -1,6 +1,7 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+  command = "bash scripts/indexnow-ping.sh"
 
 # Clean URLs - serve .html files without extension
 [[redirects]]
